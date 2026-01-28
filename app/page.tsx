@@ -89,24 +89,24 @@ export default function DashboardHome() {
           </p>
         </div>
         <div className="grid grid-cols-2 gap-4">
-          <div className="p-8 bg-verde-oscuro text-cremita rounded-3xl space-y-2">
-            <p className="text-5xl font-bold text-naranja">33.9%</p>
+          <div className="p-6 md:p-8 bg-verde-oscuro text-cremita rounded-3xl space-y-2">
+            <p className="text-3xl md:text-5xl font-bold text-naranja">33.9%</p>
             <p className="text-xs font-bold uppercase tracking-widest">ROI Promedio</p>
             <p className="text-[10px] opacity-50 italic">Crecimiento progresivo en 5 años.</p>
           </div>
-          <div className="p-8 bg-white border border-verde-oscuro/5 rounded-3xl space-y-2 shadow-sm">
-            <p className="text-5xl font-bold text-verde-oscuro">25%</p>
+          <div className="p-6 md:p-8 bg-white border border-verde-oscuro/5 rounded-3xl space-y-2 shadow-sm">
+            <p className="text-3xl md:text-5xl font-bold text-verde-oscuro">25%</p>
             <p className="text-xs font-bold uppercase tracking-widest text-gris-oscuro/40">Ocupación Promedio</p>
             <p className="text-[10px] text-gris-oscuro/40 italic">Meta proyectada de equilibrio operacional.</p>
           </div>
-          <div className="p-8 bg-white border border-verde-oscuro/5 rounded-3xl space-y-2 shadow-sm flex flex-col justify-center items-center text-center">
+          <div className="p-6 md:p-8 bg-white border border-verde-oscuro/5 rounded-3xl space-y-2 shadow-sm flex flex-col justify-center items-center text-center">
             <p className="text-xs font-bold uppercase tracking-widest text-gris-oscuro/40">Inversión Inicial</p>
-            <p className="text-5xl font-black text-verde-oscuro">$30,000</p>
+            <p className="text-3xl md:text-5xl font-black text-verde-oscuro">$30,000</p>
             <p className="text-[10px] text-naranja font-black uppercase tracking-widest mt-2">ASEGURA TU PARTICIPACIÓN</p>
           </div>
-          <div className="p-8 bg-cafe-acento text-white rounded-3xl space-y-2 flex flex-col justify-center items-center text-center">
+          <div className="p-6 md:p-8 bg-cafe-acento text-white rounded-3xl space-y-2 flex flex-col justify-center items-center text-center">
             <p className="text-xs font-bold uppercase tracking-widest text-white/40">Proyección Estimada</p>
-            <p className="text-5xl font-bold text-naranja">$62,450</p>
+            <p className="text-3xl md:text-5xl font-bold text-naranja">$62,450</p>
             <p className="text-[10px] opacity-70 uppercase font-black tracking-widest leading-tight mt-2">Ganancia Total 60 Meses (Modelo $30k)</p>
           </div>
         </div>

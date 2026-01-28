@@ -121,18 +121,18 @@ export default function ProductoPage() {
         <div className="space-y-16 pb-20">
             {/* Section 1: Modelos e Infraestructura */}
             <section className="space-y-10">
-                <section className="bg-verde-oscuro p-10 md:p-12 rounded-[2.5rem] md:rounded-[3rem] text-cremita flex flex-col lg:flex-row justify-between items-center gap-8 shadow-2xl relative overflow-hidden">
+                <section className="bg-verde-oscuro p-6 md:p-12 rounded-[2rem] md:rounded-[3rem] text-cremita flex flex-col lg:flex-row justify-between items-center gap-8 shadow-2xl relative overflow-hidden">
                     <div className="absolute top-0 right-0 w-64 h-64 bg-naranja/10 rounded-full blur-3xl -mr-20 -mt-20"></div>
-                    <div className="max-w-xl relative z-10">
-                        <h1 className="text-3xl md:text-5xl font-florenza">Modelos e <span className="text-naranja italic">Infraestructura</span></h1>
-                        <p className="text-cremita/60 mt-4 text-base md:text-lg">Nuestras unidades están diseñadas para generar el máximo retorno por metro cuadrado, respetando el entorno virgen de Loja.</p>
+                    <div className="max-w-xl relative z-10 text-center lg:text-left">
+                        <h1 className="text-3xl md:text-5xl font-florenza leading-tight">Modelos e <span className="text-naranja italic">Infraestructura</span></h1>
+                        <p className="text-cremita/60 mt-4 text-sm md:text-lg">Nuestras unidades están diseñadas para generar el máximo retorno por metro cuadrado, respetando el entorno virgen de Loja.</p>
                     </div>
-                    <div className="flex flex-wrap gap-3 md:gap-4 relative z-10 w-full lg:w-auto justify-center">
+                    <div className="flex flex-wrap gap-2 md:gap-4 relative z-10 w-full lg:w-auto justify-center">
                         {mainProducts.map(p => (
                             <button
                                 key={p.id}
                                 onClick={() => setActiveMain(p.id)}
-                                className={`px-6 py-3 md:px-8 md:py-4 rounded-2xl text-[10px] md:text-xs font-black uppercase tracking-widest transition-all border-2 ${activeMain === p.id
+                                className={`px-4 py-2 md:px-8 md:py-4 rounded-xl md:rounded-2xl text-[9px] md:text-xs font-black uppercase tracking-widest transition-all border-2 ${activeMain === p.id
                                     ? 'bg-naranja border-naranja text-white shadow-xl scale-105'
                                     : 'border-white/10 hover:bg-white/5 text-cremita/50'}`}
                             >
@@ -157,18 +157,18 @@ export default function ProductoPage() {
 
             {/* Section 2: Planos y Levantamiento Topográfico */}
             <section className="space-y-10 pt-10">
-                <section className="bg-verde-oscuro p-10 md:p-12 rounded-[2.5rem] md:rounded-[3rem] shadow-2xl relative overflow-hidden">
+                <section className="bg-verde-oscuro p-6 md:p-12 rounded-[2rem] md:rounded-[3rem] shadow-2xl relative overflow-hidden">
                     <div className="absolute bottom-0 left-0 w-64 h-64 bg-naranja/10 rounded-full blur-3xl -ml-20 -mb-20"></div>
-                    <div className="max-w-xl relative z-10">
-                        <h2 className="text-3xl md:text-5xl font-florenza">Planos y <span className="text-naranja italic">Levantamiento</span></h2>
-                        <p className="text-cremita/60 mt-4 text-base md:text-lg">Acceso técnico al respaldo físico y legal de la topografía del proyecto. Seguridad e ingeniería de precisión.</p>
+                    <div className="max-w-xl relative z-10 text-center lg:text-left">
+                        <h2 className="text-3xl md:text-5xl font-florenza leading-tight">Planos y <span className="text-naranja italic">Levantamiento</span></h2>
+                        <p className="text-cremita/60 mt-4 text-sm md:text-lg">Acceso técnico al respaldo físico y legal de la topografía del proyecto. Seguridad e ingeniería de precisión.</p>
                     </div>
-                    <div className="flex flex-wrap gap-3 md:gap-4 relative z-10 w-full lg:w-auto justify-center">
+                    <div className="flex flex-wrap gap-2 md:gap-4 relative z-10 w-full lg:w-auto justify-center">
                         {infraSections.map(s => (
                             <button
                                 key={s.id}
                                 onClick={() => setActiveInfra(s.id)}
-                                className={`px-6 py-3 md:px-8 md:py-4 rounded-2xl text-[10px] md:text-xs font-black uppercase tracking-widest transition-all border-2 ${activeInfra === s.id
+                                className={`px-4 py-2 md:px-8 md:py-4 rounded-xl md:rounded-2xl text-[9px] md:text-xs font-black uppercase tracking-widest transition-all border-2 ${activeInfra === s.id
                                     ? 'bg-naranja border-naranja text-white shadow-xl scale-105'
                                     : 'border-white/10 hover:bg-white/5 text-cremita/50'}`}
                             >
@@ -198,22 +198,22 @@ export default function ProductoPage() {
                     <p className="text-gris-oscuro/60 max-w-2xl mx-auto">Compara los beneficios de cada certificado y asegura tu lugar en el ecosistema.</p>
                 </div>
 
-                <div className="overflow-x-auto pb-4">
-                    <table className="w-full border-collapse bg-white rounded-[2rem] overflow-hidden shadow-sm border border-verde-oscuro/5">
+                <div className="overflow-x-auto pb-4 -mx-4 px-4">
+                    <table className="w-full min-w-[600px] border-collapse bg-white rounded-2xl md:rounded-[2rem] overflow-hidden shadow-sm border border-verde-oscuro/5">
                         <thead>
                             <tr className="bg-verde-oscuro text-cremita">
-                                <th className="p-8 text-left font-florenza text-xl">Características</th>
-                                <th className="p-8 text-center text-naranja">
-                                    <span className="block text-2xl font-florenza">BÁSICO</span>
-                                    <span className="text-xs font-black tracking-widest">$30K</span>
+                                <th className="p-4 md:p-8 text-left font-florenza text-lg md:text-xl">Características</th>
+                                <th className="p-4 md:p-8 text-center text-naranja">
+                                    <span className="block text-xl md:text-2xl font-florenza">BÁSICO</span>
+                                    <span className="text-[10px] md:text-xs font-black tracking-widest">$30K</span>
                                 </th>
-                                <th className="p-8 text-center text-naranja">
-                                    <span className="block text-2xl font-florenza">PREFERENTE</span>
-                                    <span className="text-xs font-black tracking-widest">$100K</span>
+                                <th className="p-4 md:p-8 text-center text-naranja">
+                                    <span className="block text-xl md:text-2xl font-florenza">PREFERENTE</span>
+                                    <span className="text-[10px] md:text-xs font-black tracking-widest">$100K</span>
                                 </th>
-                                <th className="p-8 text-center text-naranja">
-                                    <span className="block text-2xl font-florenza">RESIDENCIA</span>
-                                    <span className="text-xs font-black tracking-widest">$250K</span>
+                                <th className="p-4 md:p-8 text-center text-naranja">
+                                    <span className="block text-xl md:text-2xl font-florenza">RESIDENCIA</span>
+                                    <span className="text-[10px] md:text-xs font-black tracking-widest">$250K</span>
                                 </th>
                             </tr>
                         </thead>
@@ -229,7 +229,7 @@ export default function ProductoPage() {
                                 <tr key={i} className={i % 2 === 0 ? 'bg-cremita/20' : ''}>
                                     <td className="p-6 pl-8 font-bold text-sm border-b border-gris-oscuro/5">{row.label}</td>
                                     {row.values.map((val, idx) => (
-                                        <td key={idx} className="p-6 text-center text-sm border-b border-gris-oscuro/5">{val}</td>
+                                        <td key={idx} className="p-4 md:p-6 text-center text-xs md:text-sm border-b border-gris-oscuro/5">{val}</td>
                                     ))}
                                 </tr>
                             ))}
@@ -238,7 +238,7 @@ export default function ProductoPage() {
                 </div>
 
                 <div className="flex justify-center pt-8">
-                    <button className="bg-naranja text-white px-12 py-5 rounded-full text-xl font-bold shadow-2xl hover:scale-105 transition-all flex items-center gap-3">
+                    <button className="bg-naranja text-white px-6 py-4 md:px-12 md:py-5 rounded-full text-base md:text-xl font-bold shadow-2xl hover:scale-105 transition-all flex items-center gap-3 text-center">
                         🌄 AGENDAR LLAMADA PARA ASESORÍA PERSONALIZADA
                     </button>
                 </div>

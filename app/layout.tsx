@@ -14,19 +14,24 @@ export const metadata: Metadata = {
   authors: [{ name: "Grupo Empresarial Reyes" }],
   openGraph: {
     title: "Aroma de Montaña | Inversión Sustentable de Alto Nivel",
-    description: "Únete al ecosistema de rentabilidad de Hacienda Aroma de Montaña. Tierra, Marca y Activos blindados.",
-    url: "https://aroma-inversores.com", // Ajustar al dominio final
+    description: "Únete al ecosistema de rentabilidad de Hacienda Aroma de Montaña. Tierra, Marca y Activos blindados con ROI proyectado del 14.72% al 35.4%.",
+    url: "https://aroma-inversores.com",
     siteName: "Aroma de Montaña",
     images: [
       {
-        url: "/Images/Nueva portada.webp",
+        url: "/Logos/Café.png",
         width: 1200,
         height: 630,
-        alt: "Hacienda Aroma de Montaña - Vista Aérea",
+        alt: "Hacienda Aroma de Montaña",
       },
     ],
     locale: "es_EC",
     type: "website",
+  },
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/favicon.ico',
   },
   robots: {
     index: true,
@@ -41,7 +46,25 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className="scroll-smooth">
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.gtranslateSettings = {
+                "default_language": "es",
+                "detect_browser_language": true,
+                "languages": ["es", "en", "it", "fr", "de", "zh-CN"],
+                "wrapper_selector": ".gtranslate_wrapper",
+                "flag_size": 24,
+                "alt_flags": {"en": "usa"}
+              };
+            `,
+          }}
+        />
+        <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer />
+      </head>
       <body className="antialiased bg-cremita flex min-h-screen">
+        <div className="gtranslate_wrapper"></div>
         {/* Sidebar fixa */}
         <AppSidebar />
 

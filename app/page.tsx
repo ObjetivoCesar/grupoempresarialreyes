@@ -99,13 +99,10 @@ export default function DashboardHome() {
             <p className="text-xs font-bold uppercase tracking-widest text-gris-oscuro/40">Ocupación Promedio</p>
             <p className="text-[10px] text-gris-oscuro/40 italic">Meta proyectada de equilibrio operacional.</p>
           </div>
-          <div className="p-8 bg-white border border-verde-oscuro/5 rounded-3xl space-y-2 shadow-sm">
-            <p className="text-4xl font-bold text-verde-oscuro">$240K</p>
-            <p className="text-xs font-bold uppercase tracking-widest text-gris-oscuro/40 underline decoration-naranja decoration-2">Inversión Ejecutada</p>
-            <div className="mt-4 p-4 bg-naranja/10 rounded-2xl border border-naranja/20">
-              <p className="text-[10px] text-naranja font-black uppercase tracking-widest mb-1">Tu Capital Inicial</p>
-              <p className="text-3xl font-black text-verde-oscuro">$30,000</p>
-            </div>
+          <div className="p-8 bg-white border border-verde-oscuro/5 rounded-3xl space-y-2 shadow-sm flex flex-col justify-center items-center text-center">
+            <p className="text-xs font-bold uppercase tracking-widest text-gris-oscuro/40">Inversión Inicial</p>
+            <p className="text-6xl font-black text-verde-oscuro">$30,000</p>
+            <p className="text-[10px] text-naranja font-black uppercase tracking-widest mt-2">ASEGURA TU PARTICIPACIÓN</p>
           </div>
           <div className="p-8 bg-cafe-acento text-white rounded-3xl space-y-2">
             <p className="text-4xl font-bold text-naranja">$62,450</p>
@@ -121,19 +118,19 @@ export default function DashboardHome() {
           <p className="text-gris-oscuro/60 max-w-2xl mx-auto">Respaldo jurídico y ejecución tangible que garantiza tu seguridad física y financiera.</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
           {[
-            { title: '$240,000 Ejecutados', desc: 'Infraestructura vial, hídrica y constructiva ya tangible en el terreno.', icon: '🏗️' },
-            { title: '23.5 Hectáreas Escrituradas', desc: 'Propiedad real inscrita y libre de gravámenes a nombre del proyecto.', icon: '📜' },
-            { title: 'Licencia Ambiental MAATE', desc: 'Operación 100% legal aprobada por el Ministerio del Ambiente.', icon: '🌿' },
-            { title: 'Marca SENADI (10 años)', desc: 'Propiedad intelectual blindada y reconocida legalmente.', icon: '🛡️' },
-            { title: 'Alianza Taza Dorada', desc: 'Respaldo de Hacienda La Florida, ganadora de Taza Dorada 2020.', icon: '☕' },
-            { title: 'Fideicomiso Mercantil', desc: 'Blindaje patrimonial absoluto para los activos de los inversores.', icon: '🏛️' },
+            { title: '$240,000 Ejecutados', subtitle: 'Infraestructura Real', icon: '🏗️' },
+            { title: '23.5 Hectáreas', subtitle: 'Escrituradas', icon: '📜' },
+            { title: 'Licencia MAATE', subtitle: 'Aprobada', icon: '🌿' },
+            { title: 'Marca SENADI', subtitle: '10 Años', icon: '🛡️' },
+            { title: 'Taza Dorada', subtitle: 'Alianza Cafetera', icon: '☕' },
+            { title: 'Fideicomiso', subtitle: 'Blindaje Total', icon: '🏛️' },
           ].map((v, i) => (
-            <div key={i} className="bg-white p-8 rounded-3xl border border-verde-oscuro/5 shadow-sm hover:shadow-md transition-shadow space-y-4">
-              <span className="text-3xl">{v.icon}</span>
-              <h3 className="text-xl font-bold text-verde-oscuro">{v.title}</h3>
-              <p className="text-sm text-gris-oscuro/60 leading-relaxed">{v.desc}</p>
+            <div key={i} className="bg-white p-8 rounded-3xl border border-verde-oscuro/5 shadow-xl text-center group hover:bg-verde-oscuro hover:text-white transition-all duration-500">
+              <div className="text-4xl mb-4 group-hover:scale-125 transition-transform">{v.icon}</div>
+              <h4 className="text-sm font-black uppercase tracking-widest">{v.title}</h4>
+              <p className="text-[10px] opacity-40 group-hover:opacity-60">{v.subtitle}</p>
             </div>
           ))}
         </div>

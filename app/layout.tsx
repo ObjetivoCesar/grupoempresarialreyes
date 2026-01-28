@@ -4,6 +4,7 @@ import "./swiper-custom.css";
 import AppSidebar from "@/components/dashboard/Sidebar";
 import WhatsAppFloat from "@/components/layout/WhatsAppFloat";
 import ScrollToTop from "@/components/utils/ScrollToTop";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: {
@@ -30,9 +31,12 @@ export const metadata: Metadata = {
     type: "website",
   },
   icons: {
-    icon: '/favicon.ico',
-    shortcut: '/favicon.ico',
-    apple: '/favicon.ico',
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/favicon.ico?v=2', sizes: 'any' }
+    ],
+    shortcut: '/favicon.ico?v=2',
+    apple: '/favicon.ico?v=2',
   },
   robots: {
     index: true,
@@ -48,7 +52,14 @@ export default function RootLayout({
   return (
     <html lang="es" className="scroll-smooth">
       <head>
-        <script
+      </head>
+      <body className="antialiased bg-cremita flex min-h-screen">
+        <ScrollToTop />
+
+        {/* GTranslate Scripts - Moved to body to avoid hydration errors */}
+        <Script
+          id="gtranslate-settings"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               window.gtranslateSettings = {
@@ -62,11 +73,12 @@ export default function RootLayout({
             `,
           }}
         />
-        <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer />
-      </head>
-      <body className="antialiased bg-cremita flex min-h-screen">
-        <ScrollToTop />
+        <Script
+          src="https://cdn.gtranslate.net/widgets/latest/float.js"
+          strategy="afterInteractive"
+        />
         <div className="gtranslate_wrapper"></div>
+
         {/* Sidebar fixa */}
         <AppSidebar />
 

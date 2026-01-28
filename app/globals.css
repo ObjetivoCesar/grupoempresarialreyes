@@ -123,25 +123,30 @@ h2 {
 .gtranslate_wrapper {
   position: fixed !important;
   bottom: 1.5rem !important;
-  left: 1.5rem !important;
-  z-index: 50 !important;
-  /* Below mobile header (60) */
+  right: 6.5rem !important;
+  /* To the left of WhatsApp button */
+  z-index: 100 !important;
+  /* Above everything */
   top: auto !important;
+  left: auto !important;
 }
 
 /* Base widget style */
 #gt_float_wrapper,
 .gt_float_wrapper {
-  background-color: #EAE7DC !important;
-  border-radius: 12px !important;
-  border: 1px solid rgba(108, 118, 84, 0.2) !important;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1) !important;
+  background-color: #EDE8D1 !important;
+  /* Matching --cremita */
+  border-radius: 99px !important;
+  border: 2px solid #6C7654 !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2) !important;
+  padding: 2px 4px !important;
 }
 
-/* Ensure the dropdown list also has the background color if possible */
+/* Ensure selection dropdown has brand colors */
 .gt_selector,
 .gt_selector select {
-  background-color: #EAE7DC !important;
+  background-color: transparent !important;
   color: #6C7654 !important;
+  font-weight: 700 !important;
   border: none !important;
 }

@@ -313,7 +313,6 @@ export default function EstructuraPage() {
                                             fill
                                             className="object-cover group-hover:scale-105 transition-transform duration-1000"
                                         />
-                                        <div className="absolute inset-0 bg-verde-oscuro/5 mix-blend-multiply"></div>
 
                                         {/* Slider Controls Placeholder - Estilo Glass */}
                                         <div className="absolute bottom-8 right-8 flex gap-3">

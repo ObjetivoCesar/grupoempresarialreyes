@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 const strategies = [
     {
@@ -63,12 +64,12 @@ const investmentData = {
     '250k': {
         label: 'Residencial 360 ($250k)',
         projections: [
-            { year: 'Y1 (4m)', value: 62000 },
-            { year: 'Año 2', value: 94000 },
-            { year: 'Año 3', value: 112500 },
-            { year: 'Año 4', value: 110000 },
-            { year: 'Año 5', value: 118000 },
-            { year: 'Y6 (8m)', value: 78666 },
+            { year: 'Y1 (4m)', value: 27000 },
+            { year: 'Año 2', value: 81000 },
+            { year: 'Año 3', value: 95000 },
+            { year: 'Año 4', value: 92000 },
+            { year: 'Año 5', value: 98000 },
+            { year: 'Y6 (8m)', value: 65333 },
         ],
         mix: [
             { label: 'Hospedaje Glamping', pct: 70, color: '#6C7654' },
@@ -143,12 +144,12 @@ export default function EstrategiaPage() {
                         <p className="text-gris-oscuro/40 text-xs font-black uppercase tracking-widest">Comparativa de escala real a 5 años</p>
                     </div>
 
-                    <div className="bg-white/50 backdrop-blur-md p-1.5 rounded-2xl flex border border-white/60 shadow-sm">
+                    <div className="bg-white/50 backdrop-blur-md p-2 rounded-2xl flex border border-white/60 shadow-sm grow-0">
                         {(Object.keys(investmentData) as Array<keyof typeof investmentData>).map((t) => (
                             <button
                                 key={t}
                                 onClick={() => setTier(t)}
-                                className={`px-8 py-3 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all ${tier === t ? 'bg-verde-oscuro text-white shadow-lg' : 'text-gris-oscuro/30 hover:bg-cremita/50'}`}
+                                className={`px-12 md:px-16 py-4 rounded-xl text-xs font-black uppercase tracking-widest transition-all ${tier === t ? 'bg-verde-oscuro text-white shadow-lg' : 'text-gris-oscuro/30 hover:bg-cremita/50'}`}
                             >
                                 {t === '30k' ? '$30k' : t === '100k' ? '$100k' : '$250k'}
                             </button>
@@ -297,6 +298,12 @@ export default function EstrategiaPage() {
                             </div>
                         </div>
                     </div>
+                </div>
+
+                <div className="flex justify-center pt-20">
+                    <Link href="https://wa.me/593963410409" target="_blank" className="btn-primary px-12 py-5 text-xl font-bold shadow-2xl hover:scale-105 transition-all flex items-center gap-3">
+                        📊 Ver Proyecciones Personalizadas
+                    </Link>
                 </div>
             </div>
         </div>

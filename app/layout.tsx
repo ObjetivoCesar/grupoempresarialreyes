@@ -3,6 +3,7 @@ import "./globals.css";
 import "./swiper-custom.css";
 import AppSidebar from "@/components/dashboard/Sidebar";
 import WhatsAppFloat from "@/components/layout/WhatsAppFloat";
+import ScrollToTop from "@/components/utils/ScrollToTop";
 
 export const metadata: Metadata = {
   title: {
@@ -64,6 +65,7 @@ export default function RootLayout({
         <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer />
       </head>
       <body className="antialiased bg-cremita flex min-h-screen">
+        <ScrollToTop />
         <div className="gtranslate_wrapper"></div>
         {/* Sidebar fixa */}
         <AppSidebar />

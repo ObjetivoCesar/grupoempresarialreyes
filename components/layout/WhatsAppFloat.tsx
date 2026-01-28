@@ -48,7 +48,7 @@ export default function WhatsAppFloat() {
                         {/* Tooltip */}
                         <div className="absolute bottom-full right-0 mb-2 hidden group-hover:block">
                             <div className="bg-gris-oscuro text-white text-sm px-4 py-2 rounded-lg whitespace-nowrap shadow-lg">
-                                Hablar con un asesor de inversiones
+                                📞 Hablar con un Asesor Ahora
                                 <div className="absolute top-full right-4 -mt-1">
                                     <div className="border-8 border-transparent border-t-gris-oscuro"></div>
                                 </div>

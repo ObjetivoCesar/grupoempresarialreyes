@@ -157,7 +157,7 @@ export default function ProductoPage() {
 
             {/* Section 2: Planos y Levantamiento Topográfico */}
             <section className="space-y-10 pt-10">
-                <section className="bg-verde-oscuro p-10 md:p-12 rounded-[2.5rem] md:rounded-[3rem] text-cremita flex flex-col lg:flex-row justify-between items-center gap-8 shadow-2xl relative overflow-hidden">
+                <section className="bg-verde-oscuro p-10 md:p-12 rounded-[2.5rem] md:rounded-[3rem] shadow-2xl relative overflow-hidden">
                     <div className="absolute bottom-0 left-0 w-64 h-64 bg-naranja/10 rounded-full blur-3xl -ml-20 -mb-20"></div>
                     <div className="max-w-xl relative z-10">
                         <h2 className="text-3xl md:text-5xl font-florenza">Planos y <span className="text-naranja italic">Levantamiento</span></h2>
@@ -189,6 +189,59 @@ export default function ProductoPage() {
                         <ProductDetailPanel product={currentInfra} />
                     </motion.div>
                 </AnimatePresence>
+            </section>
+
+            {/* New Section: Modelos de Participación */}
+            <section className="space-y-12 pt-20 border-t border-verde-oscuro/5">
+                <div className="text-center space-y-4">
+                    <h2 className="text-5xl font-florenza text-verde-oscuro">Elige Tu Modelo de <span className="text-naranja italic">Participación</span></h2>
+                    <p className="text-gris-oscuro/60 max-w-2xl mx-auto">Compara los beneficios de cada certificado y asegura tu lugar en el ecosistema.</p>
+                </div>
+
+                <div className="overflow-x-auto pb-4">
+                    <table className="w-full border-collapse bg-white rounded-[2rem] overflow-hidden shadow-sm border border-verde-oscuro/5">
+                        <thead>
+                            <tr className="bg-verde-oscuro text-cremita">
+                                <th className="p-8 text-left font-florenza text-xl">Características</th>
+                                <th className="p-8 text-center text-naranja">
+                                    <span className="block text-2xl font-florenza">BÁSICO</span>
+                                    <span className="text-xs font-black tracking-widest">$30K</span>
+                                </th>
+                                <th className="p-8 text-center text-naranja">
+                                    <span className="block text-2xl font-florenza">PREFERENTE</span>
+                                    <span className="text-xs font-black tracking-widest">$100K</span>
+                                </th>
+                                <th className="p-8 text-center text-naranja">
+                                    <span className="block text-2xl font-florenza">RESIDENCIA</span>
+                                    <span className="text-xs font-black tracking-widest">$250K</span>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody className="text-gris-oscuro">
+                            {[
+                                { label: 'ROI Anual Estimado', values: ['35.4%', '14.72%', '8.1%'] },
+                                { label: 'Plazo del Usufructo', values: ['5 Años', 'Perpetuo', 'Perpetuo'] },
+                                { label: 'Payback (Recuperación)', values: ['2.8 Años', '6.8 Años', '12.3 Años'] },
+                                { label: 'Uso y Goce Anual', values: ['No Aplica', '10 Días/Año', '60 Días/Año'] },
+                                { label: 'Capacidad Unidad', values: ['6 Personas', '6 Personas', '12 Personas'] },
+                                { label: 'Trazabilidad Dashboard', values: ['✅ Incluido', '✅ Incluido', '✅ Incluido'] },
+                            ].map((row, i) => (
+                                <tr key={i} className={i % 2 === 0 ? 'bg-cremita/20' : ''}>
+                                    <td className="p-6 pl-8 font-bold text-sm border-b border-gris-oscuro/5">{row.label}</td>
+                                    {row.values.map((val, idx) => (
+                                        <td key={idx} className="p-6 text-center text-sm border-b border-gris-oscuro/5">{val}</td>
+                                    ))}
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+
+                <div className="flex justify-center pt-8">
+                    <button className="bg-naranja text-white px-12 py-5 rounded-full text-xl font-bold shadow-2xl hover:scale-105 transition-all flex items-center gap-3">
+                        🌄 AGENDAR LLAMADA PARA ASESORÍA PERSONALIZADA
+                    </button>
+                </div>
             </section>
         </div>
     );

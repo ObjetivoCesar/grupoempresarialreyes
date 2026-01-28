@@ -47,11 +47,16 @@ export default function DashboardHome() {
 
             <div className="flex flex-wrap gap-4 pt-4">
               <Link href="/producto" className="btn-primary px-10 py-5 text-xl font-bold shadow-2xl hover:scale-105 active:scale-95 transition-all">
-                Ver Modelos Disponibles
+                🌄 ASEGURA TU PARTICIPACIÓN - AGENDA LLAMADA
               </Link>
-              <button className="px-10 py-5 rounded-full border-2 border-cremita/10 hover:border-naranja/50 hover:bg-white/5 transition-all font-bold text-lg">
-                Agendar una llamada
-              </button>
+              <div className="relative group">
+                <Link href="https://wa.me/593963410409" target="_blank" className="px-10 py-5 rounded-full border-2 border-cremita/10 hover:border-naranja/50 hover:bg-white/5 transition-all font-bold text-lg flex items-center justify-center">
+                  Ver Modelos Completos →
+                </Link>
+                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block bg-gris-oscuro text-white text-sm px-4 py-2 rounded-lg whitespace-nowrap shadow-lg">
+                  📞 Hablar con un Asesor Ahora
+                </div>
+              </div>
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-8 text-white/50">
@@ -97,14 +102,51 @@ export default function DashboardHome() {
           <div className="p-8 bg-white border border-verde-oscuro/5 rounded-3xl space-y-2 shadow-sm">
             <p className="text-4xl font-bold text-verde-oscuro">$240K</p>
             <p className="text-xs font-bold uppercase tracking-widest text-gris-oscuro/40 underline decoration-naranja decoration-2">Inversión Ejecutada</p>
-            <p className="text-[10px] text-naranja font-black uppercase">Vs $30k Tu Capital inicial</p>
+            <div className="mt-4 p-4 bg-naranja/10 rounded-2xl border border-naranja/20">
+              <p className="text-[10px] text-naranja font-black uppercase tracking-widest mb-1">Tu Capital Inicial</p>
+              <p className="text-3xl font-black text-verde-oscuro">$30,000</p>
+            </div>
           </div>
           <div className="p-8 bg-cafe-acento text-white rounded-3xl space-y-2">
-            <p className="text-2xl font-bold text-naranja">$62,450</p>
-            <p className="text-[10px] opacity-50 uppercase font-black tracking-widest leading-tight">Ganancia Total 60 Meses (Modelo 30k)</p>
+            <p className="text-4xl font-bold text-naranja">$62,450</p>
+            <p className="text-[10px] opacity-70 uppercase font-black tracking-widest leading-tight">Ganancia Total 60 Meses (Modelo $30k)</p>
           </div>
         </div>
       </div>
+
+      {/* Validaciones Reales (Social Proof) */}
+      <section className="space-y-12 py-20 border-t border-verde-oscuro/5">
+        <div className="text-center space-y-4">
+          <h2 className="text-5xl font-florenza text-verde-oscuro">Validaciones <span className="text-naranja italic">Reales</span></h2>
+          <p className="text-gris-oscuro/60 max-w-2xl mx-auto">Respaldo jurídico y ejecución tangible que garantiza tu seguridad física y financiera.</p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {[
+            { title: '$240,000 Ejecutados', desc: 'Infraestructura vial, hídrica y constructiva ya tangible en el terreno.', icon: '🏗️' },
+            { title: '23.5 Hectáreas Escrituradas', desc: 'Propiedad real inscrita y libre de gravámenes a nombre del proyecto.', icon: '📜' },
+            { title: 'Licencia Ambiental MAATE', desc: 'Operación 100% legal aprobada por el Ministerio del Ambiente.', icon: '🌿' },
+            { title: 'Marca SENADI (10 años)', desc: 'Propiedad intelectual blindada y reconocida legalmente.', icon: '🛡️' },
+            { title: 'Alianza Taza Dorada', desc: 'Respaldo de Hacienda La Florida, ganadora de Taza Dorada 2020.', icon: '☕' },
+            { title: 'Fideicomiso Mercantil', desc: 'Blindaje patrimonial absoluto para los activos de los inversores.', icon: '🏛️' },
+          ].map((v, i) => (
+            <div key={i} className="bg-white p-8 rounded-3xl border border-verde-oscuro/5 shadow-sm hover:shadow-md transition-shadow space-y-4">
+              <span className="text-3xl">{v.icon}</span>
+              <h3 className="text-xl font-bold text-verde-oscuro">{v.title}</h3>
+              <p className="text-sm text-gris-oscuro/60 leading-relaxed">{v.desc}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="flex flex-col items-center gap-6 pt-8">
+          <Link href="/seguridad" className="bg-verde-oscuro text-white px-12 py-5 rounded-full text-xl font-bold shadow-xl hover:scale-105 transition-all">
+            💰 Descubre Tu Retorno Estimado
+          </Link>
+          <button className="text-verde-oscuro font-bold underline decoration-naranja decoration-2 underline-offset-4">
+            Agendar llamada para ver documentos de respaldo
+          </button>
+        </div>
+      </section>
 
       {/* Pilares del Proyecto */}
       <section className="space-y-12 pt-12">

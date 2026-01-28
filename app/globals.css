@@ -118,3 +118,30 @@ h2 {
   margin: 0 auto;
   padding: 0 2rem;
 }
+
+/* GTranslate Custom Styling */
+.gtranslate_wrapper {
+  position: fixed !important;
+  bottom: 1.5rem !important;
+  left: 1.5rem !important;
+  z-index: 50 !important;
+  /* Below mobile header (60) */
+  top: auto !important;
+}
+
+/* Base widget style */
+#gt_float_wrapper,
+.gt_float_wrapper {
+  background-color: #EAE7DC !important;
+  border-radius: 12px !important;
+  border: 1px solid rgba(108, 118, 84, 0.2) !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Ensure the dropdown list also has the background color if possible */
+.gt_selector,
+.gt_selector select {
+  background-color: #EAE7DC !important;
+  color: #6C7654 !important;
+  border: none !important;
+}

@@ -1,26 +1,153 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Florenza Font */
+@font-face {
+  font-family: 'Florenza';
+  src: url('/Fonts/florenza/Florensa-Demo.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Poppins Font - Multiple Weights */
+@font-face {
+  font-family: 'Poppins';
+  src: url('/Fonts/Poppins/Poppins-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@font-face {
+  font-family: 'Poppins';
+  src: url('/Fonts/Poppins/Poppins-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/Fonts/Poppins/Poppins-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/Fonts/Poppins/Poppins-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  /* Brand Colors Refined */
+  --color-verde-oscuro: #6C7654;
+  /* Ahora el verde es el principal */
+  --color-naranja: #FCA259;
+  --color-marron-claro: #9D8268;
+  --color-gris-oscuro: #67594E;
+  --color-cremita: #EDE8D1;
+  --color-cafe-acento: #43281C;
+  /* El café oscuro queda para acentos y acciones */
+
+  /* Fonts */
+  --font-florenza: "Florenza", serif;
+  --font-poppins: "Poppins", sans-serif;
+
+  /* Shadows */
+  --shadow-sm-custom: 0 2px 8px rgba(67, 40, 28, 0.1);
+  --shadow-md-custom: 0 4px 16px rgba(67, 40, 28, 0.15);
+  --shadow-lg-custom: 0 8px 32px rgba(67, 40, 28, 0.2);
+
+  /* Animation Utilities */
+  --animate-fade-in-up: fadeInUp 0.6s ease-out forwards;
+  --animate-fade-in: fadeIn 0.6s ease-out forwards;
+  --animate-scale-in: scaleIn 0.6s ease-out forwards;
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }
 
+:root {
+  --verde-oscuro: #6C7654;
+  --naranja: #FCA259;
+  --marron-claro: #9D8268;
+  --gris-oscuro: #67594E;
+  --cremita: #EDE8D1;
+  --cafe-acento: #43281C;
+
+  --glass-bg: rgba(237, 232, 209, 0.1);
+  --glass-border: rgba(252, 162, 89, 0.2);
+}
+
+/* Base Styles */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--cremita);
+  color: var(--gris-oscuro);
+  font-family: var(--font-poppins);
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+}
+
+h1,
+h2 {
+  font-family: var(--font-florenza);
+  margin: 0;
+}
+
+/* Components */
+.btn-primary {
+  background-color: var(--cafe-acento);
+  /* Café oscuro para acciones */
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  transition: all 0.3s ease-out;
+  cursor: pointer;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-primary:hover {
+  background-color: var(--naranja);
+  transform: scale(1.05);
+}
+
+.section-dark {
+  background-color: var(--verde-oscuro);
+  color: var(--cremita);
+}
+
+.card-glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.card-glass:hover {
+  border-color: var(--naranja);
+  transform: translateY(-5px);
+}
+
+.container-custom {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 2rem;
 }

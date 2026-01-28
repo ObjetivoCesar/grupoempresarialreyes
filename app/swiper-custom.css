@@ -1,0 +1,41 @@
+/* Swiper Custom Styles for Premium Dashboard */
+
+.swiper-button-next,
+.swiper-button-prev {
+    color: #FCA259 !important;
+    /* Naranja AM */
+    background: rgba(255, 255, 255, 0.9);
+    width: 50px !important;
+    height: 50px !important;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+    font-size: 1.2rem !important;
+    font-weight: bold;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    background: #FCA259;
+    color: white !important;
+    transform: scale(1.1);
+}
+
+.swiper-pagination-bullet-active {
+    background: #FCA259 !important;
+}
+
+.swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    background: #EDE8D1;
+    opacity: 0.5;
+}
+
+.swiper {
+    border-radius: 1.5rem;
+}

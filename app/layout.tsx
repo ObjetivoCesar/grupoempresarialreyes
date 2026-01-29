@@ -7,6 +7,7 @@ import ScrollToTop from "@/components/utils/ScrollToTop";
 import Script from "next/script";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://grupoempresarialreyes.vercel.app"),
   title: {
     default: "Aroma de Montaña | Hub del Inversor",
     template: "%s | Aroma de Montaña"
@@ -17,11 +18,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Aroma de Montaña | Inversión Sustentable de Alto Nivel",
     description: "Únete al ecosistema de rentabilidad de Hacienda Aroma de Montaña. Tierra, Marca y Activos blindados con ROI proyectado del 14.72% al 35.4%.",
-    url: "https://aroma-inversores.com",
+    url: "https://grupoempresarialreyes.vercel.app",
     siteName: "Aroma de Montaña",
     images: [
       {
-        url: "/Logos/Café.png",
+        url: "/Logos/featured-share.png",
         width: 1200,
         height: 630,
         alt: "Hacienda Aroma de Montaña",
@@ -29,6 +30,12 @@ export const metadata: Metadata = {
     ],
     locale: "es_EC",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Aroma de Montaña | Hub del Inversor",
+    description: "Plataforma de alta seguridad para inversores del Grupo Empresarial Reyes.",
+    images: ["/Logos/featured-share.png"],
   },
   icons: {
     icon: [

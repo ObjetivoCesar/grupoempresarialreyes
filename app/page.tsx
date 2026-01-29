@@ -46,16 +46,13 @@ export default function DashboardHome() {
             </p>
 
             <div className="flex flex-wrap gap-4 pt-4">
-              <Link href="/producto" className="btn-primary px-10 py-5 text-xl font-bold shadow-2xl hover:scale-105 active:scale-95 transition-all">
+              <Link href="https://wa.me/593963410409" target="_blank" className="btn-primary px-10 py-5 text-xl font-bold shadow-2xl hover:scale-105 active:scale-95 transition-all">
                 🌄 ASEGURA TU PARTICIPACIÓN - AGENDA LLAMADA
               </Link>
               <div className="relative group">
-                <Link href="https://wa.me/593963410409" target="_blank" className="px-10 py-5 rounded-full border-2 border-cremita/10 hover:border-naranja/50 hover:bg-white/5 transition-all font-bold text-lg flex items-center justify-center">
+                <Link href="/producto" className="px-10 py-5 rounded-full border-2 border-cremita/10 hover:border-naranja/50 hover:bg-white/5 transition-all font-bold text-lg flex items-center justify-center">
                   Ver Modelos Completos →
                 </Link>
-                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block bg-gris-oscuro text-white text-sm px-4 py-2 rounded-lg whitespace-nowrap shadow-lg">
-                  📞 Hablar con un Asesor Ahora
-                </div>
               </div>
             </div>
 

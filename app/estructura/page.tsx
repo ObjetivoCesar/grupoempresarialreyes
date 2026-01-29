@@ -9,13 +9,19 @@ const units = [
         id: 'hacienda',
         title: '1. Hacienda Aroma de Montaña',
         role: 'Núcleo territorial y base operativa física.',
-        assets: '23.5 hectáreas en Paltas (Loja), zona UNESCO "Bosques de Paz".',
+        assets: 'El activo territorial que respalda tu inversión: 23.5 hectáreas con USD $200,000+ ya ejecutados en infraestructura hídrica, energía renovable y reforestación productiva. No es un proyecto en papel, es un territorio funcionando dentro de la Reserva UNESCO "Bosques de Paz".',
         responsibilities: [
             'Mantener infraestructura (18 glampings, 5km senderos).',
             'Producción agrícola regenerativa (Café especialidad, 3000 frutales).',
             'Operar la experiencia base de la marca.'
         ],
-        model: 'Canon por uso de infraestructura y venta agrícola.',
+        model: [
+            'Activo tangible custodiado por fideicomiso: Tierra, glampings e infraestructura real valorizada en USD $600,000+',
+            'Infraestructura crítica completada: 2 reservorios (8,000 m³), 5 kilometros de senderos, 3,000 árboles frutales',
+            'Ubicación estratégica: 40 min del aeropuerto, sobre Panamericana, acceso pavimentado todo el año',
+            'Apertura agosto 2026: Inversión pre-operativa con descuento del 15% vs. post-inauguración'
+        ],
+        youtubeId: 'TVOc9gKip1A',
         image: '/Images/naturaleza-2.jpg',
         pillars: [
             {
@@ -40,7 +46,7 @@ const units = [
                     'Experiencia 100% inmersiva en la montaña.',
                     'Ideal para fogatas y observación estelar.'
                 ],
-                image: '/Images/naturaleza-2.jpg'
+                image: '/Images/Astroturismo.png'
             },
             {
                 title: 'Glampings de Lujo',
@@ -50,7 +56,7 @@ const units = [
                     'Unidades para 6 y 12 personas.',
                     'Energía 100% solar fotovoltaica.',
                     'Diseño reversible (mínima huella ambiental).',
-                    'Equipamiento premium y telescopios.'
+                    'Equipamiento premium y telescopios.',
                 ],
                 image: '/250k/exterior.jpg'
             },
@@ -64,7 +70,7 @@ const units = [
                     'Recarga natural de acuíferos mediante albarradas.',
                     'Independencia total de redes externas.'
                 ],
-                image: '/Images/naturaleza-2.jpg'
+                image: '/Images/reservorios.webp'
             }
         ]
     },
@@ -72,12 +78,19 @@ const units = [
         id: 'operations',
         title: '2. Aroma de Montaña Operations',
         role: 'Motor comercial y gestor de inteligencia de mercado.',
+        assets: 'El motor comercial que transforma territorio en flujo de caja predecible: 6 líneas de ingreso diversificadas generan utilidades desde el mes 1, distribuidas automáticamente vía fideicomiso.',
         responsibilities: [
             'Diseñar experiencias (Aventura, Bienestar, Astronomía).',
             'Gestionar canales de venta (OTAs y corporativos).',
             'Ejecutar distribución financiera automatizada.'
         ],
-        model: 'Retención del 30% utilidad neta + 100% líneas complementarias.',
+        model: [
+            'Distribución 70/30 automatizada: 70% de utilidades netas al inversionista mensualmente, 30% a operación',
+            '6 fuentes de ingreso independientes: Glampings, retiros corporativos, cafetería, eventos astronómicos, pasadías, suscripciones',
+            'Punto de equilibrio 19% de ocupación: Proyección conservadora 20% año 2 (vs. 70% hoteles tradicionales)',
+            'Transparencia total en tiempo real: Dashboard personalizado muestra cada reserva, pago y utilidad de tu glamping'
+        ],
+        youtubeId: null,
         image: '/Images/hacienda-view.jpg',
         highlight: 'El motor que genera el flujo de caja diario.',
         pillars: [
@@ -91,7 +104,7 @@ const units = [
                     'Team building y dinámicas de propósito.',
                     'Contratos plurianuales con empresas.'
                 ],
-                image: '/Images/Amanecer Glamping.png'
+                image: '/Images/Naturaleza.png'
             },
             {
                 title: 'Turismo Astronómico',
@@ -103,7 +116,8 @@ const units = [
                     'Guianza especializada y telescopios pro.',
                     'Tarifas premium para entusiastas.'
                 ],
-                image: '/Images/Astroturismo.png'
+                image: '/Images/Astroturismo.png',
+                youtubeId: 'PO3Z3E9v8NE'
             },
             {
                 title: 'Wellness Hub',
@@ -115,7 +129,7 @@ const units = [
                     'Fidelización de comunidad wellness.',
                     'Alta rentabilidad operativa.'
                 ],
-                image: '/Images/naturaleza-2.jpg'
+                image: '/Images/Retiros-de-Alto-Rendimiento.png'
             },
             {
                 title: 'Inteligencia de Venta',
@@ -127,7 +141,7 @@ const units = [
                     'Suscripciones para visitantes recurrentes.',
                     'Maximización del margen neto para el inversor.'
                 ],
-                image: '/Logos/Recurso 33@4x.png'
+                image: '/Images/Sistema-reservas.webp'
             }
         ]
     },
@@ -135,13 +149,20 @@ const units = [
         id: 'inversiones',
         title: '3. Inversiones Aroma de Montaña',
         role: 'Vehículo de captación y gobernanza legal.',
+        assets: 'Tres vehículos de participación según tu perfil: desde USD $30,000 con ROI 35.4% anual hasta Residencia 360 con uso personal 4 meses/año. Tu certificado está respaldado por activo físico en fideicomiso.',
         responsibilities: [
             'Estructurar Certificados bajo Fideicomiso Mercantil.',
             'Custodiar activos (Tierra, glampings y marca).',
             'Garantizar transparencia mediante motor de reservas real.'
         ],
-        model: 'Seguridad: Impide venta/gravamen de activos sin aprobación.',
-        image: '/Logos/Recurso 33@4x.png',
+        model: [
+            'ROI 14.72% - 35.4% anual: Según vehículo; payback desde 2.8 años (Certificado Básico)',
+            'Protección dual: Flujo de caja mensual + activo físico que respalda tu certificado',
+            'Modelo franquiciable año 5: Tu inversión inicial se revaloriza cuando el proyecto escale regionalmente',
+            'Salida flexible: Certificados transferibles; recompra disponible después de 3 años sin penalización'
+        ],
+        youtubeId: null,
+        image: '/Images/Inversiones Aroma de Montaña.webp',
         pillars: [
             {
                 title: 'Blindaje Fiduciario',
@@ -153,7 +174,7 @@ const units = [
                     'Garantía real sobre el activo físico (Tierra).',
                     'Estructura legal de máxima transparencia.'
                 ],
-                image: '/Logos/Logo Aroma de Montaña.png'
+                image: '/Images/Blindaje Fiduciario.webp'
             },
             {
                 title: 'Trazabilidad Total',
@@ -165,7 +186,7 @@ const units = [
                     'Desglose por canal de venta (Booking, Directo).',
                     'Eliminación total de opacidad administrativa.'
                 ],
-                image: '/Logos/Recurso 33@4x.png'
+                image: '/Images/trazabilidad.png'
             },
             {
                 title: 'Garantía Dual',
@@ -177,7 +198,7 @@ const units = [
                     'Respaldo de activos físicos reales.',
                     'Modelo escalable y transferible.'
                 ],
-                image: '/Images/naturaleza-2.jpg'
+                image: '/Images/Aroma de Montaña.webp'
             },
             {
                 title: 'Modelos de Participación',
@@ -250,16 +271,48 @@ export default function EstructuraPage() {
                             </p>
 
                             <div className="bg-verde-oscuro/5 p-8 rounded-3xl border border-verde-oscuro/10 space-y-4">
-                                <p className="text-[10px] font-black uppercase text-verde-oscuro/40 tracking-[0.2em]">Acuerdo Inversionista / Seguridad</p>
-                                <p className="text-xl font-medium text-verde-oscuro leading-relaxed underline decoration-naranja/30 underline-offset-8">
-                                    {activeUnit.model}
-                                </p>
+                                {!Array.isArray(activeUnit.model) && (
+                                    <p className="text-[10px] font-black uppercase text-verde-oscuro/40 tracking-[0.2em]">Acuerdo Inversionista / Seguridad</p>
+                                )}
+                                <div className="space-y-4">
+                                    {Array.isArray(activeUnit.model) ? (
+                                        activeUnit.model.map((m, mi) => (
+                                            <div key={mi} className="flex items-start gap-4">
+                                                <div className="w-1.5 h-1.5 rounded-full bg-naranja mt-2.5 shrink-0"></div>
+                                                <p className="text-base md:text-lg font-medium text-verde-oscuro leading-relaxed">
+                                                    {m}
+                                                </p>
+                                            </div>
+                                        ))
+                                    ) : (
+                                        <p className="text-xl font-medium text-verde-oscuro leading-relaxed underline decoration-naranja/30 underline-offset-8">
+                                            {activeUnit.model}
+                                        </p>
+                                    )}
+                                </div>
                             </div>
                         </div>
 
                         <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl min-h-[400px] lg:h-auto group">
                             <Image src={activeUnit.image} alt={activeUnit.title} fill className="object-cover group-hover:scale-110 transition-transform duration-1000" />
-                            <div className="absolute inset-0 bg-gradient-to-t from-verde-oscuro/60 to-transparent"></div>
+
+                            {/* Video Background / Overlay */}
+                            {activeUnit.youtubeId ? (
+                                <div className="absolute inset-0 pointer-events-none overflow-hidden flex items-center justify-center">
+                                    <div className="relative w-full h-0 pb-[177.77%]"> {/* 16/9 = 1.7777... ratio for vertical video */}
+                                        <iframe
+                                            src={`https://www.youtube.com/embed/${activeUnit.youtubeId}?autoplay=1&mute=1&loop=1&playlist=${activeUnit.youtubeId}&controls=0&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&enablejsapi=1`}
+                                            className="absolute top-1/2 left-1/2 w-[105%] h-[105%] -translate-x-1/2 -translate-y-1/2"
+                                            allow="autoplay; encrypted-media"
+                                            title="Unit Video Background"
+                                        />
+                                    </div>
+                                    <div className="absolute inset-0 bg-verde-oscuro/10 backdrop-blur-[0.5px]"></div>
+                                </div>
+                            ) : (
+                                <div className="absolute inset-0 bg-gradient-to-t from-verde-oscuro/60 to-transparent"></div>
+                            )}
+
                             {activeUnit.highlight && (
                                 <div className="absolute bottom-10 left-10 p-8 bg-white/10 backdrop-blur-md rounded-3xl border border-white/20 max-w-sm">
                                     <p className="text-white text-lg font-medium italic">"{activeUnit.highlight}"</p>
@@ -276,7 +329,7 @@ export default function EstructuraPage() {
                         </div>
 
                         <div className="space-y-12 max-w-6xl mx-auto">
-                            {activeUnit.pillars.map((p, i) => (
+                            {activeUnit.pillars.map((p: any, i: number) => (
                                 <div
                                     key={i}
                                     className={`flex flex-col lg:flex-row items-stretch gap-0 rounded-[3rem] overflow-hidden shadow-xl border border-white/60 bg-white/40 backdrop-blur-xl group hover:shadow-2xl transition-all duration-500 ${i % 2 !== 0 ? 'lg:flex-row-reverse' : ''}`}
@@ -296,7 +349,7 @@ export default function EstructuraPage() {
                                         </p>
 
                                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                            {p.details.map((detail, di) => (
+                                            {p.details.map((detail: string, di: number) => (
                                                 <div key={di} className="flex items-start gap-3">
                                                     <span className="w-5 h-5 bg-cremita rounded-full flex items-center justify-center text-[10px] font-black text-verde-oscuro mt-0.5 shrink-0">✓</span>
                                                     <span className="text-xs text-gris-oscuro font-semibold leading-relaxed">{detail}</span>
@@ -305,14 +358,40 @@ export default function EstructuraPage() {
                                         </div>
                                     </div>
 
-                                    {/* Imagen / Slider */}
+                                    {/* Imagen / Slider / Video */}
                                     <div className="flex-1 min-h-[400px] relative overflow-hidden">
-                                        <Image
-                                            src={p.image}
-                                            alt={p.title}
-                                            fill
-                                            className="object-cover group-hover:scale-105 transition-transform duration-1000"
-                                        />
+                                        {p.localVideo ? (
+                                            <div className="absolute inset-0">
+                                                <video
+                                                    src={p.localVideo}
+                                                    autoPlay
+                                                    muted
+                                                    loop
+                                                    playsInline
+                                                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
+                                                />
+                                                <div className="absolute inset-0 bg-verde-oscuro/10 backdrop-blur-[0.5px]"></div>
+                                            </div>
+                                        ) : p.youtubeId ? (
+                                            <div className="absolute inset-0 pointer-events-none overflow-hidden flex items-center justify-center">
+                                                <div className="relative w-full h-0 pb-[177.77%]"> {/* 16/9 = 1.7777... ratio for vertical video */}
+                                                    <iframe
+                                                        src={`https://www.youtube.com/embed/${p.youtubeId}?autoplay=1&mute=1&loop=1&playlist=${p.youtubeId}&controls=0&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&enablejsapi=1`}
+                                                        className="absolute top-1/2 left-1/2 w-[105%] h-[105%] -translate-x-1/2 -translate-y-1/2"
+                                                        allow="autoplay; encrypted-media"
+                                                        title="Pillar Video Background"
+                                                    />
+                                                </div>
+                                                <div className="absolute inset-0 bg-verde-oscuro/10 backdrop-blur-[0.5px]"></div>
+                                            </div>
+                                        ) : (
+                                            <Image
+                                                src={p.image}
+                                                alt={p.title}
+                                                fill
+                                                className="object-cover group-hover:scale-105 transition-transform duration-1000"
+                                            />
+                                        )}
 
                                         {/* Slider Controls Placeholder - Estilo Glass */}
                                         <div className="absolute bottom-8 right-8 flex gap-3">

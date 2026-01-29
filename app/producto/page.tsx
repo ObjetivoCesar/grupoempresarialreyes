@@ -18,8 +18,9 @@ const mainProducts = [
         roi: 'Flujo Diario',
         desc: 'Punto social y epicentro de la experiencia de café de especialidad. Un espacio bajo impacto con techos de paja y arquitectura abierta.',
         images: [
-            '/Images/hacienda-view.jpg',
-            '/Images/naturaleza-2.jpg',
+            '/Cafetería/Gemini_Generated_Image_s17761s17761s177 (1).png',
+            '/Cafetería/interior.jpg',
+            '/Cafetería/layer-editor-export.png',
         ],
         specs: {
             capacidad: '50 Personas',
@@ -80,8 +81,9 @@ const infraSections = [
         roi: 'Precisión',
         desc: 'Levantamiento topográfico completo de las 23.5 hectáreas, identificando curvas de nivel, escorrentías naturales y ubicaciones óptimas para cada glamping.',
         images: [
-            '/250k/plano.jpg', // Placeholder for topo plans
-            '/Images/naturaleza-2.jpg',
+            '/Planos/ORTOFOTO- CURVAS DE NIVEL.webp',
+            '/Planos/ORTOFOTO- MAPA PINTADO.webp',
+            '/Planos/ORTOFOTO1.webp',
         ],
         specs: {
             archivo: 'AutoCAD / PDF Digital',
@@ -97,10 +99,8 @@ const infraSections = [
         investment: 'Ejecutado al 100%',
         roi: 'Valorización',
         desc: '5 km de senderos de interpretación ya ejecutados, conectando los 18 glampings con monumentos naturales y miradores astronómicos.',
-        images: [
-            '/Images/naturaleza-2.jpg',
-            '/Images/hacienda-view.jpg',
-        ],
+        videoUrl: '/Videos/senderos.mp4',
+        images: [],
         specs: {
             distancia: '5,200 metros lineales',
             miradores: '3 miradores 360°',
@@ -238,9 +238,14 @@ export default function ProductoPage() {
                 </div>
 
                 <div className="flex justify-center pt-8">
-                    <button className="bg-naranja text-white px-6 py-4 md:px-12 md:py-5 rounded-full text-base md:text-xl font-bold shadow-2xl hover:scale-105 transition-all flex items-center gap-3 text-center">
+                    <a
+                        href="https://wa.me/593963410409"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="bg-naranja text-white px-6 py-4 md:px-12 md:py-5 rounded-full text-base md:text-xl font-bold shadow-2xl hover:scale-105 transition-all flex items-center gap-3 text-center"
+                    >
                         🌄 AGENDAR LLAMADA PARA ASESORÍA PERSONALIZADA
-                    </button>
+                    </a>
                 </div>
             </section>
         </div>
@@ -253,30 +258,43 @@ function ProductDetailPanel({ product }: { product: any }) {
             {/* Visual Showcase */}
             <div className="lg:col-span-12 xl:col-span-7 space-y-6">
                 <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl bg-white aspect-[16/10]">
-                    <Swiper
-                        modules={[Navigation, Pagination, Autoplay]}
-                        navigation
-                        pagination={{ clickable: true }}
-                        autoplay={{ delay: 5000 }}
-                        className="h-full w-full"
-                    >
-                        {product.images.map((img: string, idx: number) => (
-                            <SwiperSlide key={idx}>
-                                <Image src={img} alt={product.name} fill className="object-cover" />
-                            </SwiperSlide>
-                        ))}
-                    </Swiper>
+                    {product.videoUrl ? (
+                        <video
+                            src={product.videoUrl}
+                            autoPlay
+                            muted
+                            loop
+                            playsInline
+                            className="h-full w-full object-cover"
+                        />
+                    ) : (
+                        <Swiper
+                            modules={[Navigation, Pagination, Autoplay]}
+                            navigation
+                            pagination={{ clickable: true }}
+                            autoplay={{ delay: 5000 }}
+                            className="h-full w-full"
+                        >
+                            {product.images.map((img: string, idx: number) => (
+                                <SwiperSlide key={idx}>
+                                    <Image src={img} alt={product.name} fill className="object-cover" />
+                                </SwiperSlide>
+                            ))}
+                        </Swiper>
+                    )}
                     <div className="absolute top-8 left-8 z-10 p-3 bg-white/10 backdrop-blur-md rounded-xl text-[10px] text-white font-bold uppercase tracking-widest border border-white/20">
                         {product.badge}
                     </div>
                 </div>
-                <div className="grid grid-cols-3 gap-4">
-                    {product.images.slice(0, 3).map((img: string, i: number) => (
-                        <div key={i} className="aspect-video relative rounded-2xl overflow-hidden border border-verde-oscuro/5">
-                            <Image src={img} alt="Thumb" fill className="object-cover grayscale hover:grayscale-0 transition-all cursor-pointer" />
-                        </div>
-                    ))}
-                </div>
+                {!product.videoUrl && (
+                    <div className="grid grid-cols-3 gap-4">
+                        {product.images.slice(0, 3).map((img: string, i: number) => (
+                            <div key={i} className="aspect-video relative rounded-2xl overflow-hidden border border-verde-oscuro/5">
+                                <Image src={img} alt="Thumb" fill className="object-cover grayscale hover:grayscale-0 transition-all cursor-pointer" />
+                            </div>
+                        ))}
+                    </div>
+                )}
             </div>
 
             {/* Sales & Tech Panel */}

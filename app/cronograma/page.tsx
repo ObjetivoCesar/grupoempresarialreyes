@@ -115,9 +115,16 @@ export default function CronogramaPage() {
                             </div>
                         ))}
                     </div>
-                    <div className="relative rounded-3xl overflow-hidden shadow-2xl min-h-[300px] border-4 border-white">
-                        <NextImage src="/Images/hacienda-view.jpg" alt="Obra en vivo" fill className="object-cover" />
-                        <div className="absolute top-4 right-4 px-4 py-2 bg-naranja text-white text-[10px] font-black uppercase rounded-lg shadow-lg">En Vivo</div>
+                    <div className="relative rounded-3xl overflow-hidden shadow-2xl min-h-[300px] border-4 border-white bg-black">
+                        <iframe
+                            className="absolute inset-0 w-full h-full"
+                            src="https://www.youtube.com/embed/F3iTUEhcDK8?autoplay=1&mute=1&loop=1&playlist=F3iTUEhcDK8"
+                            title="Obra en vivo"
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowFullScreen
+                        />
+                        <div className="absolute top-4 right-4 px-4 py-2 bg-naranja text-white text-[10px] font-black uppercase rounded-lg shadow-lg z-10">En Vivo</div>
                     </div>
                 </div>
             </div>

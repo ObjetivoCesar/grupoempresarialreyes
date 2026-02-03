@@ -322,7 +322,14 @@ function ProductDetailPanel({ product }: { product: any }) {
                 </div>
 
                 <div className="pt-6 space-y-4">
-                    <button className="btn-primary w-full py-5 text-lg font-bold shadow-xl shadow-naranja/20">Solicitar Información Técnica</button>
+                    <a
+                        href="https://wa.me/593963410409?text=Hola%2C%20me%20gustar%C3%ADa%20solicitar%20informaci%C3%B3n%20t%C3%A9cnica%20sobre%20los%20modelos%20de%20Glamping%20de%20Aroma%20de%20Monta%C3%B1a."
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn-primary block w-full py-5 text-lg font-bold shadow-xl shadow-naranja/20 text-center"
+                    >
+                        Solicitar Información Técnica
+                    </a>
                     <p className="text-[10px] text-center text-gris-oscuro/30 uppercase font-black tracking-widest">Respaldo legal y técnico garantizado</p>
                 </div>
             </div>

@@ -1,10 +1,13 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useState } from 'react';
 
 export default function DashboardHome() {
+  const [showMap, setShowMap] = useState(false);
+
   return (
     <div className="space-y-12">
       {/* 5-Second Hero: Oportunidad de Pre-Lanzamiento */}
@@ -216,10 +219,8 @@ export default function DashboardHome() {
                 Nuestra hacienda se encuentra estratégicamente posicionada para capturar la demanda de turismo regenerativo y bienestar de alto nivel.
               </p>
               <div className="pt-4">
-                <a
-                  href="https://maps.app.goo.gl/YourMapLinkHere"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <button
+                  onClick={() => setShowMap(true)}
                   className="inline-flex items-center gap-2 bg-naranja text-white px-6 py-3 rounded-xl font-bold text-sm hover:scale-105 transition-all"
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -227,7 +228,7 @@ export default function DashboardHome() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
                   Ver en Google Maps
-                </a>
+                </button>
               </div>
             </div>
 
@@ -250,6 +251,43 @@ export default function DashboardHome() {
           </div>
         </div>
       </section>
+
+      {/* Modal de Mapa */}
+      <AnimatePresence>
+        {showMap && (
+          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setShowMap(false)}
+              className="absolute inset-0 bg-verde-oscuro/80 backdrop-blur-sm"
+            />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              className="relative w-full max-w-4xl aspect-video bg-white rounded-3xl overflow-hidden shadow-2xl z-10 border-4 border-white"
+            >
+              <button
+                onClick={() => setShowMap(false)}
+                className="absolute top-4 right-4 z-20 bg-verde-oscuro text-white p-2 rounded-full hover:bg-naranja transition-colors"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3980.046393068689!2d-79.61068742502471!3d-4.0108817959628515!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNMKwMDAnMzkuMiJTIDc5wrAzNicyOS4yIlc!5e0!3m2!1ses-419!2sec!4v1770080392554!5m2!1ses-419!2sec"
+                className="w-full h-full border-0"
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

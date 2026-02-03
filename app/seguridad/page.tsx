@@ -77,7 +77,14 @@ export default function SeguridadPage() {
                                 <span className="font-bold text-gris-oscuro">Validado por:</span>
                                 <span className="text-verde-oscuro font-black">Arq. Juan Salinas</span>
                             </div>
-                            <Link href="#" className="btn-primary w-full py-4 text-xs font-black uppercase tracking-widest">Validar Documentación en SENADI</Link>
+                            <Link
+                                href="https://wa.me/593963410409?text=Hola%2C%20me%20gustar%C3%ADa%20ver%20el%20peritaje%20de%20la%20documentaci%C3%B3n%20en%20SENADI%20para%20el%20proyecto%20Aroma%20de%20Monta%C3%B1a."
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="btn-primary w-full py-4 text-xs font-black uppercase tracking-widest text-center block"
+                            >
+                                Validar Documentación en SENADI
+                            </Link>
                         </div>
                     </div>
                 </div>

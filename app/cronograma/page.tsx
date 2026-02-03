@@ -152,7 +152,14 @@ export default function CronogramaPage() {
                     </div>
                     <div className="mt-10 p-6 bg-cafe-acento rounded-2xl flex items-center justify-between gap-4">
                         <p className="text-white text-xs font-bold">Ver Expediente Legal en Google Drive</p>
-                        <button className="px-4 py-2 bg-cremita text-cafe-acento rounded-lg text-[10px] font-black uppercase">Abrir Drive</button>
+                        <a
+                            href="https://wa.me/593963410409?text=Hola%2C%20solicito%20el%20acceso%20al%20Drive%20con%20el%20cronograma%20y%20documentos%20del%20proyecto%20Aroma%20de%20Monta%C3%B1a."
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="px-4 py-2 bg-cremita text-cafe-acento rounded-lg text-[10px] font-black uppercase"
+                        >
+                            Abrir Drive
+                        </a>
                     </div>
                 </div>
 

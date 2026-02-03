@@ -22,19 +22,12 @@ export const metadata: Metadata = {
     siteName: "Aroma de Montaña",
     images: [
       {
-        url: "/Logos/featured-share.png",
+        url: "/Images/hacienda-view.jpg",
         width: 1200,
         height: 630,
         alt: "Hacienda Aroma de Montaña",
-        type: "image/png",
-      },
-      {
-        url: "/Logos/featured-wa.png",
-        width: 400,
-        height: 400,
-        alt: "Logo Aroma de Montaña",
-        type: "image/png",
-      },
+        type: "image/jpeg",
+      }
     ],
     locale: "es_EC",
     type: "website",
@@ -43,7 +36,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Aroma de Montaña | Hub del Inversor",
     description: "Plataforma de alta seguridad para inversores del Grupo Empresarial Reyes.",
-    images: ["/Logos/featured-share.png"],
+    images: ["/Images/hacienda-view.jpg"],
   },
   icons: {
     icon: [
@@ -67,6 +60,11 @@ export default function RootLayout({
   return (
     <html lang="es" className="scroll-smooth">
       <head>
+        <meta property="og:image" content="https://grupoempresarialreyes.vercel.app/Images/hacienda-view.jpg" />
+        <meta property="og:image:secure_url" content="https://grupoempresarialreyes.vercel.app/Images/hacienda-view.jpg" />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
       </head>
       <body className="antialiased bg-cremita flex min-h-screen">
         <ScrollToTop />

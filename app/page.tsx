@@ -121,7 +121,7 @@ export default function DashboardHome() {
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
           {[
-            { title: '$240,000 Ejecutados', subtitle: 'Infraestructura Real', icon: '🏗️' },
+            { title: '+$210 mil Ejecutados', subtitle: 'Infraestructura Real', icon: '🏗️' },
             { title: '23.5 Hectáreas', subtitle: 'Escrituradas', icon: '📜' },
             { title: 'Licencia MAATE', subtitle: 'Aprobada', icon: '🌿' },
             { title: 'Marca SENADI', subtitle: '10 Años', icon: '🛡️' },

@@ -9,7 +9,7 @@ const units = [
         id: 'hacienda',
         title: '1. Hacienda Aroma de Montaña',
         role: 'Núcleo territorial y base operativa física.',
-        assets: 'El activo territorial que respalda tu inversión: 23.5 hectáreas con USD $200,000+ ya ejecutados en infraestructura hídrica, energía renovable y reforestación productiva. No es un proyecto en papel, es un territorio funcionando dentro de la Reserva UNESCO "Bosques de Paz".',
+        assets: 'El activo territorial que respalda tu inversión: 23.5 hectáreas con USD +210 mil ya ejecutados en infraestructura hídrica, energía renovable y reforestación productiva. No es un proyecto en papel, es un territorio funcionando dentro de la Reserva UNESCO "Bosques de Paz".',
         responsibilities: [
             'Mantener infraestructura (18 glampings, 5km senderos).',
             'Producción agrícola regenerativa (Café especialidad, 3000 frutales).',

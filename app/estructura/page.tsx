@@ -19,7 +19,7 @@ const units = [
             'Activo tangible custodiado por fideicomiso: Tierra, glampings e infraestructura real valorizada en USD $600,000+',
             'Infraestructura crítica completada: 2 reservorios (8,000 m³), 5 kilometros de senderos, 3,000 árboles frutales',
             'Ubicación estratégica: 40 min del aeropuerto, sobre Panamericana, acceso pavimentado todo el año',
-            'Apertura agosto 2026: Inversión pre-operativa con descuento del 15% vs. post-inauguración'
+            'Apertura agosto 2027: Inversión pre-operativa con descuento del 15% vs. post-inauguración'
         ],
         youtubeId: 'TVOc9gKip1A',
         image: '/Images/naturaleza-2.jpg',
@@ -78,7 +78,7 @@ const units = [
         id: 'operations',
         title: '2. Aroma de Montaña Operations',
         role: 'Motor comercial y gestor de inteligencia de mercado.',
-        assets: 'El motor comercial que transforma territorio en flujo de caja predecible: 6 líneas de ingreso diversificadas generan utilidades desde el mes 1, distribuidas automáticamente vía fideicomiso.',
+        assets: 'El motor comercial que transforma la hacienda en flujo de caja predecible: 6 líneas de ingreso diversificadas generan utilidades desde el mes 1, distribuidas automáticamente vía fideicomiso.',
         responsibilities: [
             'Diseñar experiencias (Aventura, Bienestar, Astronomía).',
             'Gestionar canales de venta (OTAs y corporativos).',

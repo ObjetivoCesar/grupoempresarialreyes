@@ -83,7 +83,7 @@ export default function CronogramaPage() {
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 mb-12">
                     <div>
                         <h3 className="text-4xl font-florenza text-verde-oscuro">Seguimiento de Obra: <span className="text-naranja">Casa Modelo</span></h3>
-                        <p className="text-xs font-black uppercase tracking-widest text-gris-oscuro/40 mt-2">Estructura de Hormigón Armado | Entrega Obra Gris: Feb 2026</p>
+                        <p className="text-xs font-black uppercase tracking-widest text-gris-oscuro/40 mt-2">Estructura de Hormigón Armado | Entrega Obra Gris: Feb 2027</p>
                     </div>
                     <div className="px-6 py-3 bg-verde-oscuro text-cremita rounded-2xl shadow-xl">
                         <span className="text-xs font-bold">Estado General:</span>
@@ -94,9 +94,9 @@ export default function CronogramaPage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                     <div className="space-y-8">
                         {[
-                            { label: 'Planta Baja (120m²)', val: 30.1, date: 'Feb 2026' },
-                            { label: 'Planta Alta (60m²)', val: 12.5, date: 'Mayo 2026' },
-                            { label: 'Acabados & Cubierta', val: 0, date: 'Agosto 2026' },
+                            { label: 'Planta Baja (120m²)', val: 30.1, date: 'Feb 2027' },
+                            { label: 'Planta Alta (60m²)', val: 12.5, date: 'Mayo 2027' },
+                            { label: 'Acabados & Cubierta', val: 0, date: 'Agosto 2027' },
                         ].map((item, i) => (
                             <div key={i} className="space-y-3">
                                 <div className="flex justify-between items-end">

@@ -49,9 +49,14 @@ export default function DashboardHome() {
             </p>
 
             <div className="flex flex-wrap gap-4 pt-4">
-              <Link href="https://wa.me/593963410409" target="_blank" className="btn-primary px-10 py-5 text-xl font-bold shadow-2xl hover:scale-105 active:scale-95 transition-all">
-                🌄 ASEGURA TU PARTICIPACIÓN - AGENDA LLAMADA
-              </Link>
+              <div className="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
+                <a href="/Images/Aroma_de_Montana_Inversion_ES.pdf" download target="_blank" className="btn-primary px-8 py-5 text-lg font-bold shadow-2xl hover:scale-105 active:scale-95 transition-all text-center flex items-center justify-center gap-2">
+                  <span>🇪🇸 DESCUBRE EN ESPAÑOL</span>
+                </a>
+                <a href="/Images/Aroma_de_Montana_Investment_EN.pdf" download target="_blank" className="btn-primary px-8 py-5 text-lg font-bold shadow-2xl hover:scale-105 active:scale-95 transition-all text-center flex items-center justify-center gap-2 opacity-90 brightness-90">
+                  <span>🇺🇸 EXPLORE IN ENGLISH</span>
+                </a>
+              </div>
               <div className="relative group">
                 <Link href="/producto" className="px-10 py-5 rounded-full border-2 border-cremita/10 hover:border-naranja/50 hover:bg-white/5 transition-all font-bold text-lg flex items-center justify-center">
                   Ver Modelos Completos →
@@ -76,6 +81,19 @@ export default function DashboardHome() {
             </div>
           </motion.div>
         </div>
+      </section>
+
+      {/* Video Section - Added per user request */}
+      <section className="relative w-full aspect-video rounded-[3rem] overflow-hidden shadow-2xl border-4 border-white">
+        <iframe
+          className="absolute inset-0 w-full h-full"
+          src="https://www.youtube.com/embed/01eKtss_41Y?si=default"
+          title="Video Aroma de Montaña"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerPolicy="strict-origin-when-cross-origin"
+          allowFullScreen
+        ></iframe>
       </section>
 
       {/* Razón de Inversión (Por qué Invertir) */}

@@ -6,15 +6,15 @@ import { motion, AnimatePresence } from 'framer-motion';
 const roles = [
     {
         id: 'fideicomiso',
-        title: 'Blindaje Fiduciario',
-        entity: 'Fideicomiso Mercantil',
-        icon: '⚖️',
-        desc: 'Entidad autónoma encargada de custodiar la tierra, la marca y los activos del proyecto, asegurando que el patrimonio de los inversores esté blindado legalmente.',
+        title: 'Asamblea de Socios',
+        entity: 'Sociedad 50/50',
+        icon: '🤝',
+        desc: 'Máximo órgano de decisión conformado por el Socio Estratégico y la Dirección del proyecto, donde se aprueban balances y se dictan líneas de crecimiento ante notaría.',
         responsibilities: [
-            'Custodia Legal del Patrimonio',
-            'Distribución Automatizada de Utilidades',
-            'Auditoría Externa Permanente',
-            'Transparencia e Informes Semestrales'
+            'Toma de Decisiones Estratégicas',
+            'Aprobación de Balances Financieros',
+            'Vigilancia de Ejecución de Capital',
+            'Transparencia Societaria Directa'
         ],
         color: 'bg-cafe-acento'
     },
@@ -51,7 +51,7 @@ const roles = [
         title: 'Contadora',
         entity: 'Control Financiero',
         icon: '📊',
-        desc: 'Soporte administrativo que garantiza la transparencia de cuentas y reportes para el fideicomiso y los inversores.',
+        desc: 'Soporte administrativo que garantiza la transparencia de cuentas y reportes para la Asamblea de Socios e inversores.',
         responsibilities: [
             'Cierre de Caja y Conciliación Flujos',
             'Gestión de Pagos a Terceros',
@@ -129,7 +129,7 @@ export default function GobernanzaPage() {
                 <div className="relative z-10 space-y-4">
                     <h1 className="text-3xl md:text-5xl font-florenza">Gobernanza & <span className="text-naranja italic">Transparencia</span></h1>
                     <p className="text-cremita/70 text-base md:text-lg max-w-3xl font-light">
-                        Su inversión está respaldada por una estructura profesional de mando. Cada área opera de forma independiente bajo la supervisión del Fideicomiso Mercantil.
+                        Su inversión está respaldada por una estructura profesional de mando. Cada área opera de forma independiente bajo la supervisión directa de la Asamblea de Socios.
                     </p>
                 </div>
             </section>
@@ -142,7 +142,7 @@ export default function GobernanzaPage() {
                         {/* Schema Container */}
                         <div className="w-full flex flex-col items-center py-6 md:py-10">
 
-                            {/* Level 1: Fideicomiso */}
+                            {/* Level 1: Asamblea de Socios */}
                             <motion.div
                                 initial={{ opacity: 0, y: -20 }}
                                 animate={{ opacity: 1, y: 0 }}

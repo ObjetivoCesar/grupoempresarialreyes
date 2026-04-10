@@ -30,12 +30,12 @@ const mainProducts = [
         }
     },
     {
-        id: 'alpino',
-        name: 'Glamping Alpino (Modelo 6P)',
+        id: 'estandar',
+        name: 'Glamping Estándar (Modelo 6P)',
         badge: 'Oportunidad Estrella',
-        investment: '$30,000',
-        roi: '33.9%',
-        desc: 'Unidad modular prefabricada diseñada para montaje rápido y bajo impacto. El equilibrio perfecto entre costo y rentabilidad.',
+        investment: '$100,000',
+        roi: '50% Utilidad',
+        desc: 'Unidad modular prefabricada diseñada para montaje rápido y bajo impacto. El equilibrio perfecto entre inversión moderada y alta rentabilidad.',
         images: [
             '/30k/exterior.png',
             '/30k/interior.jpeg',
@@ -52,11 +52,11 @@ const mainProducts = [
     },
     {
         id: 'vip',
-        name: 'Residencia VIP / Casa Modelo',
-        badge: 'Máximo Lujo',
+        name: 'Residencia 360 / Lujo',
+        badge: 'Lujo Exclusivo',
         investment: '$250,000',
-        roi: 'Patrimonial',
-        desc: 'Gran arquitectura Alpina de 12 personas con doble altura. Un activo inmobiliario de lujo perenne.',
+        roi: '50% Utilidad',
+        desc: 'Gran arquitectura Alpina para 12 personas con doble altura. Un activo inmobiliario de lujo perenne con la proyección de retorno más alta.',
         images: [
             '/250k/exterior.jpg',
             '/250k/interior_1.jpg',
@@ -191,40 +191,37 @@ export default function ProductoPage() {
                 </AnimatePresence>
             </section>
 
-            {/* New Section: Modelos de Participación */}
+            {/* New Section: Adquisición de Activos */}
             <section className="space-y-12 pt-20 border-t border-verde-oscuro/5">
                 <div className="text-center space-y-4">
-                    <h2 className="text-5xl font-florenza text-verde-oscuro">Elige Tu Modelo de <span className="text-naranja italic">Participación</span></h2>
-                    <p className="text-gris-oscuro/60 max-w-2xl mx-auto">Compara los beneficios de cada certificado y asegura tu lugar en el ecosistema.</p>
+                    <h2 className="text-5xl font-florenza text-verde-oscuro">Adquisición de <span className="text-naranja italic">Activos Individuales</span></h2>
+                    <p className="text-gris-oscuro/60 max-w-2xl mx-auto">Sé dueño exclusivo de una unidad glamping y recibe el 50% de las utilidades operativas que esta genere, sin esfuerzo de gestión.</p>
                 </div>
 
                 <div className="overflow-x-auto pb-4 -mx-4 px-4">
                     <table className="w-full min-w-[600px] border-collapse bg-white rounded-2xl md:rounded-[2rem] overflow-hidden shadow-sm border border-verde-oscuro/5">
                         <thead>
                             <tr className="bg-verde-oscuro text-cremita">
-                                <th className="p-4 md:p-8 text-left font-florenza text-lg md:text-xl">Características</th>
+                                <th className="p-4 md:p-8 text-left font-florenza text-lg md:text-xl">Especificaciones Operativas</th>
                                 <th className="p-4 md:p-8 text-center text-naranja">
-                                    <span className="block text-xl md:text-2xl font-florenza">BÁSICO</span>
-                                    <span className="text-[10px] md:text-xs font-black tracking-widest">$30K</span>
-                                </th>
-                                <th className="p-4 md:p-8 text-center text-naranja">
-                                    <span className="block text-xl md:text-2xl font-florenza">PREFERENTE</span>
+                                    <span className="block text-xl md:text-2xl font-florenza">GLAMPING ESTÁNDAR</span>
                                     <span className="text-[10px] md:text-xs font-black tracking-widest">$100K</span>
                                 </th>
                                 <th className="p-4 md:p-8 text-center text-naranja">
-                                    <span className="block text-xl md:text-2xl font-florenza">RESIDENCIA</span>
+                                    <span className="block text-xl md:text-2xl font-florenza">RESIDENCIA 360</span>
                                     <span className="text-[10px] md:text-xs font-black tracking-widest">$250K</span>
                                 </th>
                             </tr>
                         </thead>
                         <tbody className="text-gris-oscuro">
                             {[
-                                { label: 'ROI Anual Estimado', values: ['35.4%', '14.72%', '8.1%'] },
-                                { label: 'Plazo del Usufructo', values: ['5 Años', 'Perpetuo', 'Perpetuo'] },
-                                { label: 'Payback (Recuperación)', values: ['2.8 Años', '6.8 Años', '12.3 Años'] },
-                                { label: 'Uso y Goce Anual', values: ['No Aplica', '10 Días/Año', '60 Días/Año'] },
-                                { label: 'Capacidad Unidad', values: ['6 Personas', '6 Personas', '12 Personas'] },
-                                { label: 'Trazabilidad Dashboard', values: ['✅ Incluido', '✅ Incluido', '✅ Incluido'] },
+                                { label: 'Capacidad por Unidad', values: ['6 Personas', '12 Personas'] },
+                                { label: 'Tarifa Hotelera Promedio', values: ['$220 - $280 / Noche', '$400 - $600 / Noche'] },
+                                { label: 'Participación en Utilidad', values: ['50% Neto Constante', '50% Neto Constante'] },
+                                { label: 'Operación y Mantenimiento', values: ['100% Gestionado por la Marca', '100% Gestionado por la Marca'] },
+                                { label: 'Uso y Goce Preferente', values: ['Previa Reserva', 'Prioridad de Uso'] },
+                                { label: 'Payback Estimado (O. 25%)', values: ['8 - 9 Años', '10 - 11 Años'] },
+                                { label: 'Propiedad Legal', values: ['Activo Físico Transferible', 'Activo Físico Transferible'] },
                             ].map((row, i) => (
                                 <tr key={i} className={i % 2 === 0 ? 'bg-cremita/20' : ''}>
                                     <td className="p-6 pl-8 font-bold text-sm border-b border-gris-oscuro/5">{row.label}</td>
@@ -244,7 +241,7 @@ export default function ProductoPage() {
                         rel="noopener noreferrer"
                         className="bg-naranja text-white px-6 py-4 md:px-12 md:py-5 rounded-full text-base md:text-xl font-bold shadow-2xl hover:scale-105 transition-all flex items-center gap-3 text-center"
                     >
-                        🌄 AGENDAR LLAMADA PARA ASESORÍA PERSONALIZADA
+                        🌄 AGENDAR LLAMADA PARA ADQUIRIR TU GLAMPING
                     </a>
                 </div>
             </section>

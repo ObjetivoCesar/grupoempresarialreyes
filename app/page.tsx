@@ -40,12 +40,12 @@ export default function DashboardHome() {
             </div>
 
             <h1 className="text-6xl md:text-[5.5rem] font-florenza leading-[0.95] text-balance">
-              Invierte $30k. <br />
-              Genera Retornos <span className="text-naranja italic">{'>'}33% Anuales.</span>
+              Una Sociedad <br />
+              <span className="text-naranja italic">50/50 para el Éxito.</span>
             </h1>
 
             <p className="text-xl md:text-2xl text-cremita/70 leading-relaxed font-light max-w-2xl">
-              Házte dueño de un Glamping de Lujo en propiedad real. Con flujo de caja diario y pagos automáticos garantizados por expertos.
+              Conviértete en socio estratégico o adquiere tu propio Glamping de Lujo. Un modelo dual de alta rentabilidad basado en patrimonio real y hospitalidad.
             </p>
 
             <div className="flex flex-wrap gap-4 pt-4">
@@ -108,24 +108,24 @@ export default function DashboardHome() {
         </div>
         <div className="grid grid-cols-2 gap-4">
           <div className="p-6 md:p-8 bg-verde-oscuro text-cremita rounded-3xl space-y-2">
-            <p className="text-3xl md:text-5xl font-bold text-naranja">33.9%</p>
-            <p className="text-xs font-bold uppercase tracking-widest">ROI Promedio</p>
-            <p className="text-[10px] opacity-50 italic">Crecimiento progresivo en 5 años.</p>
+            <p className="text-3xl md:text-5xl font-bold text-naranja">113%</p>
+            <p className="text-xs font-bold uppercase tracking-widest">Recuperación Año 1</p>
+            <p className="text-[10px] opacity-50 italic">Para socio estratégico al 50%.</p>
           </div>
           <div className="p-6 md:p-8 bg-white border border-verde-oscuro/5 rounded-3xl space-y-2 shadow-sm">
-            <p className="text-3xl md:text-5xl font-bold text-verde-oscuro">25%</p>
-            <p className="text-xs font-bold uppercase tracking-widest text-gris-oscuro/40">Ocupación Promedio</p>
-            <p className="text-[10px] text-gris-oscuro/40 italic">Meta proyectada de equilibrio operacional.</p>
+            <p className="text-3xl md:text-5xl font-bold text-verde-oscuro">7</p>
+            <p className="text-xs font-bold uppercase tracking-widest text-gris-oscuro/40">Líneas de Ingreso</p>
+            <p className="text-[10px] text-gris-oscuro/40 italic">Hospedaje, retiros, cafetería, eventos y más.</p>
           </div>
           <div className="p-6 md:p-8 bg-white border border-verde-oscuro/5 rounded-3xl space-y-2 shadow-sm flex flex-col justify-center items-center text-center">
-            <p className="text-xs font-bold uppercase tracking-widest text-gris-oscuro/40">Inversión Inicial</p>
-            <p className="text-3xl md:text-5xl font-black text-verde-oscuro">$30,000</p>
-            <p className="text-[10px] text-naranja font-black uppercase tracking-widest mt-2">ASEGURA TU PARTICIPACIÓN</p>
+            <p className="text-xs font-bold uppercase tracking-widest text-gris-oscuro/40">Opción B: Tu Glamping</p>
+            <p className="text-3xl md:text-5xl font-black text-verde-oscuro">$100k</p>
+            <p className="text-[10px] text-naranja font-black uppercase tracking-widest mt-2">DUEÑO DEL ACTIVO Y 50% DE UTILIDAD</p>
           </div>
           <div className="p-6 md:p-8 bg-cafe-acento text-white rounded-3xl space-y-2 flex flex-col justify-center items-center text-center">
-            <p className="text-xs font-bold uppercase tracking-widest text-white/40">Proyección Estimada</p>
-            <p className="text-3xl md:text-5xl font-bold text-naranja">$62,450</p>
-            <p className="text-[10px] opacity-70 uppercase font-black tracking-widest leading-tight mt-2">Ganancia Total 60 Meses (Modelo $30k)</p>
+            <p className="text-xs font-bold uppercase tracking-widest text-white/40">Inversión Societaria</p>
+            <p className="text-3xl md:text-5xl font-bold text-naranja">$230k</p>
+            <p className="text-[10px] opacity-70 uppercase font-black tracking-widest leading-tight mt-2">Buscamos Socio 1:1 para Invertir $230k Adicionales</p>
           </div>
         </div>
       </div>
@@ -139,12 +139,12 @@ export default function DashboardHome() {
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
           {[
-            { title: '+$210 mil Ejecutados', subtitle: 'Infraestructura Real', icon: '🏗️' },
+            { title: 'USD 230 mil Ejecutados', subtitle: 'Capital Propio', icon: '🏗️' },
             { title: '23.5 Hectáreas', subtitle: 'Escrituradas', icon: '📜' },
             { title: 'Licencia MAATE', subtitle: 'Aprobada', icon: '🌿' },
             { title: 'Marca SENADI', subtitle: '10 Años', icon: '🛡️' },
             { title: 'Taza Dorada', subtitle: 'Alianza Cafetera', icon: '☕' },
-            { title: 'Fideicomiso', subtitle: 'Blindaje Total', icon: '🏛️' },
+            { title: 'Sociedad 50/50', subtitle: 'Copropiedad Directa', icon: '🤝' },
           ].map((v, i) => (
             <div key={i} className="bg-white p-8 rounded-3xl border border-verde-oscuro/5 shadow-xl text-center group hover:bg-verde-oscuro hover:text-white transition-all duration-500">
               <div className="text-4xl mb-4 group-hover:scale-125 transition-transform">{v.icon}</div>

@@ -44,16 +44,16 @@ export default function SeguridadPage() {
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 pt-8">
-                <div className="card-glass p-12 space-y-6">
-                    <h3 className="text-3xl font-florenza text-verde-oscuro italic underline decoration-naranja underline-offset-8">Fideicomiso Mercantil</h3>
+                <div className="card-glass p-12 space-y-6 bg-white border border-verde-oscuro/5 rounded-[3rem] shadow-xl">
+                    <h3 className="text-3xl font-florenza text-verde-oscuro italic underline decoration-naranja underline-offset-8">Garantía Dual</h3>
                     <p className="text-gris-oscuro/70 leading-relaxed font-poppins">
-                        Nuestro modelo se aleja de la discrecionalidad administrativa. Al utilizar un **patrimonio autónomo**, el capital de los inversores está legalmente separado de la administración de la empresa principal.
+                        Nuestra estructura de seguridad no depende solo de contratos. Se basa en una **Garantía Dual** que combina activos físicos y flujo operativo:
                     </p>
                     <div className="space-y-4 pt-4">
                         {[
-                            'Elimina el riesgo de embargo de activos.',
-                            'Garantiza que la utilidad se reparta automáticamente.',
-                            'Auditoría total del patrimonio por una entidad fiduciaria.'
+                            'Respaldo Físico: El 50% de la tierra (23.5ha) e infraestructura.',
+                            'Respaldo Operativo: Utilidades de 7 líneas de negocio diversificadas.',
+                            'Blindaje Societario: Participación real en la compañía matriz.'
                         ].map((text, i) => (
                             <div key={i} className="flex gap-4 items-center p-4 bg-cremita/20 rounded-xl">
                                 <span className="w-2 h-2 rounded-full bg-naranja" />
@@ -63,28 +63,42 @@ export default function SeguridadPage() {
                     </div>
                 </div>
 
-                <div className="card-glass p-12 space-y-8 bg-verde-oscuro/5">
-                    <h3 className="text-3xl font-florenza text-verde-oscuro">Vigilancia en Tiempo Real</h3>
-                    <p className="text-lg text-gris-oscuro/70 italic font-light">"Cada etapa tiene un responsable y cada firma un registro. Su inversión es ejecutable y verificable."</p>
+                <div className="p-12 space-y-8 bg-verde-oscuro text-cremita rounded-[3rem] shadow-2xl relative overflow-hidden border border-white/10">
+                    <h3 className="text-3xl font-florenza">Blindaje de <span className="text-naranja italic">Marca</span></h3>
+                    <p className="text-lg text-cremita italic font-light">"Protegemos el valor corporativo para asegurar la escalabilidad infinita del proyecto."</p>
+                    
+                    <p className="text-sm leading-relaxed text-cremita/90 font-medium">
+                        Para garantizar la seguridad del negocio a largo plazo, la sociedad (Socio + César) es dueña de los activos tangibles (Tierra, Glampings, Cafetería), mientras que la **Marca Registrada "Aroma de Montaña"** y su propiedad intelectual permanecen bajo control exclusivo del fundador.
+                    </p>
 
-                    <div className="p-8 bg-white rounded-3xl border border-verde-oscuro/5 shadow-inner scale-105">
+                    <div className="p-8 bg-white/10 rounded-3xl border border-white/20 shadow-inner backdrop-blur-md">
                         <div className="flex justify-between items-center mb-6">
-                            <p className="text-[10px] font-black uppercase tracking-widest text-naranja italic">Avance Legal / Permisos</p>
-                            <span className="px-3 py-1 bg-green-100 text-green-700 rounded-full text-[10px] font-bold">Vigente</span>
+                            <p className="text-[10px] font-black uppercase tracking-widest text-naranja italic">Seguridad Jurídica</p>
+                            <span className="px-3 py-1 bg-naranja text-cafe-acento rounded-full text-[10px] font-black">Resguardo SENADI</span>
                         </div>
                         <div className="space-y-6">
-                            <div className="flex items-center justify-between text-xs">
-                                <span className="font-bold text-gris-oscuro">Validado por:</span>
-                                <span className="text-verde-oscuro font-black">Arq. Juan Salinas</span>
-                            </div>
-                            <Link
-                                href="https://wa.me/593963410409?text=Hola%2C%20me%20gustar%C3%ADa%20ver%20el%20peritaje%20de%20la%20documentaci%C3%B3n%20en%20SENADI%20para%20el%20proyecto%20Aroma%20de%20Monta%C3%B1a."
+                            <ul className="text-xs space-y-3 text-cremita font-medium">
+                                <li className="flex items-center gap-2">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-naranja" />
+                                    Marca registrada por 10 años renovables.
+                                </li>
+                                <li className="flex items-center gap-2">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-naranja" />
+                                    Know-how de operación hotelera protegido.
+                                </li>
+                                <li className="flex items-center gap-2">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-naranja" />
+                                    Blindaje contra contingencias externas.
+                                </li>
+                            </ul>
+                            <a
+                                href="https://wa.me/593963410409"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="btn-primary w-full py-4 text-xs font-black uppercase tracking-widest text-center block"
+                                className="bg-naranja text-cafe-acento px-8 py-4 rounded-xl text-xs font-black uppercase tracking-widest text-center block hover:bg-white hover:scale-[1.02] transition-all shadow-lg"
                             >
-                                Validar Documentación en SENADI
-                            </Link>
+                                Solicitar Registro de Propiedad
+                            </a>
                         </div>
                     </div>
                 </div>

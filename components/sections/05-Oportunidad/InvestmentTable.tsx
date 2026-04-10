@@ -4,57 +4,56 @@ import { motion } from 'framer-motion';
 
 const investmentOptions = [
     {
-        name: 'Certificado Básico',
-        investment: '$30,000',
-        roi: '35.4%',
-        payback: '2.8 años',
-        term: '5 años',
-        personalUse: 'No permitido',
-        profile: 'Recuperación rápida',
+        name: 'Socio Estratégico',
+        investment: '$230,000',
+        roi: '113%',
+        payback: '1 año',
+        term: 'Perpetuo',
+        personalUse: 'Ilimitado (Gobernanza)',
+        profile: 'Copresidencia 50/50',
         features: [
-            'ROI más alto del mercado',
-            'Recuperación en menos de 3 años',
-            'Participación en 1 glamping estándar',
-            '70% de utilidades netas',
-            'Transferible durante el periodo',
-            'Ideal para inversores financieros',
+            '50% de TODO el ecosistema (7 motores)',
+            'Derecho a voto en Asamblea de Socios',
+            'Copropiedad notariada de 23.5ha',
+            'Recuperación total en el Año 1',
+            'Acceso a utilidades por venta de activos',
+            'Blindaje jurídico total',
         ],
         highlighted: true,
     },
     {
-        name: 'Certificado Preferente',
+        name: 'Glamping Estándar',
         investment: '$100,000',
-        roi: '14.72%',
-        payback: '6.8 años',
+        roi: '5.5% - 11.5%',
+        payback: '8-9 años',
         term: 'Perpetuo',
         personalUse: '10 días/año',
-        profile: 'Institucional/Heredable',
+        profile: 'Inversor Pasivo',
         features: [
-            'Participación perpetua',
-            'Glamping de diseño premium',
-            'Mayor presupuesto de marketing',
-            'Uso personal recreativo',
-            'Activo heredable',
-            'Ubicación privilegiada',
+            'Participación en unidad individual',
+            '50% de utilidad operativa líquida',
+            'Mantenimiento y marketing cubiertos',
+            'Activo patrimonial heredable',
+            'Escritura pública de copropiedad',
+            'Gestión hotelera profesional 100%',
         ],
         highlighted: false,
     },
     {
         name: 'Residencia 360',
         investment: '$250,000',
-        roi: '8.1%',
-        roiNote: '(Combinado)',
-        payback: '12.3 años',
+        roi: '4.4% - 9.2%',
+        payback: '10-11 años',
         term: 'Perpetuo',
         personalUse: '60 días/año',
-        profile: 'Segunda residencia + ROI',
+        profile: 'Segunda Residencia + ROI',
         features: [
-            'Uso extenso como segunda residencia',
-            'Capacidad para 12 personas',
-            'Equipamiento completo (cocina, sala)',
-            'Pool hotelero en días no usados',
-            'Activo patrimonial de largo plazo',
+            'Glamping de ultra-lujo (12 personas)',
+            '60 días de uso personal al año',
             '3 habitaciones independientes',
+            'Ubicación con vistas 360°',
+            'Alta plusvalía por exclusividad',
+            'Incluido en pool operativo hotelero',
         ],
         highlighted: false,
     },
@@ -120,7 +119,7 @@ export default function InvestmentTable() {
                                     }`}>
                                     <span className="font-medium">ROI Anual</span>
                                     <span className="text-2xl font-bold">
-                                        {option.roi} {option.roiNote && <span className="text-sm font-normal">{option.roiNote}</span>}
+                                        {option.roi}
                                     </span>
                                 </div>
                                 <div className={`flex justify-between items-center pb-3 border-b ${option.highlighted ? 'border-white/20' : 'border-gris-oscuro/20'
@@ -187,21 +186,21 @@ export default function InvestmentTable() {
                             ¿Qué recibe el inversor?
                         </h4>
                         <p className="text-cremita/90 leading-relaxed mb-6">
-                            No adquiere acciones de la S.A.S., sino el derecho al <strong className="text-naranja">70% de la utilidad neta</strong> generada
-                            por su unidad de alojamiento, custodiada por el Fideicomiso Mercantil.
+                            No adquiere acciones de la S.A.S., sino el derecho al <strong className="text-naranja">50% de la utilidad operativa líquida</strong> generada
+                            por su unidad de alojamiento o por todo el ecosistema (Socio), respaldada por escritura pública de copropiedad tangible.
                         </p>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                             <div className="bg-verde-oscuro/50 rounded-lg p-4">
-                                <div className="text-naranja text-3xl font-bold mb-2">19%</div>
-                                <div className="text-cremita text-sm">Punto de Equilibrio</div>
+                                <div className="text-naranja text-3xl font-bold mb-2">113%</div>
+                                <div className="text-cremita text-sm">Punto de Equilibrio (Socio)</div>
                             </div>
                             <div className="bg-verde-oscuro/50 rounded-lg p-4">
-                                <div className="text-naranja text-3xl font-bold mb-2">6</div>
-                                <div className="text-cremita text-sm">Líneas de Ingreso</div>
+                                <div className="text-naranja text-3xl font-bold mb-2">7</div>
+                                <div className="text-cremita text-sm">Motores de Ingreso</div>
                             </div>
                             <div className="bg-verde-oscuro/50 rounded-lg p-4">
                                 <div className="text-naranja text-3xl font-bold mb-2">100%</div>
-                                <div className="text-cremita text-sm">Transparencia</div>
+                                <div className="text-cremita text-sm">Transparencia Notariada</div>
                             </div>
                         </div>
                     </div>

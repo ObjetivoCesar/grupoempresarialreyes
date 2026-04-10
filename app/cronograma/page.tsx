@@ -8,7 +8,7 @@ const phases = [
         phase: 'Mes 1-2',
         title: 'Fase Legal y Estructural',
         status: 'Completado',
-        items: ['Estructuración Fideicomiso Mercantil.', 'Escrituración de activos al patrimonio autónomo.', 'Lanzamiento de Certificados de Participación.']
+        items: ['Escrituración Notariada de Sociedad 50/50.', 'Escrituración de activos al asiento societario.', 'Formalización de la Sociedad 50/50.']
     },
     {
         phase: 'Mes 3-5',

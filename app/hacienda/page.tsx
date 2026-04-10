@@ -63,13 +63,16 @@ export default function HaciendaPage() {
                         </p>
                     </div>
                 </div>
-                <div className="relative h-[300px] rounded-3xl overflow-hidden shadow-xl">
-                    <Image
-                        src="/Images/hacienda-view.jpg"
-                        alt="Hacienda View"
-                        fill
-                        className="object-cover"
-                    />
+                <div className="space-y-6">
+                    <h2 className="text-3xl font-florenza text-verde-oscuro">Estructura <span className="text-naranja italic">Patrimonial</span></h2>
+                    <p className="text-gris-oscuro/80 leading-relaxed font-poppins">
+                        Al ingresar como Socio Estratégico, tu capital de $230,000 USD adquiere el 50% de la sociedad empresarial, la cual <strong>incluye como activo todo el terreno rural productivo (23.5 hectáreas) y su infraestructura base</strong>.
+                    </p>
+                    <div className="p-6 bg-naranja/5 rounded-2xl border-l-4 border-naranja">
+                        <p className="text-sm font-medium italic text-naranja font-poppins">
+                            Blindaje Inteligente: La sociedad es dueña compartida de la propiedad física (50/50), pero la <strong>Marca "Aroma de Montaña" y su propiedad intelectual</strong> permanecen exclusivamente bajo César Reyes.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>

@@ -121,7 +121,7 @@ export default function RevenueStreams() {
                             </p>
                             <ul className="space-y-3">
                                 {[
-                                    'Distribución automática vía Fideicomiso',
+                                    'Distribución automática societaria',
                                     'Sin discrecionalidad humana',
                                     'Dashboard en tiempo real',
                                     'Reportes mensuales detallados',

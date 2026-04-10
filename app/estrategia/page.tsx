@@ -29,62 +29,44 @@ const strategies = [
 ];
 
 const investmentData = {
-    '30k': {
-        label: 'Modelo Básico ($30k)',
+    'socio': {
+        label: 'Socio Estratégico ($230k)',
         projections: [
-            { year: 'Y1 (4m)', value: 6800 },
-            { year: 'Año 2', value: 9850 },
-            { year: 'Año 3', value: 11753 },
-            { year: 'Año 4', value: 11200 },
-            { year: 'Año 5', value: 11500 },
-            { year: 'Y6 (8m)', value: 11347 },
+            { year: 'Inv. Inicial', value: 230000 },
+            { year: 'Año 1 (Ret.)', value: 261373 },
+            { year: 'Año 2', value: 401373 },
+            { year: 'Año 3', value: 561373 },
+            { year: 'Año 4', value: 736373 },
+            { year: 'Año 5', value: 928873 },
         ],
         mix: [
-            { label: 'Hospedaje Glamping', pct: 55, color: '#6C7654' },
-            { label: 'Retiros Longevidad', pct: 25, color: '#43281C' },
-            { label: 'Café & Otros', pct: 20, color: '#FCA259' },
+            { label: 'Utilidad por Ventas (50%)', pct: 60, color: '#FCA259' },
+            { label: 'Utilidad Operativa (50%)', pct: 40, color: '#6C7654' },
         ]
     },
-    '100k': {
-        label: 'Modelo Preferente ($100k)',
+    'glamping': {
+        label: 'Dueño de Glamping ($100k)',
         projections: [
-            { year: 'Y1 (4m)', value: 24500 },
-            { year: 'Año 2', value: 36800 },
-            { year: 'Año 3', value: 43200 },
-            { year: 'Año 4', value: 42100 },
-            { year: 'Año 5', value: 44500 },
-            { year: 'Y6 (8m)', value: 29666 },
+            { year: 'Inv. Inicial', value: 100000 },
+            { year: 'Año 1', value: 5500 },
+            { year: 'Año 2', value: 13750 },
+            { year: 'Año 3', value: 23375 },
+            { year: 'Año 4', value: 33875 },
+            { year: 'Año 5', value: 45375 },
         ],
         mix: [
-            { label: 'Hospedaje Glamping', pct: 60, color: '#6C7654' },
-            { label: 'Retiros Longevidad', pct: 25, color: '#43281C' },
-            { label: 'Café & Otros', pct: 15, color: '#FCA259' },
-        ]
-    },
-    '250k': {
-        label: 'Residencial 360 ($250k)',
-        projections: [
-            { year: 'Y1 (4m)', value: 27000 },
-            { year: 'Año 2', value: 81000 },
-            { year: 'Año 3', value: 95000 },
-            { year: 'Año 4', value: 92000 },
-            { year: 'Año 5', value: 98000 },
-            { year: 'Y6 (8m)', value: 65333 },
-        ],
-        mix: [
-            { label: 'Hospedaje Glamping', pct: 70, color: '#6C7654' },
-            { label: 'Retiros Longevidad', pct: 20, color: '#43281C' },
-            { label: 'Café & Otros', pct: 10, color: '#FCA259' },
+            { label: 'Renta Hotelera (50%)', pct: 80, color: '#6C7654' },
+            { label: 'Plusvalía Activo', pct: 20, color: '#43281C' },
         ]
     }
 };
 
 export default function EstrategiaPage() {
-    const [tier, setTier] = useState<'30k' | '100k' | '250k'>('30k');
+    const [tier, setTier] = useState<'socio' | 'glamping'>('socio');
     const activeData = investmentData[tier];
 
     // Global scale to show magnitude difference between tiers
-    const globalMaxVal = 130000;
+    const globalMaxVal = 1000000;
 
     const points = activeData.projections.map((p, i) => {
         const x = (i / (activeData.projections.length - 1)) * 100;
@@ -151,7 +133,7 @@ export default function EstrategiaPage() {
                                 onClick={() => setTier(t)}
                                 className={`px-12 md:px-16 py-4 rounded-xl text-xs font-black uppercase tracking-widest transition-all ${tier === t ? 'bg-verde-oscuro text-white shadow-lg' : 'text-gris-oscuro/30 hover:bg-cremita/50'}`}
                             >
-                                {t === '30k' ? '$30k' : t === '100k' ? '$100k' : '$250k'}
+                                {t === 'socio' ? 'Socio Estratégico ($230k)' : 'Dueño Glamping'}
                             </button>
                         ))}
                     </div>

@@ -9,14 +9,14 @@ const units = [
         id: 'hacienda',
         title: '1. Hacienda Aroma de Montaña',
         role: 'Núcleo territorial y base operativa física.',
-        assets: 'El activo territorial que respalda tu inversión: 23.5 hectáreas con USD +210 mil ya ejecutados en infraestructura hídrica, energía renovable y reforestación productiva. No es un proyecto en papel, es un territorio funcionando dentro de la Reserva UNESCO "Bosques de Paz".',
+        assets: 'El activo territorial que respalda tu inversión: 23.5 hectáreas con USD 230 mil ya ejecutados en infraestructura hídrica, energía renovable y reforestación productiva. Buscamos un socio estratégico que invierta un capital equivalente ($230k) para el escalamiento operativo final.',
         responsibilities: [
             'Mantener infraestructura (18 glampings, 5km senderos).',
             'Producción agrícola regenerativa (Café especialidad, 3000 frutales).',
             'Operar la experiencia base de la marca.'
         ],
         model: [
-            'Activo tangible custodiado por fideicomiso: Tierra, glampings e infraestructura real valorizada en USD $600,000+',
+            'Activo tangible en Copropiedad Notariada: Tierra, glampings e infraestructura real valorizada en USD $600,000+',
             'Infraestructura crítica completada: 2 reservorios (8,000 m³), 5 kilometros de senderos, 3,000 árboles frutales',
             'Ubicación estratégica: 40 min del aeropuerto, sobre Panamericana, acceso pavimentado todo el año',
             'Apertura agosto 2027: Inversión pre-operativa con descuento del 15% vs. post-inauguración'
@@ -78,17 +78,17 @@ const units = [
         id: 'operations',
         title: '2. Aroma de Montaña Operations',
         role: 'Motor comercial y gestor de inteligencia de mercado.',
-        assets: 'El motor comercial que transforma la hacienda en flujo de caja predecible: 6 líneas de ingreso diversificadas generan utilidades desde el mes 1, distribuidas automáticamente vía fideicomiso.',
+        assets: 'El motor comercial que transforma la hacienda en flujo de caja predecible: 7 motores de ingreso diversificados generan utilidades desde el mes 1, distribuidos directamente bajo el acuerdo societario.',
         responsibilities: [
             'Diseñar experiencias (Aventura, Bienestar, Astronomía).',
             'Gestionar canales de venta (OTAs y corporativos).',
             'Ejecutar distribución financiera automatizada.'
         ],
         model: [
-            'Distribución 70/30 automatizada: 70% de utilidades netas al inversionista mensualmente, 30% a operación',
-            '6 fuentes de ingreso independientes: Glampings, retiros corporativos, cafetería, eventos astronómicos, pasadías, suscripciones',
-            'Punto de equilibrio 19% de ocupación: Proyección conservadora 20% año 2 (vs. 70% hoteles tradicionales)',
-            'Transparencia total en tiempo real: Dashboard personalizado muestra cada reserva, pago y utilidad de tu glamping'
+            'Distribución 50/50 automatizada: 50% de utilidades netas al inversionista mensualmente, 50% a operación/reinversión',
+            '7 fuentes de ingreso independientes: Glampings, retiros corporativos, cafetería, eventos astronómicos, pasadías, suscripciones y venta de productos orgánicos.',
+            'Punto de equilibrio optimizado: Alta rentabilidad desde el mes 1 tras la inauguración.',
+            'Cuentas claras: Participación societaria real respaldada por escritura pública de copropiedad.'
         ],
         youtubeId: null,
         image: '/Images/hacienda-view.jpg',
@@ -149,17 +149,17 @@ const units = [
         id: 'inversiones',
         title: '3. Inversiones Aroma de Montaña',
         role: 'Vehículo de captación y gobernanza legal.',
-        assets: 'Tres vehículos de participación según tu perfil: desde USD $30,000 con ROI 35.4% anual hasta Residencia 360 con uso personal 4 meses/año. Tu certificado está respaldado por activo físico en fideicomiso.',
+        assets: 'Dos vías de participación estratégica: Socio Estratégico ($230,000) o Dueño de Glamping Individual ($100,000 - $250,000). Tu capital está blindado por activos físicos reales y una estructura societaria transparente.',
         responsibilities: [
-            'Estructurar Certificados bajo Fideicomiso Mercantil.',
+            'Escrituración Notariada de la Sociedad 50/50.',
             'Custodiar activos (Tierra, glampings y marca).',
             'Garantizar transparencia mediante motor de reservas real.'
         ],
         model: [
-            'ROI 14.72% - 35.4% anual: Según vehículo; payback desde 2.8 años (Certificado Básico)',
-            'Protección dual: Flujo de caja mensual + activo físico que respalda tu certificado',
-            'Modelo franquiciable año 5: Tu inversión inicial se revaloriza cuando el proyecto escale regionalmente',
-            'Salida flexible: Certificados transferibles; recompra disponible después de 3 años sin penalización'
+            'Retorno 50/50: Utilidad compartida de todo el ecosistema (Socio) o de tu unidad específica (Dueño).',
+            'Garantía Societaria: Participación directa en la sociedad que es dueña de la tierra y la infraestructura.',
+            'Escalabilidad 2027: Apertura estratégica con el 113% de recuperación proyectada en el Año 1.',
+            'Plusvalía Blindada: El terreno y los activos base aumentan de valor mientas el negocio genera flujo.'
         ],
         youtubeId: null,
         image: '/Images/Inversiones Aroma de Montaña.webp',
@@ -167,7 +167,7 @@ const units = [
             {
                 title: 'Blindaje Fiduciario',
                 tag: 'Seguridad Legal',
-                desc: 'Sus activos no son solo promesas; están custodiados en un Fideicomiso Mercantil que incluye la tierra, la infraestructura y la marca.',
+                desc: 'Sus activos no son solo promesas; están respaldados por una escritura pública de copropiedad que incluye la tierra, la infraestructura y la marca en la Sociedad 50/50.',
                 details: [
                     'Patrimonio autónomo protegido por ley.',
                     'Imposibilidad de gravámenes unilaterales.',
@@ -205,10 +205,10 @@ const units = [
                 tag: 'ROI Dinámico',
                 desc: 'Tres niveles de inversión diseñados para diferentes perfiles, desde el inversor que busca retorno rápido hasta el que desea una segunda residencia.',
                 details: [
-                    'Básico ($30k): Retorno rápido y alta liquidez.',
-                    'Preferente ($100k): Perpetuo con uso personal.',
-                    'Residencial ($250k): Propiedad de alto valor.',
-                    'Payback proyectado promedio de 3 a 7 años.'
+                    'Socio Estratégico ($230k): 50% de todo el ecosistema.',
+                    'Dueño de Glamping ($100k-$250k): 50% de utilidad de unidad.',
+                    'Residencial ($250k): Propiedad de alto valor y uso premium.',
+                    'Recuperación proyectada del 113% en el Año 1.'
                 ],
                 image: '/250k/exterior.jpg'
             }
@@ -293,13 +293,13 @@ export default function EstructuraPage() {
                             </div>
                         </div>
 
-                        <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl min-h-[400px] lg:h-auto group">
+                        <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl aspect-[4/3] lg:aspect-auto lg:min-h-[550px] group">
                             <Image src={activeUnit.image} alt={activeUnit.title} fill className="object-cover group-hover:scale-110 transition-transform duration-1000" />
 
                             {/* Video Background / Overlay */}
                             {activeUnit.youtubeId ? (
                                 <div className="absolute inset-0 pointer-events-none overflow-hidden flex items-center justify-center">
-                                    <div className="relative w-full h-0 pb-[177.77%]"> {/* 16/9 = 1.7777... ratio for vertical video */}
+                                    <div className="relative w-full" style={{ aspectRatio: '9/16' }}>
                                         <iframe
                                             src={`https://www.youtube.com/embed/${activeUnit.youtubeId}?autoplay=1&mute=1&loop=1&playlist=${activeUnit.youtubeId}&controls=0&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&enablejsapi=1`}
                                             className="absolute top-1/2 left-1/2 w-[105%] h-[105%] -translate-x-1/2 -translate-y-1/2"
@@ -359,7 +359,7 @@ export default function EstructuraPage() {
                                     </div>
 
                                     {/* Imagen / Slider / Video */}
-                                    <div className="flex-1 min-h-[400px] relative overflow-hidden">
+                                    <div className="flex-1 w-full lg:w-1/2 aspect-[4/3] shrink-0 relative overflow-hidden">
                                         {p.localVideo ? (
                                             <div className="absolute inset-0">
                                                 <video
@@ -374,7 +374,7 @@ export default function EstructuraPage() {
                                             </div>
                                         ) : p.youtubeId ? (
                                             <div className="absolute inset-0 pointer-events-none overflow-hidden flex items-center justify-center">
-                                                <div className="relative w-full h-0 pb-[177.77%]"> {/* 16/9 = 1.7777... ratio for vertical video */}
+                                                <div className="relative w-full" style={{ aspectRatio: '9/16' }}>
                                                     <iframe
                                                         src={`https://www.youtube.com/embed/${p.youtubeId}?autoplay=1&mute=1&loop=1&playlist=${p.youtubeId}&controls=0&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&enablejsapi=1`}
                                                         className="absolute top-1/2 left-1/2 w-[105%] h-[105%] -translate-x-1/2 -translate-y-1/2"

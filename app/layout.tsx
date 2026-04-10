@@ -12,8 +12,8 @@ export const metadata: Metadata = {
     default: "Aroma de Montaña | Hub del Inversor",
     template: "%s | Aroma de Montaña"
   },
-  description: "Plataforma de alta seguridad para inversores del Grupo Empresarial Reyes. Gestión de activos inmobiliarios, rentabilidad operativa y blindaje fiduciario en Loja, Ecuador.",
-  keywords: ["Inversión Inmobiliaria", "Ecuador", "Loja", "Hacienda Aroma de Montaña", "Agroturismo", "Astroturismo", "Fideicomiso Mercantil"],
+  description: "Plataforma de alta seguridad para inversores del Grupo Empresarial Reyes. Gestión de activos inmobiliarios, rentabilidad operativa y copropiedad notariada en Loja, Ecuador.",
+  keywords: ["Inversión Inmobiliaria", "Ecuador", "Loja", "Hacienda Aroma de Montaña", "Agroturismo", "Astroturismo", "Sociedad 50/50"],
   authors: [{ name: "Grupo Empresarial Reyes" }],
   openGraph: {
     title: "Aroma de Montaña | Inversión Sustentable de Alto Nivel",

@@ -99,12 +99,12 @@ export default function ModeloNegocioPage() {
             {/* Model Strategy Grid */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 <div className="bg-cafe-acento p-12 rounded-[2.5rem] text-cremita shadow-xl overflow-hidden relative">
-                    <h3 className="text-3xl font-florenza mb-6">Eficiencia <span className="text-naranja italic">Operativa</span></h3>
+                    <h3 className="text-3xl font-florenza mb-6">Modelo <span className="text-naranja italic">Dual</span></h3>
                     <p className="text-lg font-light leading-relaxed opacity-80">
-                        Nuestro modelo se aleja de la estructura de "Hotel masivo". Al fraccionar la propiedad y automatizar procesos con ingeniería de software (Dashboard GER), logramos que cada dólar invertido trabaje un 30% más rápido que en activos inmobiliarios tradicionales.
+                        La sociedad (50/50) se apoya en dos pilares fundamentales: <strong>Venta de Activos</strong> (capitalización rápida al construir y vender glampings de lujo) y <strong>Operación Hotelera</strong> (flujo de caja constante de las unidades alquiladas).
                     </p>
                     <div className="mt-8 flex gap-3 flex-wrap">
-                        {['0 Deuda Bancaria', 'Eficiencia Solar', 'Retorno Trimestral'].map((t, i) => (
+                        {['7 Motores de Ingreso', 'Operación 50/50', 'Eficiencia y Escala'].map((t, i) => (
                             <span key={i} className="px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-[10px] font-bold tracking-widest">{t}</span>
                         ))}
                     </div>
@@ -113,13 +113,19 @@ export default function ModeloNegocioPage() {
 
                 <div className="bg-white p-12 rounded-[2.5rem] shadow-md border border-verde-oscuro/5 flex flex-col justify-between">
                     <div className="space-y-4">
-                        <h4 className="text-2xl font-florenza text-verde-oscuro">Regla 70 / 30</h4>
-                        <p className="text-gris-oscuro/70 leading-relaxed font-poppins">
-                            El inversor es el socio principal. El 70% de las rentas netas van directo a su portafolio, mientras GER asume la responsabilidad de mantener el estándar de lujo y la ocupación global.
-                        </p>
+                        <h4 className="text-2xl font-florenza text-verde-oscuro">Los 7 Motores de Ingreso</h4>
+                        <ul className="text-gris-oscuro/70 leading-relaxed font-poppins space-y-2 text-sm">
+                            <li><strong className="text-verde-oscuro">1. Venta de Glampings:</strong> Utilidad de $80k a $150k.</li>
+                            <li><strong className="text-verde-oscuro">2. Alquiler Hotelero:</strong> Ocupación constante B2C.</li>
+                            <li><strong className="text-verde-oscuro">3. Cafetería de Lujo:</strong> Márgenes operativos &gt;60%.</li>
+                            <li><strong className="text-verde-oscuro">4. Retiros y Grupos:</strong> Eventos B2B corporativos.</li>
+                            <li><strong className="text-verde-oscuro">5. Pasadía y Tours:</strong> Tráfico diario de turismo experiencial.</li>
+                            <li><strong className="text-verde-oscuro">6. Eventos Privados:</strong> Renta exclusiva de instalaciones.</li>
+                            <li><strong className="text-verde-oscuro">7. Membresías:</strong> Liquidez anticipada VIP.</li>
+                        </ul>
                     </div>
-                    <div className="pt-8">
-                        <button className="btn-primary w-full">Descargar Plan de Negocios PDF</button>
+                    <div className="pt-8 flex flex-col gap-3">
+                        <a href="/Images/Aroma_de_Montana_Inversion_ES.pdf" target="_blank" className="btn-primary w-full text-center">Descargar Ficha Inversión M. Dual</a>
                     </div>
                 </div>
             </div>

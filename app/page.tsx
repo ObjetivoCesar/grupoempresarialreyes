@@ -4,12 +4,40 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
+import Gallery from '@/components/sections/Gallery';
 
 export default function DashboardHome() {
   const [showMap, setShowMap] = useState(false);
 
+  // Schema.org JSON-LD for InvestmentOrDeposit
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "InvestmentOrDeposit",
+    "name": "Inversión en Aroma de Montaña",
+    "description": "Oportunidades de inversión en turismo sostenible y glamping en Ecuador. Conviértete en socio o dueño de tu glamping.",
+    "amount": {
+      "@type": "MonetaryAmount",
+      "minAmount": "50000",
+      "maxAmount": "330000",
+      "currency": "USD"
+    },
+    "areaServed": {
+      "@type": "Place",
+      "name": "Loja, Ecuador"
+    },
+    "provider": {
+      "@type": "Organization",
+      "name": "Grupo Empresarial Reyes",
+      "url": "https://grupoempresarialreyes.vercel.app"
+    }
+  };
+
   return (
     <div className="space-y-12">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* 5-Second Hero: Oportunidad de Pre-Lanzamiento */}
       <section className="relative rounded-[3rem] overflow-hidden bg-verde-oscuro p-12 md:p-20 text-cremita min-h-[650px] flex items-center shadow-2xl">
         {/* Background Image Layer */}
@@ -47,6 +75,21 @@ export default function DashboardHome() {
             <p className="text-xl md:text-2xl text-cremita/70 leading-relaxed font-light max-w-2xl">
               Conviértete en socio estratégico o adquiere tu propio Glamping de Lujo. Un modelo dual de alta rentabilidad basado en patrimonio real y hospitalidad.
             </p>
+
+            <div className="space-y-3 pt-2">
+              <p className="text-sm font-black uppercase tracking-widest text-cremita/50">¿Cuánto quieres invertir?</p>
+              <div className="flex flex-wrap gap-3">
+                <Link href="/oportunidad" className="bg-white/10 hover:bg-naranja hover:text-white border border-white/20 text-cremita px-5 py-3 rounded-xl transition-all font-bold text-sm backdrop-blur-md">
+                  $330k (Socio Estratégico o participación a prorrata)
+                </Link>
+                <Link href="/oportunidad" className="bg-white/10 hover:bg-naranja hover:text-white border border-white/20 text-cremita px-5 py-3 rounded-xl transition-all font-bold text-sm backdrop-blur-md">
+                  $100k-$250k (Dueño Glamping)
+                </Link>
+                <Link href="/oportunidad" className="bg-white/10 hover:bg-naranja hover:text-white border border-white/20 text-cremita px-5 py-3 rounded-xl transition-all font-bold text-sm backdrop-blur-md">
+                  Desde $50k (Visionario)
+                </Link>
+              </div>
+            </div>
 
             <div className="flex flex-wrap gap-4 pt-4">
               <div className="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
@@ -96,6 +139,9 @@ export default function DashboardHome() {
         ></iframe>
       </section>
 
+      {/* Galería de Impacto */}
+      <Gallery />
+
       {/* Razón de Inversión (Por qué Invertir) */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center pt-8">
         <div className="space-y-6">
@@ -108,9 +154,9 @@ export default function DashboardHome() {
         </div>
         <div className="grid grid-cols-2 gap-4">
           <div className="p-6 md:p-8 bg-verde-oscuro text-cremita rounded-3xl space-y-2">
-            <p className="text-3xl md:text-5xl font-bold text-naranja">113%</p>
-            <p className="text-xs font-bold uppercase tracking-widest">Recuperación Año 1</p>
-            <p className="text-[10px] opacity-50 italic">Para socio estratégico al 50%.</p>
+            <p className="text-3xl md:text-5xl font-bold text-naranja">50%</p>
+            <p className="text-xs font-bold uppercase tracking-widest">Utilidad Neta</p>
+            <p className="text-[10px] opacity-50 italic">Para socio estratégico y dueño operativo.</p>
           </div>
           <div className="p-6 md:p-8 bg-white border border-verde-oscuro/5 rounded-3xl space-y-2 shadow-sm">
             <p className="text-3xl md:text-5xl font-bold text-verde-oscuro">7</p>
@@ -124,8 +170,8 @@ export default function DashboardHome() {
           </div>
           <div className="p-6 md:p-8 bg-cafe-acento text-white rounded-3xl space-y-2 flex flex-col justify-center items-center text-center">
             <p className="text-xs font-bold uppercase tracking-widest text-white/40">Inversión Societaria</p>
-            <p className="text-3xl md:text-5xl font-bold text-naranja">$230k</p>
-            <p className="text-[10px] opacity-70 uppercase font-black tracking-widest leading-tight mt-2">Buscamos Socio 1:1 para Invertir $230k Adicionales</p>
+            <p className="text-3xl md:text-5xl font-bold text-naranja">$330k</p>
+            <p className="text-[10px] opacity-70 uppercase font-black tracking-widest leading-tight mt-2">Participación 50/50 del Proyecto Completo</p>
           </div>
         </div>
       </div>
@@ -174,18 +220,18 @@ export default function DashboardHome() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {[
             {
-              title: 'Agricultura Regenerativa',
-              desc: 'Restauramos la biodiversidad local mediante policultivos y técnicas que sanan la tierra mientras producen valor.',
-              icon: '🌱',
+              title: 'Astroturismo 360',
+              desc: 'Cielos de Clase Mundial en una zona con bajísima contaminación lumínica. Telescopios privados y tours estelares guiados.',
+              icon: '🔭',
             },
             {
-              title: 'Turismo Sostenible',
-              desc: 'Infraestructura de bajo impacto diseñada para coexistir con el entorno virgen, generando empleo local digno.',
-              icon: '🌍',
+              title: 'Monumentos a los Elementos',
+              desc: 'Arquitectura viva: Monumentos al Agua, Aire, Fuego y Tierra diseñados para el recorrido contemplativo y la introspección.',
+              icon: '🗿',
             },
             {
-              title: 'Café Orgánico',
-              desc: 'Producción de café de especialidad (Taza Dorada) que integra al inversor en la cadena de valor agrícola.',
+              title: 'Café de Especialidad',
+              desc: 'Variedades tricampeonas de la Taza Dorada estimuladas con música barroca y frecuencias de 432 Hz para un sabor único.',
               icon: '☕',
             }
           ].map((pillar, i) => (

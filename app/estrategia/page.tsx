@@ -118,6 +118,41 @@ export default function EstrategiaPage() {
                 ))}
             </div>
 
+            {/* Modelo Operadores Internacionales */}
+            <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                className="bg-naranja/10 border-l-8 border-naranja p-10 rounded-[3rem] shadow-sm my-16 space-y-6"
+            >
+                <div className="space-y-2">
+                    <h2 className="text-3xl font-florenza text-verde-oscuro">Aceleración Global: <span className="text-naranja italic">Operadores Internacionales</span></h2>
+                    <p className="text-gris-oscuro/60 font-black uppercase tracking-widest text-[10px]">Ocupación distribuida desde España y Europa</p>
+                </div>
+                <p className="text-lg text-gris-oscuro/80 leading-relaxed font-light max-w-4xl">
+                    Para maximizar la ocupación desde el día 1, el Grupo Empresarial Reyes (GER) establece convenios directos con operadoras turísticas internacionales (ej. agencias especializadas en España). 
+                    Ellas distribuyen la oferta y dirigen flujos de turistas europeos hacia nuestros glampings.
+                </p>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
+                    <div className="p-6 bg-white rounded-2xl border border-naranja/20 shadow-sm space-y-2">
+                        <span className="text-naranja font-black text-2xl">50%</span>
+                        <p className="text-xs font-bold uppercase tracking-widest text-verde-oscuro">Para el Operador</p>
+                        <p className="text-[10px] text-gris-oscuro/60">Del ingreso neto de cada unidad que llenan por su gestión comercial.</p>
+                    </div>
+                    <div className="p-6 bg-verde-oscuro rounded-2xl space-y-2">
+                        <span className="text-cremita font-black text-2xl">50%</span>
+                        <p className="text-xs font-bold uppercase tracking-widest text-naranja">Para GER</p>
+                        <p className="text-[10px] text-cremita/60">Se usa para cubrir los costos de operación, mantenimiento y administración.</p>
+                    </div>
+                    <div className="p-6 bg-cremita border border-naranja/20 rounded-2xl flex items-center">
+                        <p className="text-sm font-bold text-verde-oscuro leading-relaxed">
+                            <span className="text-naranja block mb-1">El inversor dueño de la unidad</span> 
+                            mantiene intacta su participación acordada sin preocuparse por la captación ni la gestión.
+                        </p>
+                    </div>
+                </div>
+            </motion.div>
+
             {/* Financial Projections Section */}
             <div className="space-y-8">
                 <div className="flex flex-col md:flex-row justify-between items-end gap-6">

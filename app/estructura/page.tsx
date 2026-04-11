@@ -16,7 +16,7 @@ const units = [
             'Operar la experiencia base de la marca.'
         ],
         model: [
-            'Activo tangible en Copropiedad Notariada: Tierra, glampings e infraestructura real valorizada en USD $600,000+',
+            'Activo tangible en Copropiedad Notariada: Tierra, glampings e infraestructura real valorizada en USD $460,000+',
             'Infraestructura crítica completada: 2 reservorios (8,000 m³), 5 kilometros de senderos, 3,000 árboles frutales',
             'Ubicación estratégica: 40 min del aeropuerto, sobre Panamericana, acceso pavimentado todo el año',
             'Apertura agosto 2027: Inversión pre-operativa con descuento del 15% vs. post-inauguración'
@@ -51,7 +51,7 @@ const units = [
             {
                 title: 'Glampings de Lujo',
                 tag: 'Confort Sustentable',
-                desc: 'Unidades prefabricadas de mínimo impacto. Contamos con domos para 6 personas y residencias de lujo para 12 personas, todas equipadas con tecnología solar y vistas 360 grados.',
+                desc: 'Unidades prefabricadas de mínimo impacto. Contaremos con casas alpinas para 6 personas y residencias de lujo para 12 personas, todas equipadas con tecnología solar y vistas 360 grados.',
                 details: [
                     'Unidades para 6 y 12 personas.',
                     'Energía 100% solar fotovoltaica.',
@@ -158,18 +158,18 @@ const units = [
         model: [
             'Retorno 50/50: Utilidad compartida de todo el ecosistema (Socio) o de tu unidad específica (Dueño).',
             'Garantía Societaria: Participación directa en la sociedad que es dueña de la tierra y la infraestructura.',
-            'Escalabilidad 2027: Apertura estratégica con el 113% de recuperación proyectada en el Año 1.',
+            'Apertura oficial en agosto 2027.',
             'Plusvalía Blindada: El terreno y los activos base aumentan de valor mientas el negocio genera flujo.'
         ],
         youtubeId: null,
         image: '/Images/Inversiones Aroma de Montaña.webp',
         pillars: [
             {
-                title: 'Blindaje Fiduciario',
+                title: 'Protección Jurídica',
                 tag: 'Seguridad Legal',
-                desc: 'Sus activos no son solo promesas; están respaldados por una escritura pública de copropiedad que incluye la tierra, la infraestructura y la marca en la Sociedad 50/50.',
+                desc: 'Sus activos no son solo promesas; están respaldados por contratos privados, cuentas en participación o copropiedad directa en la sociedad, asegurando transparencia y estabilidad.',
                 details: [
-                    'Patrimonio autónomo protegido por ley.',
+                    'Contratos claros según estructura legal en Ecuador.',
                     'Imposibilidad de gravámenes unilaterales.',
                     'Garantía real sobre el activo físico (Tierra).',
                     'Estructura legal de máxima transparencia.'
@@ -205,10 +205,10 @@ const units = [
                 tag: 'ROI Dinámico',
                 desc: 'Tres niveles de inversión diseñados para diferentes perfiles, desde el inversor que busca retorno rápido hasta el que desea una segunda residencia.',
                 details: [
-                    'Socio Estratégico ($230k): 50% de todo el ecosistema.',
+                    'Socio Estratégico ($330k): 50% de todo el ecosistema.',
                     'Dueño de Glamping ($100k-$250k): 50% de utilidad de unidad.',
-                    'Residencial ($250k): Propiedad de alto valor y uso premium.',
-                    'Recuperación proyectada del 113% en el Año 1.'
+                    'Inversor Visionario (desde $50k): Participación proporcional.',
+                    'Retorno sobre la utilidad neta proyectada en 12-24 meses.'
                 ],
                 image: '/250k/exterior.jpg'
             }
@@ -220,8 +220,36 @@ export default function EstructuraPage() {
     const [activeTab, setActiveTab] = useState('hacienda');
     const activeUnit = units.find(u => u.id === activeTab) || units[0];
 
+    const jsonLd = {
+        "@context": "https://schema.org",
+        "@type": ["LocalBusiness", "TouristAttraction", "LodgingBusiness"],
+        "name": "Hacienda Aroma de Montaña",
+        "description": "Infraestructura turística sostenible con glampings, cafetería y agroturismo en Loja.",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Paltas",
+            "addressRegion": "Loja",
+            "addressCountry": "EC"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "-4.0108818",
+            "longitude": "-79.6106874"
+        },
+        "url": "https://grupoempresarialreyes.vercel.app",
+        "telephone": "+593963410409",
+        "parentOrganization": {
+            "@type": "Organization",
+            "name": "Grupo Empresarial Reyes"
+        }
+    };
+
     return (
         <div className="space-y-16 pb-20">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
             {/* Cabecera de Sección */}
             <section className="bg-verde-oscuro p-12 rounded-[3rem] text-cremita shadow-2xl overflow-hidden relative border border-white/10">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-naranja/10 rounded-full blur-3xl -mr-20 -mt-20"></div>
@@ -409,6 +437,28 @@ export default function EstructuraPage() {
                     </div>
                 </motion.div>
             </AnimatePresence>
+
+            {/* Como funciona paso a paso */}
+            <section className="bg-verde-oscuro p-12 rounded-[3rem] text-cremita shadow-2xl relative overflow-hidden">
+                <div className="absolute top-0 left-0 w-64 h-64 bg-naranja/10 rounded-full blur-3xl -ml-20 -mt-20"></div>
+                <div className="relative z-10">
+                    <h2 className="text-4xl font-florenza mb-10">¿Cómo funciona <span className="text-naranja italic">paso a paso?</span></h2>
+                    <div className="space-y-6 max-w-4xl">
+                        {[
+                            "(1) Socio estratégico aporta $330k → entra al 50/50 del Grupo Empresarial Reyes.",
+                            "(2) Con ese capital se construyen primeros glampings y se finaliza infraestructura.",
+                            "(3) En 6-12 meses: lanzamiento con retiros espirituales, cafetería y agroturismo.",
+                            "(4) GER incorpora inversores de unidades individuales y visionarios.",
+                            "(5) Ingresos operativos + ventas de unidades generan retornos al socio estratégico."
+                        ].map((step, i) => (
+                            <div key={i} className="flex items-start gap-4 p-4 bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl">
+                                <span className="text-naranja font-black text-xl leading-none mt-1">{i + 1}</span>
+                                <p className="text-lg font-light leading-relaxed text-white/90">{step}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
         </div>
     );
 }

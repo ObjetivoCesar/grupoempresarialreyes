@@ -121,8 +121,33 @@ const roles = [
 export default function GobernanzaPage() {
     const [selectedRole, setSelectedRole] = useState(roles[0]);
 
+    const jsonLd = {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Organization",
+                "name": "Grupo Empresarial Reyes",
+                "url": "https://grupoempresarialreyes.vercel.app",
+                "description": "Desarrolladores del ecosistema de turismo sostenible Aroma de Montaña"
+            },
+            {
+                "@type": "Person",
+                "name": "César Reyes",
+                "jobTitle": "Fundador y Socio Estratégico",
+                "worksFor": {
+                    "@type": "Organization",
+                    "name": "Grupo Empresarial Reyes"
+                }
+            }
+        ]
+    };
+
     return (
         <div className="space-y-12 pb-20">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
             {/* Header Section */}
             <section className="bg-verde-oscuro p-8 md:p-12 rounded-[2rem] md:rounded-[3rem] text-cremita border-l-8 border-naranja shadow-2xl relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-naranja/10 rounded-full blur-3xl -mr-20 -mt-20"></div>

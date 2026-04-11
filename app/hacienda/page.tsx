@@ -1,9 +1,35 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import VideoModal from '@/components/ui/VideoModal';
+
+interface VideoItem {
+    title: string;
+    youtubeId: string;
+    category: string;
+    thumbnail: string;
+}
 
 export default function HaciendaPage() {
+    const [modalConfig, setModalConfig] = useState({ isOpen: false, youtubeId: '' });
+    const [shorts, setShorts] = useState<VideoItem[]>([]);
+
+    useEffect(() => {
+        fetch('/video-registry.json')
+            .then(res => res.json())
+            .then(data => {
+                // Filtrar solo shorts relevantes para Hacienda (Café y Agricultura)
+                const relevant = data.shorts.filter((s: VideoItem) => 
+                    s.category === 'Café' || s.category === 'Agricultura'
+                );
+                setShorts(relevant);
+            });
+    }, []);
+
+    const openVideo = (id: string) => setModalConfig({ isOpen: true, youtubeId: id });
+
     const stats = [
         { label: 'Título Property', val: 'Hacienda Aroma de Montaña', icon: '📍' },
         { label: 'Área Total', val: '23.5 Hectáreas', icon: '📏' },
@@ -75,6 +101,102 @@ export default function HaciendaPage() {
                     </div>
                 </div>
             </div>
+
+            {/* Ramiro & Coffee Section */}
+            <section className="bg-verde-oscuro rounded-[3rem] overflow-hidden shadow-2xl">
+                <div className="grid grid-cols-1 lg:grid-cols-2">
+                    <div className="p-12 md:p-16 space-y-8 flex flex-col justify-center">
+                        <div className="space-y-4">
+                            <span className="text-naranja font-black uppercase tracking-[0.3em] text-xs">El Patrimonio Humano</span>
+                            <h2 className="text-4xl md:text-5xl font-florenza text-cremita">Ramiro: El Maestro de la <span className="text-naranja italic">Taza Dorada</span></h2>
+                        </div>
+                        
+                        <p className="text-cremita/80 leading-relaxed text-lg font-poppins">
+                            La tierra por sí sola es solo tierra. El valor real viene del conocimiento. <strong>Ramiro</strong>, nuestro experto caficultor, es la leyenda viviente detrás de cada grano en Aroma de Montaña. 
+                        </p>
+                        
+                        <div className="space-y-4">
+                            <div className="flex gap-4 items-center bg-white/5 p-4 rounded-2xl border border-white/10">
+                                <div className="text-3xl">🏆</div>
+                                <div>
+                                    <p className="text-cremita font-bold">Multiganador Taza Dorada</p>
+                                    <p className="text-cremita/60 text-sm">El reconocimiento más alto al café de especialidad en Ecuador.</p>
+                                </div>
+                            </div>
+                            <p className="text-cremita/70 text-sm italic font-poppins">
+                                "No solo cultivamos café; cultivamos una herencia de sabor que solo estas montañas pueden ofrecer a esa altitud."
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div className="relative h-[400px] lg:h-auto group">
+                        <Image
+                            src="/Images/optimized/Café - Especialidad/PXL_20240704_192559674.webp"
+                            alt="Ramiro Trabajando el Café"
+                            fill
+                            className="object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-r from-verde-oscuro via-transparent to-transparent lg:hidden" />
+                    </div>
+                </div>
+            </section>
+
+            {/* Coffee Grid Detail */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                {[
+                    '/Images/optimized/Café - Especialidad/PXL_20240629_141006374.webp',
+                    '/Images/optimized/Café - Especialidad/PXL_20240629_144935774.webp',
+                    '/Images/optimized/Café - Especialidad/PXL_20240704_192739937.webp',
+                    '/Images/optimized/Café - Especialidad/PXL_20240316_214122874.webp'
+                ].map((src, i) => (
+                    <div key={i} className="h-48 relative rounded-3xl overflow-hidden shadow-lg">
+                        <Image src={src} alt="Detalle Café" fill className="object-cover" />
+                    </div>
+                ))}
+            </div>
+
+            {/* LIVE PROCESSES: STORY FEED */}
+            {shorts.length > 0 && (
+                <section className="py-12 space-y-8">
+                    <div className="flex items-center gap-4">
+                        <div className="w-12 h-12 bg-naranja/20 rounded-full flex items-center justify-center text-naranja text-2xl">📱</div>
+                        <div>
+                            <h2 className="text-3xl font-florenza text-verde-oscuro leading-none">Procesos en Vivo</h2>
+                            <p className="text-sm text-gris-oscuro/50 font-poppins mt-1">Vea la autenticidad de nuestra agricultura regenerativa.</p>
+                        </div>
+                    </div>
+                    
+                    <div className="flex gap-4 overflow-x-auto pb-6 no-scrollbar snap-x">
+                        {shorts.map((short, i) => (
+                            <motion.div
+                                key={i}
+                                whileHover={{ scale: 1.05, y: -5 }}
+                                onClick={() => openVideo(short.youtubeId)}
+                                className="relative flex-none w-[180px] aspect-[9/16] rounded-3xl overflow-hidden bg-verde-oscuro cursor-pointer group shadow-lg border-2 border-white/50 snap-center"
+                            >
+                                <Image 
+                                    src={short.thumbnail} 
+                                    alt={short.title} 
+                                    fill 
+                                    className="object-cover opacity-80 group-hover:opacity-100 transition-opacity" 
+                                />
+                                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 p-4">
+                                    <p className="text-white font-bold text-xs leading-tight">{short.title}</p>
+                                </div>
+                                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-naranja/90 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                    <div className="w-0 h-0 border-t-[6px] border-t-transparent border-l-[10px] border-l-white border-b-[6px] border-b-transparent ml-1" />
+                                </div>
+                            </motion.div>
+                        ))}
+                    </div>
+                </section>
+            )}
+
+            <VideoModal 
+                isOpen={modalConfig.isOpen} 
+                onClose={() => setModalConfig({ ...modalConfig, isOpen: false })} 
+                youtubeId={modalConfig.youtubeId} 
+            />
         </div>
     );
 }

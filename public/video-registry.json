@@ -1,0 +1,77 @@
+{
+  "featured": {
+    "title": "Aroma de Montaña: El Video Maestro",
+    "youtubeId": "_zVqx9Re0f0",
+    "category": "Principal"
+  },
+  "standard": [
+    {
+      "title": "Producción de Bochashi",
+      "youtubeId": "hcpW_DY6Xr0",
+      "category": "Agricultura",
+      "thumbnail": "https://img.youtube.com/vi/hcpW_DY6Xr0/maxresdefault.jpg"
+    },
+    {
+      "title": "Lluvia de Meteoritos Perseidas",
+      "youtubeId": "ncr7iRRJ_Uw",
+      "category": "Experiencia",
+      "thumbnail": "https://img.youtube.com/vi/ncr7iRRJ_Uw/maxresdefault.jpg"
+    },
+    {
+      "title": "Agricultura Regenerativa I",
+      "youtubeId": "9Eq5-3HcY1M",
+      "category": "Agricultura",
+      "thumbnail": "https://img.youtube.com/vi/9Eq5-3HcY1M/maxresdefault.jpg"
+    },
+    {
+      "title": "Agricultura Regenerativa II",
+      "youtubeId": "pOgNXk8R8fY",
+      "category": "Agricultura",
+      "thumbnail": "https://img.youtube.com/vi/pOgNXk8R8fY/maxresdefault.jpg"
+    }
+  ],
+  "shorts": [
+    {
+      "title": "Café de Especialidad",
+      "youtubeId": "xF9sMpblm8c",
+      "category": "Café",
+      "thumbnail": "https://img.youtube.com/vi/xF9sMpblm8c/maxresdefault.jpg"
+    },
+    {
+      "title": "Cosecha de Café",
+      "youtubeId": "hxJ3xQz0ngc",
+      "category": "Café",
+      "thumbnail": "https://img.youtube.com/vi/hxJ3xQz0ngc/maxresdefault.jpg"
+    },
+    {
+      "title": "OVNIs en Aroma de Montaña",
+      "youtubeId": "PO3Z3E9v8NE",
+      "category": "Misterio",
+      "thumbnail": "https://img.youtube.com/vi/PO3Z3E9v8NE/maxresdefault.jpg"
+    },
+    {
+      "title": "Atardeceres",
+      "youtubeId": "5XsuCyPb3YY",
+      "category": "Experiencia",
+      "thumbnail": "https://img.youtube.com/vi/5XsuCyPb3YY/maxresdefault.jpg"
+    },
+    {
+      "title": "Producción Orgánica I",
+      "youtubeId": "plvtBxOjnw4",
+      "category": "Agricultura",
+      "thumbnail": "https://img.youtube.com/vi/plvtBxOjnw4/maxresdefault.jpg"
+    },
+    {
+      "title": "Producción Orgánica II",
+      "youtubeId": "YE3SpFWSEv4",
+      "category": "Agricultura",
+      "thumbnail": "https://img.youtube.com/vi/YE3SpFWSEv4/maxresdefault.jpg"
+    },
+    {
+      "title": "Amaneceres en AM",
+      "youtubeId": "f7f7LTh-Ty0",
+      "category": "Experiencia",
+      "thumbnail": "https://img.youtube.com/vi/f7f7LTh-Ty0/maxresdefault.jpg"
+    }
+  ]
+}

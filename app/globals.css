@@ -148,5 +148,21 @@ h2 {
   background-color: transparent !important;
   color: #6C7654 !important;
   font-weight: 700 !important;
-  border: none !important;
+/* Custom Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(237, 232, 209, 0.1);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.custom-scrollbar:hover::-webkit-scrollbar-thumb {
+  background: rgba(237, 232, 209, 0.3);
 }

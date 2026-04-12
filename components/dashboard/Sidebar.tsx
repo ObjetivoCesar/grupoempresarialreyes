@@ -4,7 +4,8 @@ import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronDown } from 'lucide-react';
 import { getAssetUrl } from '@/lib/assets';
 const navGroups = [
     {
@@ -122,6 +123,25 @@ const navGroups = [
 export default function AppSidebar() {
     const pathname = usePathname();
     const [isOpen, setIsOpen] = useState(false);
+    const [openGroups, setOpenGroups] = useState<Record<string, boolean>>({});
+
+    // Auto-open group containing current path
+    useEffect(() => {
+        const currentGroup = navGroups.find(group => 
+            group.items.some(item => item.href === pathname)
+        );
+        if (currentGroup) {
+            setOpenGroups(prev => ({ ...prev, [currentGroup.title]: true }));
+        }
+    }, [pathname]);
+
+    const toggleGroup = (title: string, isSingleItem: boolean) => {
+        if (isSingleItem) return;
+        setOpenGroups(prev => ({
+            ...prev,
+            [title]: !prev[title]
+        }));
+    };
 
     // Cerrar sidebar al cambiar de ruta en móvil
     useEffect(() => {
@@ -178,33 +198,67 @@ export default function AppSidebar() {
                     </p>
                 </div>
 
-                <nav className="flex-1 px-4 py-8 lg:py-8 pt-20 lg:pt-8 space-y-8 overflow-y-auto custom-scrollbar">
-                    {navGroups.map((group) => (
-                        <div key={group.title} className="space-y-2">
-                            <h3 className="px-4 text-[10px] font-black uppercase tracking-[0.2em] text-cremita/30 mb-4">
-                                {group.title}
-                            </h3>
-                            <div className="space-y-1">
-                                {group.items.map((item) => {
-                                    const isActive = pathname === item.href;
-                                    return (
-                                        <Link key={item.name} href={item.href}>
-                                            <motion.div
-                                                whileHover={{ x: 4 }}
-                                                className={`flex items-center gap-3 px-4 py-2.5 rounded-xl transition-all duration-300 ${isActive
-                                                    ? 'bg-naranja text-white shadow-lg'
-                                                    : 'hover:bg-white/5 text-cremita/70 hover:text-cremita'
-                                                    }`}
-                                            >
-                                                {item.icon}
-                                                <span className="font-medium text-sm">{item.name}</span>
-                                            </motion.div>
-                                        </Link>
-                                    );
-                                })}
+                <nav className="flex-1 px-4 py-8 lg:py-8 pt-20 lg:pt-8 space-y-4 overflow-y-auto custom-scrollbar">
+                    {navGroups.map((group) => {
+                        const isExpanded = !!openGroups[group.title];
+                        const isSingleItem = group.items.length === 1;
+                        const hasActiveItem = group.items.some(item => pathname === item.href);
+
+                        return (
+                            <div key={group.title} className="space-y-1">
+                                <button
+                                    onClick={() => toggleGroup(group.title, isSingleItem)}
+                                    className={`w-full flex items-center justify-between px-4 py-2 text-[10px] font-black uppercase tracking-[0.2em] transition-all duration-300 rounded-lg ${
+                                        isExpanded || hasActiveItem 
+                                        ? 'text-cremita bg-white/5' 
+                                        : 'text-cremita/30 hover:text-cremita/60 hover:bg-white/5'
+                                    }`}
+                                >
+                                    <span>{group.title}</span>
+                                    {!isSingleItem && (
+                                        <motion.div
+                                            animate={{ rotate: isExpanded ? 180 : 0 }}
+                                            transition={{ duration: 0.3 }}
+                                        >
+                                            <ChevronDown className="w-3 h-3 opacity-50" />
+                                        </motion.div>
+                                    )}
+                                </button>
+
+                                <AnimatePresence initial={false}>
+                                    {(isExpanded || isSingleItem) && (
+                                        <motion.div
+                                            initial={{ height: 0, opacity: 0 }}
+                                            animate={{ height: "auto", opacity: 1 }}
+                                            exit={{ height: 0, opacity: 0 }}
+                                            transition={{ duration: 0.3, ease: "easeInOut" }}
+                                            className="overflow-hidden"
+                                        >
+                                            <div className="space-y-1 mt-1">
+                                                {group.items.map((item) => {
+                                                    const isActive = pathname === item.href;
+                                                    return (
+                                                        <Link key={item.name} href={item.href}>
+                                                            <motion.div
+                                                                whileHover={{ x: 4 }}
+                                                                className={`flex items-center gap-3 px-4 py-2.5 rounded-xl transition-all duration-300 ${isActive
+                                                                    ? 'bg-naranja text-white shadow-lg'
+                                                                    : 'hover:bg-white/5 text-cremita/70 hover:text-cremita'
+                                                                    }`}
+                                                            >
+                                                                {item.icon}
+                                                                <span className="font-medium text-sm">{item.name}</span>
+                                                            </motion.div>
+                                                        </Link>
+                                                    );
+                                                })}
+                                            </div>
+                                        </motion.div>
+                                    )}
+                                </AnimatePresence>
                             </div>
-                        </div>
-                    ))}
+                        );
+                    })}
                 </nav>
 
                 <div className="p-4 border-t border-white/10 m-4 rounded-2xl bg-white/5">

@@ -6,6 +6,8 @@ import WhatsAppFloat from "@/components/layout/WhatsAppFloat";
 import ScrollToTop from "@/components/utils/ScrollToTop";
 import Script from "next/script";
 import { getAssetUrl } from "@/lib/assets";
+import { TourProvider } from "@/lib/context/TourContext";
+import TourController from "@/components/ui/TourController";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://grupoempresarialreyes.vercel.app"),
@@ -61,7 +63,7 @@ export default function RootLayout({
   const ogImageUrl = getAssetUrl("/Images/hacienda-view.jpg");
 
   return (
-    <html lang="es" className="scroll-smooth">
+    <html lang="es" className="scroll-smooth" suppressHydrationWarning>
       <head>
         <meta property="og:image" content={ogImageUrl} />
         <meta property="og:image:secure_url" content={ogImageUrl} />
@@ -70,41 +72,45 @@ export default function RootLayout({
         <meta property="og:image:height" content="630" />
       </head>
       <body className="antialiased bg-cremita flex min-h-screen">
-        <ScrollToTop />
+        <TourProvider>
+          <ScrollToTop />
 
-        {/* GTranslate Scripts - Moved to body to avoid hydration errors */}
-        <Script
-          id="gtranslate-settings"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.gtranslateSettings = {
-                "default_language": "es",
-                "detect_browser_language": true,
-                "languages": ["es", "en", "it", "fr", "de", "zh-CN"],
-                "wrapper_selector": ".gtranslate_wrapper",
-                "flag_size": 24,
-                "alt_flags": {"en": "usa"}
-              };
-            `,
-          }}
-        />
-        <Script
-          src="https://cdn.gtranslate.net/widgets/latest/float.js"
-          strategy="afterInteractive"
-        />
-        <div className="gtranslate_wrapper"></div>
+          {/* GTranslate Scripts - Moved to body to avoid hydration errors */}
+          <Script
+            id="gtranslate-settings"
+            strategy="afterInteractive"
+            dangerouslySetInnerHTML={{
+              __html: `
+                window.gtranslateSettings = {
+                  "default_language": "es",
+                  "detect_browser_language": true,
+                  "languages": ["es", "en", "it", "fr", "de", "zh-CN"],
+                  "wrapper_selector": ".gtranslate_wrapper",
+                  "flag_size": 24,
+                  "alt_flags": {"en": "usa"}
+                };
+              `,
+            }}
+          />
+          <Script
+            src="https://cdn.gtranslate.net/widgets/latest/float.js"
+            strategy="afterInteractive"
+          />
+          <div className="gtranslate_wrapper"></div>
 
-        {/* Sidebar fixa */}
-        <AppSidebar />
+          {/* Sidebar fixa */}
+          <AppSidebar />
 
-        {/* Panel Principal */}
-        <main className="flex-1 lg:ml-64 min-h-screen relative">
-          <div className="p-4 md:p-8 pt-20 lg:pt-8 pb-24">
-            {children}
-          </div>
-          <WhatsAppFloat />
-        </main>
+          {/* Panel Principal */}
+          <main className="flex-1 lg:ml-64 min-h-screen relative">
+            <div className="p-4 md:p-8 pt-20 lg:pt-8 pb-24">
+              {children}
+            </div>
+            <WhatsAppFloat />
+          </main>
+
+          <TourController />
+        </TourProvider>
       </body>
     </html>
   );

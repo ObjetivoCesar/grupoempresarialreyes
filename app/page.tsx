@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import Gallery from '@/components/sections/Gallery';
 import { getAssetUrl } from '@/lib/assets';
+import TourPlayButton from '@/components/ui/TourPlayButton';
 
 export default function DashboardHome() {
   const [showMap, setShowMap] = useState(false);
@@ -102,9 +103,7 @@ export default function DashboardHome() {
                 </a>
               </div>
               <div className="relative group">
-                <Link href="/producto" className="px-10 py-5 rounded-full border-2 border-cremita/10 hover:border-naranja/50 hover:bg-white/5 transition-all font-bold text-lg flex items-center justify-center">
-                  Ver Modelos Completos →
-                </Link>
+                <TourPlayButton />
               </div>
             </div>
 

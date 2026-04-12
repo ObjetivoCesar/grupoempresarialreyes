@@ -253,12 +253,14 @@ export default function AppSidebar() {
                                                         <Link key={item.name} href={item.href}>
                                                             <motion.div
                                                                 whileHover={{ x: 4 }}
-                                                                className={`flex items-center gap-3 px-4 py-2.5 rounded-xl transition-all duration-300 ${isActive
+                                                                className={`flex items-center gap-3 px-4 py-2.5 rounded-xl transition-all duration-300 group/link ${isActive
                                                                     ? 'bg-naranja text-white shadow-lg'
-                                                                    : 'hover:bg-white/5 text-cremita/70 hover:text-cremita'
+                                                                    : 'hover:bg-cremita text-cremita/70 hover:text-verde-oscuro'
                                                                     }`}
                                                             >
-                                                                {item.icon}
+                                                                <div className={`transition-colors duration-300 ${isActive ? 'text-white' : 'group-hover/link:text-verde-oscuro'}`}>
+                                                                    {item.icon}
+                                                                </div>
                                                                 <span className="font-medium text-sm">{item.name}</span>
                                                             </motion.div>
                                                         </Link>

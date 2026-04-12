@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import { getAssetUrl } from '@/lib/assets';
 
 export default function Footer() {
     const currentYear = new Date().getFullYear();
@@ -11,7 +12,7 @@ export default function Footer() {
                     {/* Brand Column */}
                     <div className="space-y-4">
                         <Image
-                            src="/Logos/AromaDeMontana Logo_5@4x.png"
+                            src={getAssetUrl('/Logos/AromaDeMontana Logo_5@4x.png')}
                             alt="Aroma de Montaña"
                             width={180}
                             height={60}

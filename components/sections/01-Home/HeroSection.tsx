@@ -1,7 +1,6 @@
-'use client';
-
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { getAssetUrl } from '@/lib/assets';
 
 export default function HeroSection() {
     const scrollToOportunidad = () => {
@@ -23,7 +22,7 @@ export default function HeroSection() {
             {/* Background Image */}
             <div className="absolute inset-0 z-0">
                 <Image
-                    src="/Images/Nueva portada.webp"
+                    src={getAssetUrl('/Images/Nueva portada.webp')}
                     alt="Glamping Aroma de Montaña en la niebla"
                     fill
                     className="object-cover"

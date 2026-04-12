@@ -1,9 +1,10 @@
-'use client';
+"use client";
 
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import Gallery from '@/components/sections/Gallery';
 import VideoModal from '@/components/ui/VideoModal';
+import { getAssetUrl } from '@/lib/assets';
 
 export default function RetirePage() {
   const [modalConfig, setModalConfig] = useState({ isOpen: false, youtubeId: '_zVqx9Re0f0' });
@@ -52,7 +53,7 @@ export default function RetirePage() {
         <div className="absolute inset-0 bg-black/40 z-10 pointer-events-none"></div>
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-80" 
-          style={{ backgroundImage: "url('/Images/Aroma de Montaña.webp')" }}
+          style={{ backgroundImage: `url('${getAssetUrl('/Images/Aroma de Montaña.webp')}')` }}
         ></div>
         
         <div className="relative z-20 max-w-4xl mx-auto text-center space-y-8 mt-12">
@@ -132,7 +133,7 @@ export default function RetirePage() {
           </div>
           <div className="relative">
             <div className="absolute inset-0 bg-naranja/20 blur-3xl rounded-full"></div>
-            <img src="/Images/trazabilidad.png" alt="Vida en las montañas" className="relative z-10 w-full h-[500px] object-cover rounded-[3rem] shadow-2xl" />
+            <img src={getAssetUrl('/Images/trazabilidad.png')} alt="Vida en las montañas" className="relative z-10 w-full h-[500px] object-cover rounded-[3rem] shadow-2xl" />
           </div>
         </div>
       </section>
@@ -172,7 +173,7 @@ export default function RetirePage() {
         <div className="bg-white rounded-[3rem] p-10 md:p-20 shadow-2xl border border-marron-claro/10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="relative">
-              <img src="/Images/Blindaje Fiduciario.webp" alt="Modelo de Propiedad" className="w-full h-auto rounded-[2rem] shadow-xl" />
+              <img src={getAssetUrl('/Images/Blindaje Fiduciario.webp')} alt="Modelo de Propiedad" className="w-full h-auto rounded-[2rem] shadow-xl" />
             </div>
             <div className="space-y-8">
               <h2 className="text-4xl md:text-5xl font-florenza text-verde-oscuro">
@@ -230,7 +231,7 @@ export default function RetirePage() {
       {/* SECTION 5: Por qué Loja */}
       <section className="container mx-auto px-6 py-12">
         <div className="relative rounded-[3rem] overflow-hidden bg-cafe-acento p-12 md:p-24 text-cremita text-center">
-          <div className="absolute inset-0 bg-[url('/Images/Loja_Landscape.png')] bg-cover bg-center opacity-10 mix-blend-overlay"></div>
+          <div className="absolute inset-0 bg-cover bg-center opacity-10 mix-blend-overlay" style={{ backgroundImage: `url('${getAssetUrl('/Images/Loja_Landscape.png')}')` }}></div>
           <div className="relative z-10 max-w-4xl mx-auto space-y-8">
             <h2 className="text-4xl md:text-6xl font-florenza">
               El secreto mejor guardado de Ecuador. <br />

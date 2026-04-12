@@ -1,10 +1,11 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
+import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
-
+import { getAssetUrl } from '@/lib/assets';
 const navGroups = [
     {
         title: 'Inicio',
@@ -118,8 +119,6 @@ const navGroups = [
 ];
 
 
-import { useState, useEffect } from 'react';
-
 export default function AppSidebar() {
     const pathname = usePathname();
     const [isOpen, setIsOpen] = useState(false);
@@ -134,7 +133,7 @@ export default function AppSidebar() {
             {/* Mobile Header / Hamburger Toggle */}
             <div className={`lg:hidden fixed top-0 left-0 right-0 h-16 bg-verde-oscuro/95 backdrop-blur-md z-[60] flex items-center justify-between px-6 border-b border-white/10 transition-transform duration-300 ${isOpen ? 'translate-y-0' : 'translate-y-0'}`}>
                 <Image
-                    src="/Logos/AromaDeMontana Logo_5@4x.png"
+                    src={getAssetUrl('/Logos/AromaDeMontana Logo_5@4x.png')}
                     alt="Aroma de Montaña"
                     width={120}
                     height={40}
@@ -168,7 +167,7 @@ export default function AppSidebar() {
             <aside className={`fixed left-0 top-0 h-full w-64 bg-verde-oscuro text-cremita z-50 flex flex-col shadow-xl transition-transform duration-300 ease-in-out lg:translate-x-0 ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}>
                 <div className="p-6 border-b border-white/10 hidden lg:block">
                     <Image
-                        src="/Logos/AromaDeMontana Logo_5@4x.png"
+                        src={getAssetUrl('/Logos/AromaDeMontana Logo_5@4x.png')}
                         alt="Aroma de Montaña"
                         width={150}
                         height={50}

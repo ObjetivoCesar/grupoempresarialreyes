@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
+import { getAssetUrl } from '@/lib/assets';
 
 const units = [
     {
@@ -22,7 +23,7 @@ const units = [
             'Apertura agosto 2027: Inversión pre-operativa con descuento del 15% vs. post-inauguración'
         ],
         youtubeId: 'TVOc9gKip1A',
-        image: '/Images/naturaleza-2.jpg',
+        image: getAssetUrl('/Images/naturaleza-2.jpg'),
         pillars: [
             {
                 title: 'Cafetería Aroma de Montaña',
@@ -34,7 +35,7 @@ const units = [
                     'Espacio multieventos para hasta 50 personas.',
                     'Almuerzos orgánicos "Farm-to-Table".'
                 ],
-                image: '/Cafetería/layer-editor-export.png'
+                image: getAssetUrl('/Cafetería/layer-editor-export.png')
             },
             {
                 title: 'Ecosistema de Camping',
@@ -46,7 +47,7 @@ const units = [
                     'Experiencia 100% inmersiva en la montaña.',
                     'Ideal para fogatas y observación estelar.'
                 ],
-                image: '/Images/Astroturismo.png'
+                image: getAssetUrl('/Images/Astroturismo.png')
             },
             {
                 title: 'Glampings de Lujo',
@@ -58,7 +59,7 @@ const units = [
                     'Diseño reversible (mínima huella ambiental).',
                     'Equipamiento premium y telescopios.',
                 ],
-                image: '/250k/exterior.jpg'
+                image: getAssetUrl('/250k/exterior.jpg')
             },
             {
                 title: 'Gestión Hídrica Ancestral',
@@ -70,7 +71,7 @@ const units = [
                     'Recarga natural de acuíferos mediante albarradas.',
                     'Independencia total de redes externas.'
                 ],
-                image: '/Images/reservorios.webp'
+                image: getAssetUrl('/Images/reservorios.webp')
             }
         ]
     },
@@ -91,7 +92,7 @@ const units = [
             'Cuentas claras: Participación societaria real respaldada por escritura pública de copropiedad.'
         ],
         youtubeId: null,
-        image: '/Images/hacienda-view.jpg',
+        image: getAssetUrl('/Images/hacienda-view.jpg'),
         highlight: 'El motor que genera el flujo de caja diario.',
         pillars: [
             {
@@ -104,7 +105,7 @@ const units = [
                     'Team building y dinámicas de propósito.',
                     'Contratos plurianuales con empresas.'
                 ],
-                image: '/Images/Naturaleza.png'
+                image: getAssetUrl('/Images/Naturaleza.png')
             },
             {
                 title: 'Turismo Astronómico',
@@ -116,7 +117,7 @@ const units = [
                     'Guianza especializada y telescopios pro.',
                     'Tarifas premium para entusiastas.'
                 ],
-                image: '/Images/Astroturismo.png',
+                image: getAssetUrl('/Images/Astroturismo.png'),
                 youtubeId: 'PO3Z3E9v8NE'
             },
             {
@@ -129,7 +130,7 @@ const units = [
                     'Fidelización de comunidad wellness.',
                     'Alta rentabilidad operativa.'
                 ],
-                image: '/Images/Retiros-de-Alto-Rendimiento.png'
+                image: getAssetUrl('/Images/Retiros-de-Alto-Rendimiento.png')
             },
             {
                 title: 'Inteligencia de Venta',
@@ -141,7 +142,7 @@ const units = [
                     'Suscripciones para visitantes recurrentes.',
                     'Maximización del margen neto para el inversor.'
                 ],
-                image: '/Images/Sistema-reservas.webp'
+                image: getAssetUrl('/Images/Sistema-reservas.webp')
             }
         ]
     },
@@ -162,7 +163,7 @@ const units = [
             'Plusvalía Blindada: El terreno y los activos base aumentan de valor mientas el negocio genera flujo.'
         ],
         youtubeId: null,
-        image: '/Images/Inversiones Aroma de Montaña.webp',
+        image: getAssetUrl('/Images/Inversiones Aroma de Montaña.webp'),
         pillars: [
             {
                 title: 'Protección Jurídica',
@@ -174,7 +175,7 @@ const units = [
                     'Garantía real sobre el activo físico (Tierra).',
                     'Estructura legal de máxima transparencia.'
                 ],
-                image: '/Images/Blindaje Fiduciario.webp'
+                image: getAssetUrl('/Images/Blindaje Fiduciario.webp')
             },
             {
                 title: 'Trazabilidad Total',
@@ -186,7 +187,7 @@ const units = [
                     'Desglose por canal de venta (Booking, Directo).',
                     'Eliminación total de opacidad administrativa.'
                 ],
-                image: '/Images/trazabilidad.png'
+                image: getAssetUrl('/Images/trazabilidad.png')
             },
             {
                 title: 'Garantía Dual',
@@ -198,7 +199,7 @@ const units = [
                     'Respaldo de activos físicos reales.',
                     'Modelo escalable y transferible.'
                 ],
-                image: '/Images/Aroma de Montaña.webp'
+                image: getAssetUrl('/Images/Aroma de Montaña.webp')
             },
             {
                 title: 'Modelos de Participación',
@@ -210,7 +211,7 @@ const units = [
                     'Inversor Visionario (desde $50k): Participación proporcional.',
                     'Retorno sobre la utilidad neta proyectada en 12-24 meses.'
                 ],
-                image: '/250k/exterior.jpg'
+                image: getAssetUrl('/250k/exterior.jpg')
             }
         ]
     }

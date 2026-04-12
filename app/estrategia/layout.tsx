@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { getAssetUrl } from "@/lib/assets";
 
 export const metadata: Metadata = {
   title: "Estrategia de Ocupación",
@@ -7,7 +8,7 @@ export const metadata: Metadata = {
     title: "Estrategias de Ocupación y Flujo",
     description: "Conoce cómo mantenemos altos niveles de ocupación utilizando acuerdos con operadores B2B y turismo regenerativo.",
     url: "https://grupoempresarialreyes.vercel.app/estrategia",
-    images: ["/Images/Astroturismo.png"]
+    images: [getAssetUrl("/Images/Astroturismo.png")]
   }
 };
 

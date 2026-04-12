@@ -1,7 +1,8 @@
-'use client';
+"use client";
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { getAssetUrl } from '@/lib/assets';
 
 const investmentOptions = [
     {
@@ -222,7 +223,7 @@ export default function OportunidadPage() {
                         Agendar Cita
                     </a>
                     <a 
-                        href="/Images/Aroma_de_Montana_Inversion_ES.pdf" 
+                        href={getAssetUrl('/Images/Aroma_de_Montana_Inversion_ES.pdf')} 
                         download
                         className="px-10 py-5 border-2 border-cremita text-cremita rounded-2xl font-bold text-lg hover:border-naranja hover:text-naranja transition-all text-center"
                     >

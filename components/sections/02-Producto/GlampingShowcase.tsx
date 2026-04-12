@@ -1,8 +1,9 @@
-'use client';
+"use client";
 
 import { useState } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { getAssetUrl } from '@/lib/assets';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css';
@@ -118,7 +119,7 @@ export default function GlampingShowcase() {
                                 <SwiperSlide key={idx}>
                                     <div className="relative aspect-[4/3]">
                                         <Image
-                                            src={image}
+                                            src={getAssetUrl(image)}
                                             alt={`${glampingTypes[activeType].name} - Vista ${idx + 1}`}
                                             fill
                                             className="object-cover"
@@ -218,7 +219,7 @@ export default function GlampingShowcase() {
                         </div>
                         <div className="order-1 lg:order-2 relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg-custom">
                             <Image
-                                src="/Cafetería/interior.jpg"
+                                src={getAssetUrl('/Cafetería/interior.jpg')}
                                 alt="Cafetería Aroma de Montaña"
                                 fill
                                 className="object-cover"

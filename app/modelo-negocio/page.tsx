@@ -1,6 +1,5 @@
-'use client';
-
 import { motion } from 'framer-motion';
+import { getAssetUrl } from '@/lib/assets';
 
 const projections = [
     { label: 'Apertura', income: 5000 },
@@ -125,7 +124,7 @@ export default function ModeloNegocioPage() {
                         </ul>
                     </div>
                     <div className="pt-8 flex flex-col gap-3">
-                        <a href="/Images/Aroma_de_Montana_Inversion_ES.pdf" target="_blank" className="btn-primary w-full text-center">Descargar Ficha Inversión M. Dual</a>
+                        <a href={getAssetUrl('/Images/Aroma_de_Montana_Inversion_ES.pdf')} target="_blank" className="btn-primary w-full text-center">Descargar Ficha Inversión M. Dual</a>
                     </div>
                 </div>
             </div>

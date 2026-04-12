@@ -1,9 +1,10 @@
-'use client';
+"use client";
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { getAssetUrl } from '@/lib/assets';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -18,9 +19,9 @@ const mainProducts = [
         roi: 'Flujo Diario',
         desc: 'Punto social y epicentro de la experiencia de café de especialidad. Un espacio bajo impacto con techos de paja y arquitectura abierta.',
         images: [
-            '/Cafetería/Gemini_Generated_Image_s17761s17761s177 (1).png',
-            '/Cafetería/interior.jpg',
-            '/Cafetería/layer-editor-export.png',
+            getAssetUrl('/Cafetería/Gemini_Generated_Image_s17761s17761s177 (1).png'),
+            getAssetUrl('/Cafetería/interior.jpg'),
+            getAssetUrl('/Cafetería/layer-editor-export.png'),
         ],
         specs: {
             capacidad: '50 Personas',
@@ -37,11 +38,11 @@ const mainProducts = [
         roi: '50% Utilidad',
         desc: 'Unidad modular prefabricada diseñada para montaje rápido y bajo impacto. El equilibrio perfecto entre inversión moderada y alta rentabilidad.',
         images: [
-            '/30k/exterior.png',
-            '/30k/interior.jpeg',
-            '/30k/interior_1.jpg',
-            '/30k/interior_2.jpg',
-            '/30k/plano.jpg',
+            getAssetUrl('/30k/exterior.png'),
+            getAssetUrl('/30k/interior.jpeg'),
+            getAssetUrl('/30k/interior_1.jpg'),
+            getAssetUrl('/30k/interior_2.jpg'),
+            getAssetUrl('/30k/plano.jpg'),
         ],
         specs: {
             estructura: 'Hierro Negro 7x7',
@@ -58,10 +59,10 @@ const mainProducts = [
         roi: '50% Utilidad',
         desc: 'Gran arquitectura Alpina para 12 personas con doble altura. Un activo inmobiliario de lujo perenne con la proyección de retorno más alta.',
         images: [
-            '/250k/exterior.jpg',
-            '/250k/interior_1.jpg',
-            '/250k/interior_2.jpg',
-            '/250k/plano.jpg',
+            getAssetUrl('/250k/exterior.jpg'),
+            getAssetUrl('/250k/interior_1.jpg'),
+            getAssetUrl('/250k/interior_2.jpg'),
+            getAssetUrl('/250k/plano.jpg'),
         ],
         specs: {
             estructura: 'Hormigón Armado',
@@ -81,9 +82,9 @@ const infraSections = [
         roi: 'Precisión',
         desc: 'Levantamiento topográfico completo de las 23.5 hectáreas, identificando curvas de nivel, escorrentías naturales y ubicaciones óptimas para cada glamping.',
         images: [
-            '/Planos/ORTOFOTO- CURVAS DE NIVEL.webp',
-            '/Planos/ORTOFOTO- MAPA PINTADO.webp',
-            '/Planos/ORTOFOTO1.webp',
+            getAssetUrl('/Planos/ORTOFOTO- CURVAS DE NIVEL.webp'),
+            getAssetUrl('/Planos/ORTOFOTO- MAPA PINTADO.webp'),
+            getAssetUrl('/Planos/ORTOFOTO1.webp'),
         ],
         specs: {
             archivo: 'AutoCAD / PDF Digital',
@@ -99,7 +100,7 @@ const infraSections = [
         investment: 'Ejecutado al 100%',
         roi: 'Valorización',
         desc: '5 km de senderos de interpretación ya ejecutados, conectando los 18 glampings con monumentos naturales y miradores astronómicos.',
-        videoUrl: '/Videos/senderos.mp4',
+        videoUrl: getAssetUrl('/Videos/senderos.mp4'),
         images: [],
         specs: {
             distancia: '5,200 metros lineales',

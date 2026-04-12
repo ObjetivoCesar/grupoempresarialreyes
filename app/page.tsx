@@ -1,10 +1,11 @@
-'use client';
+"use client";
 
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 import Gallery from '@/components/sections/Gallery';
+import { getAssetUrl } from '@/lib/assets';
 
 export default function DashboardHome() {
   const [showMap, setShowMap] = useState(false);
@@ -43,7 +44,7 @@ export default function DashboardHome() {
         {/* Background Image Layer */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/250k/exterior.jpg"
+            src={getAssetUrl('/250k/exterior.jpg')}
             alt="Aroma de Montaña Exterior"
             fill
             className="object-cover brightness-[0.35]"
@@ -52,7 +53,7 @@ export default function DashboardHome() {
         </div>
 
         <div className="absolute top-0 right-0 w-2/3 h-full opacity-10 pointer-events-none select-none z-0">
-          <Image src="/Logos/Recurso 33@4x.png" alt="Pattern GER" fill className="object-contain p-20 rotate-12" />
+          <Image src={getAssetUrl('/Logos/Recurso 33@4x.png')} alt="Pattern GER" fill className="object-contain p-20 rotate-12" />
         </div>
 
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -93,10 +94,10 @@ export default function DashboardHome() {
 
             <div className="flex flex-wrap gap-4 pt-4">
               <div className="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
-                <a href="/Images/Aroma_de_Montana_Inversion_ES.pdf" download target="_blank" className="btn-primary px-8 py-5 text-lg font-bold shadow-2xl hover:scale-105 active:scale-95 transition-all text-center flex items-center justify-center gap-2">
+                <a href={getAssetUrl('/Images/Aroma_de_Montana_Inversion_ES.pdf')} download target="_blank" className="btn-primary px-8 py-5 text-lg font-bold shadow-2xl hover:scale-105 active:scale-95 transition-all text-center flex items-center justify-center gap-2">
                   <span>🇪🇸 DESCUBRE EN ESPAÑOL</span>
                 </a>
-                <a href="/Images/Aroma_de_Montana_Investment_EN.pdf" download target="_blank" className="btn-primary px-8 py-5 text-lg font-bold shadow-2xl hover:scale-105 active:scale-95 transition-all text-center flex items-center justify-center gap-2 opacity-90 brightness-90">
+                <a href={getAssetUrl('/Images/Aroma_de_Montana_Investment_EN.pdf')} download target="_blank" className="btn-primary px-8 py-5 text-lg font-bold shadow-2xl hover:scale-105 active:scale-95 transition-all text-center flex items-center justify-center gap-2 opacity-90 brightness-90">
                   <span>🇺🇸 EXPLORE IN ENGLISH</span>
                 </a>
               </div>

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { getAssetUrl } from "@/lib/assets";
 
 export const metadata: Metadata = {
   title: "Gobernanza y Transparencia",
@@ -7,7 +8,7 @@ export const metadata: Metadata = {
     title: "Gobernanza de la Sociedad",
     description: "Las reglas claras y la gestión especializada de la Hacienda, Operaciones y Contabilidad. Directores y Asamblea.",
     url: "https://grupoempresarialreyes.vercel.app/gobernanza",
-    images: ["/Images/trazabilidad.png"]
+    images: [getAssetUrl("/Images/trazabilidad.png")]
   }
 };
 

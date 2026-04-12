@@ -1,9 +1,10 @@
-'use client';
+"use client";
 
 import { useState, useEffect } from 'react';
-import Link from 'next/link';
 import Image from 'next/image';
+import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
+import { getAssetUrl } from '@/lib/assets';
 
 const navigation = [
     { name: 'HOME', href: '#home' },
@@ -70,7 +71,7 @@ export default function Header() {
                     {/* Logo */}
                     <Link href="#home" onClick={() => handleNavClick('#home')} className="flex items-center">
                         <Image
-                            src="/Logos/AromaDeMontana Logo_4@4x.png"
+                            src={getAssetUrl('/Logos/AromaDeMontana Logo_4@4x.png')}
                             alt="Aroma de Montaña"
                             width={180}
                             height={60}

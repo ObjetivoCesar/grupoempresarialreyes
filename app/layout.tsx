@@ -5,6 +5,7 @@ import AppSidebar from "@/components/dashboard/Sidebar";
 import WhatsAppFloat from "@/components/layout/WhatsAppFloat";
 import ScrollToTop from "@/components/utils/ScrollToTop";
 import Script from "next/script";
+import { getAssetUrl } from "@/lib/assets";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://grupoempresarialreyes.vercel.app"),
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
     siteName: "Aroma de Montaña",
     images: [
       {
-        url: "/Images/hacienda-view.jpg",
+        url: getAssetUrl("/Images/hacienda-view.jpg"),
         width: 1200,
         height: 630,
         alt: "Hacienda Aroma de Montaña",
@@ -36,7 +37,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Aroma de Montaña | Hub del Inversor",
     description: "Plataforma de alta seguridad para inversores del Grupo Empresarial Reyes.",
-    images: ["/Images/hacienda-view.jpg"],
+    images: [getAssetUrl("/Images/hacienda-view.jpg")],
   },
   icons: {
     icon: [
@@ -57,11 +58,13 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const ogImageUrl = getAssetUrl("/Images/hacienda-view.jpg");
+
   return (
     <html lang="es" className="scroll-smooth">
       <head>
-        <meta property="og:image" content="https://grupoempresarialreyes.vercel.app/Images/hacienda-view.jpg" />
-        <meta property="og:image:secure_url" content="https://grupoempresarialreyes.vercel.app/Images/hacienda-view.jpg" />
+        <meta property="og:image" content={ogImageUrl} />
+        <meta property="og:image:secure_url" content={ogImageUrl} />
         <meta property="og:image:type" content="image/jpeg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />

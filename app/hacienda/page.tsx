@@ -1,9 +1,10 @@
-'use client';
-
+"use client";
 import { useState, useEffect } from 'react';
+
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import VideoModal from '@/components/ui/VideoModal';
+import { getAssetUrl } from '@/lib/assets';
 
 interface VideoItem {
     title: string;
@@ -44,7 +45,7 @@ export default function HaciendaPage() {
             {/* Header with Background */}
             <section className="relative h-[250px] rounded-3xl overflow-hidden flex items-center px-12">
                 <Image
-                    src="/Images/Naturaleza.png"
+                    src={getAssetUrl("/Images/Naturaleza.png")}
                     alt="Hacienda Nature"
                     fill
                     className="object-cover brightness-50"
@@ -131,7 +132,7 @@ export default function HaciendaPage() {
                     
                     <div className="relative h-[400px] lg:h-auto group">
                         <Image
-                            src="/Images/optimized/Café - Especialidad/PXL_20240704_192559674.webp"
+                            src={getAssetUrl("/Images/optimized/Café - Especialidad/PXL_20240704_192559674.webp")}
                             alt="Ramiro Trabajando el Café"
                             fill
                             className="object-cover grayscale hover:grayscale-0 transition-all duration-700"
@@ -150,7 +151,7 @@ export default function HaciendaPage() {
                     '/Images/optimized/Café - Especialidad/PXL_20240316_214122874.webp'
                 ].map((src, i) => (
                     <div key={i} className="h-48 relative rounded-3xl overflow-hidden shadow-lg">
-                        <Image src={src} alt="Detalle Café" fill className="object-cover" />
+                        <Image src={getAssetUrl(src)} alt="Detalle Café" fill className="object-cover" />
                     </div>
                 ))}
             </div>

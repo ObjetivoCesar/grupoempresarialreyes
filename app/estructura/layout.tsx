@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { getAssetUrl } from "@/lib/assets";
 
 export const metadata: Metadata = {
   title: "Estructura del Ecosistema",
@@ -7,7 +8,7 @@ export const metadata: Metadata = {
     title: "Estructura Operativa y Jurídica",
     description: "El patrimonio tangibilizado del proyecto Aroma de Montaña. 23.5ha, glampings de lujo y motor de utilidades.",
     url: "https://grupoempresarialreyes.vercel.app/estructura",
-    images: ["/Images/Blindaje Fiduciario.webp"]
+    images: [getAssetUrl("/Images/Blindaje Fiduciario.webp")]
   }
 };
 

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { getAssetUrl } from "@/lib/assets";
 
 export const metadata: Metadata = {
   title: "Oportunidades de Inversión",
@@ -7,7 +8,7 @@ export const metadata: Metadata = {
     title: "Opciones de Inversión y Modelos 50/50",
     description: "Tres formas de hacer crecer tu patrimonio con el Grupo Empresarial Reyes en Aroma de Montaña.",
     url: "https://grupoempresarialreyes.vercel.app/oportunidad",
-    images: ["/Images/Aroma de Montaña.webp"]
+    images: [getAssetUrl("/Images/Aroma de Montaña.webp")]
   }
 };
 

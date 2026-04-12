@@ -9,9 +9,9 @@ import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import Lightbox from '@/components/ui/Lightbox';
 
 const glampingTypes = [
-    {
         id: 'basico',
         name: 'Glamping Básico',
         price: '$30,000',
@@ -58,6 +58,17 @@ const glampingTypes = [
 
 export default function GlampingShowcase() {
     const [activeType, setActiveType] = useState(0);
+    const [lightboxOpen, setLightboxOpen] = useState(false);
+    const [lightboxIndex, setLightboxIndex] = useState(0);
+    const [cafeteriaLightboxOpen, setCafeteriaLightboxOpen] = useState(false);
+
+    const currentImages = glampingTypes[activeType].images;
+    const cafeteriaImages = ['/Cafetería/interior.jpg'];
+
+    const openLightbox = (index: number) => {
+        setLightboxIndex(index);
+        setLightboxOpen(true);
+    };
 
     return (
         <section id="producto" className="section-light">
@@ -117,13 +128,19 @@ export default function GlampingShowcase() {
                         >
                             {glampingTypes[activeType].images.map((image, idx) => (
                                 <SwiperSlide key={idx}>
-                                    <div className="relative aspect-[4/3]">
+                                    <div 
+                                        className="relative aspect-[4/3] cursor-zoom-in group"
+                                        onClick={() => openLightbox(idx)}
+                                    >
                                         <Image
                                             src={getAssetUrl(image)}
                                             alt={`${glampingTypes[activeType].name} - Vista ${idx + 1}`}
                                             fill
-                                            className="object-cover"
+                                            className="object-cover transition-transform duration-500 group-hover:scale-105"
                                         />
+                                        <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none z-10">
+                                            <span className="text-white bg-black/50 px-4 py-2 rounded-full text-sm backdrop-blur-sm shadow-lg font-medium tracking-wide">Ampliar Foto</span>
+                                        </div>
                                     </div>
                                 </SwiperSlide>
                             ))}
@@ -217,16 +234,40 @@ export default function GlampingShowcase() {
                                 ))}
                             </ul>
                         </div>
-                        <div className="order-1 lg:order-2 relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg-custom">
+                        <div 
+                            className="order-1 lg:order-2 relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg-custom cursor-zoom-in group"
+                            onClick={() => setCafeteriaLightboxOpen(true)}
+                        >
                             <Image
                                 src={getAssetUrl('/Cafetería/interior.jpg')}
                                 alt="Cafetería Aroma de Montaña"
                                 fill
-                                className="object-cover"
+                                className="object-cover transition-transform duration-700 group-hover:scale-105"
                             />
+                            <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none z-10">
+                                <span className="text-white bg-black/50 px-4 py-2 rounded-full text-sm backdrop-blur-sm shadow-lg font-medium tracking-wide">Ampliar Foto</span>
+                            </div>
                         </div>
                     </div>
                 </motion.div>
+                
+                {/* Lightboxes */}
+                <Lightbox 
+                    images={currentImages}
+                    currentIndex={lightboxIndex}
+                    isOpen={lightboxOpen}
+                    onClose={() => setLightboxOpen(false)}
+                    onNext={() => setLightboxIndex((prev) => (prev + 1) % currentImages.length)}
+                    onPrev={() => setLightboxIndex((prev) => (prev - 1 + currentImages.length) % currentImages.length)}
+                />
+                <Lightbox 
+                    images={cafeteriaImages}
+                    currentIndex={0}
+                    isOpen={cafeteriaLightboxOpen}
+                    onClose={() => setCafeteriaLightboxOpen(false)}
+                    onNext={() => {}}
+                    onPrev={() => {}}
+                />
             </div>
         </section>
     );

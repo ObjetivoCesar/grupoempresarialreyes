@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { getAssetUrl } from '@/lib/assets';
 
 const projections = [
@@ -17,12 +18,40 @@ export default function ModeloNegocioPage() {
 
     return (
         <div className="space-y-12">
-            <section className="bg-verde-oscuro p-12 rounded-3xl text-cremita shadow-2xl relative overflow-hidden">
-                <div className="relative z-10">
-                    <h1 className="text-5xl font-florenza">Ingeniería <span className="text-naranja italic">Financiera</span></h1>
-                    <p className="text-cremita/70 max-w-2xl mt-4 text-lg">Visualice la escalabilidad de su capital a través de un modelo de alta rotación y bajos costos fijos.</p>
+            {/* Hero Section: La Oportunidad */}
+            <section className="relative min-h-[450px] md:min-h-[550px] flex flex-col justify-center rounded-[2.5rem] overflow-hidden shadow-2xl group">
+                {/* Background Image */}
+                <Image
+                    src={getAssetUrl('/250k/exterior.jpg')}
+                    alt="Oportunidad de Pre-Lanzamiento"
+                    fill
+                    className="object-cover transition-transform duration-[20s] group-hover:scale-110"
+                    priority
+                />
+                
+                {/* Gradient Overlays for contrast */}
+                <div className="absolute inset-0 bg-gradient-to-r from-verde-oscuro/95 via-verde-oscuro/80 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-verde-oscuro/60 to-transparent" />
+                
+                {/* Content */}
+                <div className="relative z-10 p-8 md:p-16 w-full max-w-5xl">
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                    >
+                        <div className="inline-block px-4 py-1.5 rounded-full border border-naranja/40 bg-naranja/10 text-naranja text-xs font-bold uppercase tracking-[0.2em] mb-6 backdrop-blur-md shadow-[0_0_15px_rgba(252,162,89,0.2)]">
+                            Oportunidad de Pre-Lanzamiento
+                        </div>
+                        <h1 className="text-4xl md:text-6xl lg:text-7xl font-florenza text-cremita mb-6 leading-tight drop-shadow-xl">
+                            Una Sociedad <br className="hidden md:block" />
+                            <span className="text-naranja italic pr-2">50/50</span> para el Éxito.
+                        </h1>
+                        <p className="text-cremita/90 max-w-2xl text-lg md:text-xl font-light leading-relaxed drop-shadow-md">
+                            Conviértete en socio estratégico o adquiere tu propio Glamping de Lujo. Un modelo dual de alta rentabilidad basado en patrimonio real y hospitalidad.
+                        </p>
+                    </motion.div>
                 </div>
-                <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-naranja/20 rounded-full blur-3xl opacity-50" />
             </section>
 
             {/* Main Income Chart - X (Time) vs Y (Income) */}

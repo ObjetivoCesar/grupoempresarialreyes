@@ -71,7 +71,7 @@ export default function RootLayout({
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
       </head>
-      <body className="antialiased bg-cremita flex min-h-screen">
+      <body className="antialiased bg-cremita flex min-h-screen overflow-x-hidden">
         <TourProvider>
           <ScrollToTop />
 
@@ -102,7 +102,7 @@ export default function RootLayout({
           <AppSidebar />
 
           {/* Panel Principal */}
-          <main className="flex-1 lg:ml-64 min-h-screen relative">
+          <main className="flex-1 min-w-0 lg:ml-64 min-h-screen relative">
             <div className="p-4 md:p-8 pt-20 lg:pt-8 pb-24">
               {children}
             </div>

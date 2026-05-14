@@ -3,12 +3,9 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { ChevronLeft, ChevronRight, ZoomIn } from 'lucide-react';
 import { getAssetUrl } from '@/lib/assets';
-import { Navigation, Pagination, Autoplay } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
+import Lightbox from '@/components/ui/Lightbox';
 
 const mainProducts = [
     {
@@ -19,9 +16,9 @@ const mainProducts = [
         roi: 'Flujo Diario',
         desc: 'Punto social y epicentro de la experiencia de café de especialidad. Un espacio bajo impacto con techos de paja y arquitectura abierta.',
         images: [
-            getAssetUrl('/Cafetería/Gemini_Generated_Image_s17761s17761s177 (1).png'),
-            getAssetUrl('/Cafetería/interior.jpg'),
-            getAssetUrl('/Cafetería/layer-editor-export.png'),
+            '/Cafetería/Gemini_Generated_Image_s17761s17761s177 (1).png',
+            '/Cafetería/interior.jpg',
+            '/Cafetería/layer-editor-export.png',
         ],
         specs: {
             capacidad: '50 Personas',
@@ -38,11 +35,11 @@ const mainProducts = [
         roi: '50% Utilidad',
         desc: 'Unidad modular prefabricada diseñada para montaje rápido y bajo impacto. El equilibrio perfecto entre inversión moderada y alta rentabilidad.',
         images: [
-            getAssetUrl('/30k/exterior.png'),
-            getAssetUrl('/30k/interior.jpeg'),
-            getAssetUrl('/30k/interior_1.jpg'),
-            getAssetUrl('/30k/interior_2.jpg'),
-            getAssetUrl('/30k/plano.jpg'),
+            '/30k/exterior.png',
+            '/30k/interior.jpeg',
+            '/30k/interior_1.jpg',
+            '/30k/interior_2.jpg',
+            '/30k/plano.jpg',
         ],
         specs: {
             estructura: 'Hierro Negro 7x7',
@@ -59,10 +56,10 @@ const mainProducts = [
         roi: '50% Utilidad',
         desc: 'Gran arquitectura Alpina para 12 personas con doble altura. Un activo inmobiliario de lujo perenne con la proyección de retorno más alta.',
         images: [
-            getAssetUrl('/250k/exterior.jpg'),
-            getAssetUrl('/250k/interior_1.jpg'),
-            getAssetUrl('/250k/interior_2.jpg'),
-            getAssetUrl('/250k/plano.jpg'),
+            '/250k/exterior.jpg',
+            '/250k/interior_1.jpg',
+            '/250k/interior_2.jpg',
+            '/250k/plano.jpg',
         ],
         specs: {
             estructura: 'Hormigón Armado',
@@ -82,9 +79,9 @@ const infraSections = [
         roi: 'Precisión',
         desc: 'Levantamiento topográfico completo de las 23.5 hectáreas, identificando curvas de nivel, escorrentías naturales y ubicaciones óptimas para cada glamping.',
         images: [
-            getAssetUrl('/Planos/ORTOFOTO- CURVAS DE NIVEL.webp'),
-            getAssetUrl('/Planos/ORTOFOTO- MAPA PINTADO.webp'),
-            getAssetUrl('/Planos/ORTOFOTO1.webp'),
+            '/Planos/ORTOFOTO- CURVAS DE NIVEL.webp',
+            '/Planos/ORTOFOTO- MAPA PINTADO.webp',
+            '/Planos/ORTOFOTO1.webp',
         ],
         specs: {
             archivo: 'AutoCAD / PDF Digital',
@@ -100,7 +97,7 @@ const infraSections = [
         investment: 'Ejecutado al 100%',
         roi: 'Valorización',
         desc: '5 km de senderos de interpretación ya ejecutados, conectando los 18 glampings con monumentos naturales y miradores astronómicos.',
-        videoUrl: getAssetUrl('/Videos/senderos.mp4'),
+        videoUrl: '/Videos/senderos.mp4',
         images: [],
         specs: {
             distancia: '5,200 metros lineales',
@@ -192,7 +189,7 @@ export default function ProductoPage() {
                 </AnimatePresence>
             </section>
 
-            {/* New Section: Adquisición de Activos */}
+            {/* Section 3: Adquisición de Activos */}
             <section className="space-y-12 pt-20 border-t border-verde-oscuro/5">
                 <div className="text-center space-y-4">
                     <h2 className="text-5xl font-florenza text-verde-oscuro">Adquisición de <span className="text-naranja italic">Activos Individuales</span></h2>
@@ -250,46 +247,141 @@ export default function ProductoPage() {
     );
 }
 
+// ─── Sub-component: ProductDetailPanel ─────────────────────────────────────
 function ProductDetailPanel({ product }: { product: any }) {
+    const [slideIndex, setSlideIndex] = useState(0);
+    const [lightboxOpen, setLightboxOpen] = useState(false);
+    const [lightboxIndex, setLightboxIndex] = useState(0);
+
+    const images: string[] = product.images ?? [];
+    const hasImages = images.length > 0;
+
+    const prevSlide = (e: React.MouseEvent) => {
+        e.stopPropagation();
+        setSlideIndex(p => (p - 1 + images.length) % images.length);
+    };
+
+    const nextSlide = (e: React.MouseEvent) => {
+        e.stopPropagation();
+        setSlideIndex(p => (p + 1) % images.length);
+    };
+
+    const openLightbox = () => {
+        setLightboxIndex(slideIndex);
+        setLightboxOpen(true);
+    };
+
     return (
         <>
             {/* Visual Showcase */}
             <div className="lg:col-span-12 xl:col-span-7 space-y-6">
-                <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl bg-white aspect-[16/10]">
+                {/* Main viewer — fixed height so clicks always register */}
+                <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl bg-black" style={{ height: '420px' }}>
                     {product.videoUrl ? (
                         <video
-                            src={product.videoUrl}
+                            src={getAssetUrl(product.videoUrl)}
                             autoPlay
                             muted
                             loop
                             playsInline
                             className="h-full w-full object-cover"
                         />
-                    ) : (
-                        <Swiper
-                            modules={[Navigation, Pagination, Autoplay]}
-                            navigation
-                            pagination={{ clickable: true }}
-                            autoplay={{ delay: 5000 }}
-                            className="h-full w-full"
-                        >
-                            {product.images.map((img: string, idx: number) => (
-                                <SwiperSlide key={idx}>
-                                    <Image src={img} alt={product.name} fill className="object-cover" />
-                                </SwiperSlide>
-                            ))}
-                        </Swiper>
-                    )}
-                    <div className="absolute top-8 left-8 z-10 p-3 bg-white/10 backdrop-blur-md rounded-xl text-[10px] text-white font-bold uppercase tracking-widest border border-white/20">
+                    ) : hasImages ? (
+                        <>
+                            {/* Clickable overlay — highest layer for the "open lightbox" action */}
+                            <div
+                                className="absolute inset-0 z-20 cursor-zoom-in group"
+                                role="button"
+                                tabIndex={0}
+                                aria-label="Ampliar imagen"
+                                onClick={openLightbox}
+                                onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') openLightbox(); }}
+                            >
+                                <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
+                                    <span className="flex items-center gap-2 text-white bg-black/60 px-5 py-2.5 rounded-full text-sm backdrop-blur-sm font-semibold tracking-wide shadow-xl">
+                                        <ZoomIn className="w-4 h-4" />
+                                        Ampliar Foto
+                                    </span>
+                                </div>
+                            </div>
+
+                            {/* Animated image */}
+                            <AnimatePresence mode="wait">
+                                <motion.div
+                                    key={slideIndex}
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    exit={{ opacity: 0 }}
+                                    transition={{ duration: 0.25 }}
+                                    className="absolute inset-0"
+                                >
+                                    <Image
+                                        src={getAssetUrl(images[slideIndex])}
+                                        alt={product.name}
+                                        fill
+                                        className="object-cover"
+                                        priority
+                                    />
+                                </motion.div>
+                            </AnimatePresence>
+
+                            {/* Arrows — z-30 above the clickable overlay */}
+                            {images.length > 1 && (
+                                <>
+                                    <button
+                                        onClick={prevSlide}
+                                        className="absolute left-4 top-1/2 -translate-y-1/2 z-30 p-2.5 bg-black/40 hover:bg-naranja text-white rounded-full backdrop-blur-sm transition-all"
+                                        aria-label="Anterior"
+                                    >
+                                        <ChevronLeft className="w-5 h-5" />
+                                    </button>
+                                    <button
+                                        onClick={nextSlide}
+                                        className="absolute right-4 top-1/2 -translate-y-1/2 z-30 p-2.5 bg-black/40 hover:bg-naranja text-white rounded-full backdrop-blur-sm transition-all"
+                                        aria-label="Siguiente"
+                                    >
+                                        <ChevronRight className="w-5 h-5" />
+                                    </button>
+
+                                    {/* Dots */}
+                                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-30 flex gap-2">
+                                        {images.map((_, i) => (
+                                            <button
+                                                key={i}
+                                                onClick={e => { e.stopPropagation(); setSlideIndex(i); }}
+                                                className={`w-2 h-2 rounded-full transition-all ${i === slideIndex ? 'bg-white scale-125' : 'bg-white/50'}`}
+                                                aria-label={`Imagen ${i + 1}`}
+                                            />
+                                        ))}
+                                    </div>
+                                </>
+                            )}
+                        </>
+                    ) : null}
+
+                    {/* Badge */}
+                    <div className="absolute top-6 left-6 z-30 px-3 py-1.5 bg-white/10 backdrop-blur-md rounded-xl text-[10px] text-white font-bold uppercase tracking-widest border border-white/20 pointer-events-none">
                         {product.badge}
                     </div>
                 </div>
-                {!product.videoUrl && (
+
+                {/* Thumbnail strip */}
+                {hasImages && !product.videoUrl && images.length > 1 && (
                     <div className="grid grid-cols-3 gap-4">
-                        {product.images.slice(0, 3).map((img: string, i: number) => (
-                            <div key={i} className="aspect-video relative rounded-2xl overflow-hidden border border-verde-oscuro/5">
-                                <Image src={img} alt="Thumb" fill className="object-cover grayscale hover:grayscale-0 transition-all cursor-pointer" />
-                            </div>
+                        {images.slice(0, 3).map((img: string, i: number) => (
+                            <button
+                                key={i}
+                                onClick={() => setSlideIndex(i)}
+                                className={`aspect-video relative rounded-2xl overflow-hidden border-2 transition-all ${i === slideIndex ? 'border-naranja shadow-md' : 'border-verde-oscuro/5 hover:border-naranja/40'}`}
+                                aria-label={`Ver imagen ${i + 1}`}
+                            >
+                                <Image
+                                    src={getAssetUrl(img)}
+                                    alt="Thumb"
+                                    fill
+                                    className={`object-cover transition-all ${i === slideIndex ? '' : 'grayscale hover:grayscale-0'}`}
+                                />
+                            </button>
                         ))}
                     </div>
                 )}
@@ -331,6 +423,18 @@ function ProductDetailPanel({ product }: { product: any }) {
                     <p className="text-[10px] text-center text-gris-oscuro/30 uppercase font-black tracking-widest">Respaldo legal y técnico garantizado</p>
                 </div>
             </div>
+
+            {/* Lightbox */}
+            {hasImages && (
+                <Lightbox
+                    images={images}
+                    currentIndex={lightboxIndex}
+                    isOpen={lightboxOpen}
+                    onClose={() => setLightboxOpen(false)}
+                    onNext={() => setLightboxIndex(p => (p + 1) % images.length)}
+                    onPrev={() => setLightboxIndex(p => (p - 1 + images.length) % images.length)}
+                />
+            )}
         </>
     );
 }

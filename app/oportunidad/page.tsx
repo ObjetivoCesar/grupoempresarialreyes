@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
 import { getAssetUrl } from '@/lib/assets';
 
 const investmentOptions = [
@@ -112,22 +113,70 @@ export default function OportunidadPage() {
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
             />
-            <section className="bg-cremita border border-marron-claro/20 p-12 rounded-3xl relative overflow-hidden">
-                <div className="relative z-10">
-                    <h1 className="text-4xl font-florenza text-verde-oscuro">La Oportunidad: <span className="text-naranja italic">Sociedad y Activos</span></h1>
-                    <p className="text-gris-oscuro/70 mt-4 max-w-2xl text-lg">Invierta en un ecosistema tangible y regenerativo diseñado para la máxima protección y crecimiento de su capital.</p>
+
+            {/* ── HERO IMPONENTE ── */}
+            <section className="relative min-h-[500px] md:min-h-[600px] flex flex-col justify-end rounded-[2.5rem] overflow-hidden shadow-2xl group">
+                {/* Background image */}
+                <Image
+                    src={getAssetUrl('/250k/exterior.jpg')}
+                    alt="La Oportunidad - Aroma de Montaña"
+                    fill
+                    className="object-cover object-center transition-transform duration-[20s] ease-linear group-hover:scale-110"
+                    priority
+                />
+
+                {/* Dark gradient overlays */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/10" />
+                <div className="absolute inset-0 bg-gradient-to-r from-verde-oscuro/70 to-transparent" />
+
+                {/* Content — pinned to bottom-left */}
+                <div className="relative z-10 p-8 md:p-16 pb-12 md:pb-16 max-w-4xl">
+                    <motion.div
+                        initial={{ opacity: 0, y: 40 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+                    >
+                        <span className="inline-block px-4 py-1.5 rounded-full bg-naranja/20 border border-naranja/50 text-naranja text-xs font-extrabold uppercase tracking-[0.25em] mb-6 backdrop-blur-sm">
+                            Acceso Exclusivo · Pre-Lanzamiento 2025
+                        </span>
+                        <h1 className="text-5xl md:text-7xl lg:text-8xl font-florenza text-white leading-none mb-6 drop-shadow-2xl">
+                            La{' '}
+                            <span className="text-naranja italic">Oportunidad</span>
+                            <br />
+                            <span className="text-3xl md:text-4xl lg:text-5xl text-white/80 font-light not-italic tracking-wide">
+                                Sociedad & Activos
+                            </span>
+                        </h1>
+                        <p className="text-white/80 max-w-xl text-lg md:text-xl font-light leading-relaxed">
+                            Invierta en un ecosistema tangible y regenerativo diseñado para la
+                            <strong className="text-naranja font-semibold"> máxima protección y crecimiento</strong> de su capital.
+                        </p>
+
+                        {/* Quick stats strip */}
+                        <div className="flex flex-wrap gap-6 mt-10">
+                            {[
+                                { label: 'Inversión desde', value: '$50,000' },
+                                { label: 'Activos respaldo', value: '$460k+' },
+                                { label: 'Modelo', value: '50 / 50' },
+                            ].map((s) => (
+                                <div key={s.label} className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-6 py-3">
+                                    <p className="text-white/50 text-[10px] uppercase tracking-widest font-bold">{s.label}</p>
+                                    <p className="text-white font-extrabold text-xl">{s.value}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </motion.div>
                 </div>
-                <div className="absolute top-0 right-0 p-8 opacity-5 text-8xl grayscale">💰</div>
             </section>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div className="flex lg:grid overflow-x-auto lg:overflow-x-visible pb-12 lg:pb-0 gap-8 lg:gap-12 no-scrollbar snap-x snap-mandatory lg:grid-cols-2">
                 {investmentOptions.map((opt, idx) => (
                     <motion.div
                         key={idx}
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ delay: idx * 0.15 }}
-                        className={`card-glass p-8 md:p-12 relative flex flex-col h-full bg-white border border-verde-oscuro/5 rounded-[3rem] shadow-xl ${opt.highlight ? 'ring-4 ring-naranja shadow-2xl' : ''}`}
+                        className={`flex-none w-[90vw] lg:w-auto card-glass p-8 md:p-12 relative flex flex-col h-full bg-white border border-verde-oscuro/5 rounded-[3rem] shadow-xl snap-center ${opt.highlight ? 'ring-4 ring-naranja shadow-2xl' : ''}`}
                     >
                         <div className="mb-8">
                             <span className="text-xs font-black uppercase tracking-[0.3em] text-naranja border-b-2 border-naranja pb-1">{opt.type}</span>

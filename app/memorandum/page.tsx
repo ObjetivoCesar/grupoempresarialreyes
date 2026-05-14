@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
 
 const TOTAL_PAGES = 14;
 const PAGES = Array.from({ length: TOTAL_PAGES }, (_, i) => `/memorandum/page-${i + 1}.jpg`);
@@ -64,16 +65,22 @@ export default function MemorandumPage() {
                 {/* Main Image Container */}
                 <div className={`relative w-full max-w-4xl mx-auto overflow-hidden rounded-2xl shadow-2xl bg-white/5 backdrop-blur-sm border border-white/10 ${isFullscreen ? 'h-[85vh] flex items-center justify-center' : 'aspect-[1/1.4] md:aspect-[1.4/1]'}`}>
                     <AnimatePresence mode="wait">
-                        <motion.img
+                        <motion.div
                             key={currentPage}
-                            src={PAGES[currentPage]}
                             initial={{ opacity: 0, x: 20 }}
                             animate={{ opacity: 1, x: 0 }}
                             exit={{ opacity: 0, x: -20 }}
                             transition={{ duration: 0.4, ease: "easeInOut" }}
-                            className={`w-full h-full object-contain select-none`}
-                            alt={`Página ${currentPage + 1}`}
-                        />
+                            className="relative w-full h-full"
+                        >
+                            <Image
+                                src={PAGES[currentPage]}
+                                fill
+                                className="object-contain select-none"
+                                alt={`Página ${currentPage + 1}`}
+                                priority={currentPage === 0}
+                            />
+                        </motion.div>
                     </AnimatePresence>
 
                     {/* Navigation Overlays */}
@@ -126,7 +133,7 @@ export default function MemorandumPage() {
                                         currentPage === index ? 'border-naranja scale-110 shadow-lg' : 'border-transparent opacity-50 hover:opacity-100'
                                     }`}
                                 >
-                                    <img src={page} className="w-full h-full object-cover" alt={`Miniatura ${index + 1}`} />
+                                    <Image src={page} fill className="object-cover" alt={`Miniatura ${index + 1}`} />
                                     <div className="absolute inset-0 flex items-center justify-center text-[10px] font-bold text-white bg-black/40">
                                         {index + 1}
                                     </div>

@@ -2,6 +2,8 @@
 
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
 import Gallery from '@/components/sections/Gallery';
 import VideoModal from '@/components/ui/VideoModal';
 import { getAssetUrl } from '@/lib/assets';
@@ -88,9 +90,9 @@ export default function RetirePage() {
               </div>
               Ver video de 2 minutos
             </button>
-            <a href="#availability" className="px-8 py-5 rounded-full border-2 border-cremita text-cremita hover:bg-cremita hover:text-verde-oscuro transition-all font-bold text-lg">
+            <Link href="#availability" className="px-8 py-5 rounded-full border-2 border-cremita text-cremita hover:bg-cremita hover:text-verde-oscuro transition-all font-bold text-lg">
               Checkear disponibilidad
-            </a>
+            </Link>
           </motion.div>
         </div>
       </section>
@@ -131,9 +133,14 @@ export default function RetirePage() {
               </ul>
             </div>
           </div>
-          <div className="relative">
+          <div className="relative h-[500px] w-full">
             <div className="absolute inset-0 bg-naranja/20 blur-3xl rounded-full"></div>
-            <img src={getAssetUrl('/Images/trazabilidad.png')} alt="Vida en las montañas" className="relative z-10 w-full h-[500px] object-cover rounded-[3rem] shadow-2xl" />
+            <Image 
+              src={getAssetUrl('/Images/trazabilidad.png')} 
+              alt="Vida en las montañas" 
+              fill
+              className="relative z-10 object-cover rounded-[3rem] shadow-2xl" 
+            />
           </div>
         </div>
       </section>
@@ -144,12 +151,12 @@ export default function RetirePage() {
           <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
             <h2 className="text-4xl md:text-5xl font-florenza">Todo lo que necesitas. <br /><span className="text-naranja italic">Nada de lo que no.</span></h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="flex md:grid overflow-x-auto md:overflow-x-visible pb-8 md:pb-0 gap-6 no-scrollbar snap-x snap-mandatory md:grid-cols-2 lg:grid-cols-3">
             {experiences.map((exp, i) => (
               <motion.div 
                 key={i}
                 whileHover={{ y: -5 }}
-                className="bg-white/5 border border-white/10 p-8 rounded-[2rem] backdrop-blur-sm hover:bg-white/10 transition-colors"
+                className="flex-none w-[85vw] md:w-auto bg-white/5 border border-white/10 p-8 rounded-[2rem] backdrop-blur-sm hover:bg-white/10 transition-colors snap-center"
               >
                 <div className="text-4xl mb-4">{exp.icon}</div>
                 <h3 className="text-xl font-bold mb-2">{exp.title}</h3>
@@ -172,8 +179,13 @@ export default function RetirePage() {
       <section className="container mx-auto px-6 py-20">
         <div className="bg-white rounded-[3rem] p-10 md:p-20 shadow-2xl border border-marron-claro/10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="relative">
-              <img src={getAssetUrl('/Images/Blindaje Fiduciario.webp')} alt="Modelo de Propiedad" className="w-full h-auto rounded-[2rem] shadow-xl" />
+            <div className="relative h-[400px] w-full">
+              <Image 
+                src={getAssetUrl('/Images/Blindaje Fiduciario.webp')} 
+                alt="Modelo de Propiedad" 
+                fill
+                className="object-cover rounded-[2rem] shadow-xl" 
+              />
             </div>
             <div className="space-y-8">
               <h2 className="text-4xl md:text-5xl font-florenza text-verde-oscuro">

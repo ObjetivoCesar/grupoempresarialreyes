@@ -183,7 +183,7 @@ export default function DashboardHome() {
           <p className="text-gris-oscuro/60 max-w-2xl mx-auto">Respaldo jurídico y ejecución tangible que garantiza tu seguridad física y financiera.</p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+        <div className="flex md:grid overflow-x-auto md:overflow-x-visible pb-8 md:pb-0 gap-6 no-scrollbar snap-x snap-mandatory md:grid-cols-3 lg:grid-cols-6">
           {[
             { title: 'USD 230 mil Ejecutados', subtitle: 'Capital Propio', icon: '🏗️' },
             { title: '23.5 Hectáreas', subtitle: 'Escrituradas', icon: '📜' },
@@ -192,7 +192,7 @@ export default function DashboardHome() {
             { title: 'Taza Dorada', subtitle: 'Alianza Cafetera', icon: '☕' },
             { title: 'Sociedad 50/50', subtitle: 'Copropiedad Directa', icon: '🤝' },
           ].map((v, i) => (
-            <div key={i} className="bg-white p-8 rounded-3xl border border-verde-oscuro/5 shadow-xl text-center group hover:bg-verde-oscuro hover:text-white transition-all duration-500">
+            <div key={i} className="flex-none w-[65vw] md:w-auto bg-white p-8 rounded-3xl border border-verde-oscuro/5 shadow-xl text-center group hover:bg-verde-oscuro hover:text-white transition-all duration-500 snap-center">
               <div className="text-4xl mb-4 group-hover:scale-125 transition-transform">{v.icon}</div>
               <h4 className="text-sm font-black uppercase tracking-widest">{v.title}</h4>
               <p className="text-[10px] opacity-40 group-hover:opacity-60">{v.subtitle}</p>
@@ -217,7 +217,7 @@ export default function DashboardHome() {
           <p className="text-cremita/10 font-black uppercase tracking-[0.3em] text-[10px]">Sostenibilidad con Propósito</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="flex md:grid overflow-x-auto md:overflow-x-visible pb-12 md:pb-0 gap-8 no-scrollbar snap-x snap-mandatory md:grid-cols-3">
           {[
             {
               title: 'Astroturismo 360',
@@ -238,7 +238,7 @@ export default function DashboardHome() {
             <motion.div
               key={i}
               whileHover={{ y: -10 }}
-              className="bg-white p-10 rounded-[2.5rem] border border-verde-oscuro/5 shadow-xl text-center space-y-6 group transition-all duration-500 hover:shadow-2xl hover:bg-verde-oscuro"
+              className="flex-none w-[85vw] md:w-auto bg-white p-10 rounded-[2.5rem] border border-verde-oscuro/5 shadow-xl text-center space-y-6 group transition-all duration-500 hover:shadow-2xl hover:bg-verde-oscuro snap-center"
             >
               <div className="w-20 h-20 bg-cremita rounded-full flex items-center justify-center text-4xl mx-auto shadow-inner group-hover:scale-110 transition-transform">
                 {pillar.icon}

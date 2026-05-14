@@ -41,9 +41,9 @@ export default function HaciendaPage() {
     ];
 
     return (
-        <div className="space-y-12">
+        <div className="space-y-8 md:space-y-12">
             {/* Header with Background */}
-            <section className="relative h-[250px] rounded-3xl overflow-hidden flex items-center px-12">
+            <section className="relative h-[250px] md:h-[300px] rounded-3xl overflow-hidden flex items-center px-6 md:px-12">
                 <Image
                     src={getAssetUrl("/Images/Naturaleza.png")}
                     alt="Hacienda Nature"
@@ -51,52 +51,52 @@ export default function HaciendaPage() {
                     className="object-cover brightness-50"
                 />
                 <div className="relative z-10 space-y-2">
-                    <h1 className="text-4xl md:text-5xl font-florenza text-cremita">El Activo: <span className="text-naranja">La Tierra</span></h1>
-                    <p className="text-cremita/70 max-w-xl">El respaldo físico de su inversión. Una hacienda productiva con certificación de sostenibilidad y alto valor patrimonial.</p>
+                    <h1 className="text-3xl md:text-5xl font-florenza text-cremita">El Activo: <span className="text-naranja">La Tierra</span></h1>
+                    <p className="text-sm md:text-base text-cremita/70 max-w-xl">El respaldo físico de su inversión. Una hacienda productiva con certificación de sostenibilidad y alto valor patrimonial.</p>
                 </div>
             </section>
 
             {/* Grid de Métricas del Activo */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="flex md:grid overflow-x-auto md:overflow-x-visible pb-4 md:pb-0 gap-4 md:gap-6 no-scrollbar snap-x snap-mandatory md:grid-cols-2 lg:grid-cols-3">
                 {stats.map((stat, idx) => (
                     <motion.div
                         key={idx}
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: idx * 0.05 }}
-                        className="bg-white p-6 rounded-2xl shadow-sm border border-marron-claro/10 flex items-center gap-4"
+                        className="flex-none w-[75vw] md:w-auto bg-white p-5 md:p-6 rounded-2xl shadow-sm border border-marron-claro/10 flex items-center gap-4 snap-center"
                     >
-                        <div className="w-12 h-12 rounded-xl bg-cremita flex items-center justify-center text-2xl">
+                        <div className="w-12 h-12 rounded-xl bg-cremita flex shrink-0 items-center justify-center text-2xl">
                             {stat.icon}
                         </div>
                         <div>
-                            <p className="text-[10px] uppercase font-bold text-gris-oscuro/40 tracking-wider font-poppins">{stat.label}</p>
-                            <p className="text-lg font-bold text-verde-oscuro font-poppins">{stat.val}</p>
+                            <p className="text-[10px] md:text-xs uppercase font-bold text-gris-oscuro/40 tracking-wider font-poppins">{stat.label}</p>
+                            <p className="text-base md:text-lg font-bold text-verde-oscuro font-poppins leading-tight">{stat.val}</p>
                         </div>
                     </motion.div>
                 ))}
             </div>
 
             {/* Narrative Section */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 pt-8">
-                <div className="space-y-6">
-                    <h2 className="text-3xl font-florenza text-verde-oscuro">Patrimonio que respira</h2>
-                    <p className="text-gris-oscuro/80 leading-relaxed font-poppins">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 pt-4 md:pt-8">
+                <div className="space-y-4 md:space-y-6">
+                    <h2 className="text-2xl md:text-3xl font-florenza text-verde-oscuro">Patrimonio que respira</h2>
+                    <p className="text-sm md:text-base text-gris-oscuro/80 leading-relaxed font-poppins">
                         Aroma de Montaña no es un terreno más. Es una pieza fundamental del corredor biológico <strong>Bosques de Paz de la UNESCO</strong>. Aquí, el valor inmobiliario crece de la mano con la restauración ecológica.
                     </p>
-                    <div className="p-6 bg-verde-olivo/5 rounded-2xl border-l-4 border-verde-olivo">
-                        <p className="text-sm font-medium italic text-verde-olivo font-poppins">
+                    <div className="p-5 md:p-6 bg-verde-olivo/5 rounded-2xl border-l-4 border-verde-olivo">
+                        <p className="text-xs md:text-sm font-medium italic text-verde-olivo font-poppins">
                             "Protegemos el 40% del área total para conservación pura, asegurando que el lujo de hoy no destruya el recurso del mañana."
                         </p>
                     </div>
                 </div>
-                <div className="space-y-6">
-                    <h2 className="text-3xl font-florenza text-verde-oscuro">Estructura <span className="text-naranja italic">Patrimonial</span></h2>
-                    <p className="text-gris-oscuro/80 leading-relaxed font-poppins">
+                <div className="space-y-4 md:space-y-6">
+                    <h2 className="text-2xl md:text-3xl font-florenza text-verde-oscuro">Estructura <span className="text-naranja italic">Patrimonial</span></h2>
+                    <p className="text-sm md:text-base text-gris-oscuro/80 leading-relaxed font-poppins">
                         Al ingresar como Socio Estratégico, tu capital de $230,000 USD adquiere el 50% de la sociedad empresarial, la cual <strong>incluye como activo todo el terreno rural productivo (23.5 hectáreas) y su infraestructura base</strong>.
                     </p>
-                    <div className="p-6 bg-naranja/5 rounded-2xl border-l-4 border-naranja">
-                        <p className="text-sm font-medium italic text-naranja font-poppins">
+                    <div className="p-5 md:p-6 bg-naranja/5 rounded-2xl border-l-4 border-naranja">
+                        <p className="text-xs md:text-sm font-medium italic text-naranja font-poppins">
                             Blindaje Inteligente: La sociedad es dueña compartida de la propiedad física (50/50), pero la <strong>Marca "Aroma de Montaña" y su propiedad intelectual</strong> permanecen exclusivamente bajo César Reyes.
                         </p>
                     </div>
@@ -104,33 +104,33 @@ export default function HaciendaPage() {
             </div>
 
             {/* Ramiro & Coffee Section */}
-            <section className="bg-verde-oscuro rounded-[3rem] overflow-hidden shadow-2xl">
+            <section className="bg-verde-oscuro rounded-3xl md:rounded-[3rem] overflow-hidden shadow-2xl">
                 <div className="grid grid-cols-1 lg:grid-cols-2">
-                    <div className="p-12 md:p-16 space-y-8 flex flex-col justify-center">
-                        <div className="space-y-4">
-                            <span className="text-naranja font-black uppercase tracking-[0.3em] text-xs">El Patrimonio Humano</span>
-                            <h2 className="text-4xl md:text-5xl font-florenza text-cremita">Ramiro: El Maestro de la <span className="text-naranja italic">Taza Dorada</span></h2>
+                    <div className="p-8 md:p-16 space-y-6 md:space-y-8 flex flex-col justify-center">
+                        <div className="space-y-2 md:space-y-4">
+                            <span className="text-naranja font-black uppercase tracking-[0.2em] md:tracking-[0.3em] text-[10px] md:text-xs">El Patrimonio Humano</span>
+                            <h2 className="text-3xl md:text-5xl font-florenza text-cremita">Ramiro: El Maestro de la <span className="text-naranja italic">Taza Dorada</span></h2>
                         </div>
                         
-                        <p className="text-cremita/80 leading-relaxed text-lg font-poppins">
+                        <p className="text-cremita/80 leading-relaxed text-sm md:text-lg font-poppins">
                             La tierra por sí sola es solo tierra. El valor real viene del conocimiento. <strong>Ramiro</strong>, nuestro experto caficultor, es la leyenda viviente detrás de cada grano en Aroma de Montaña. 
                         </p>
                         
                         <div className="space-y-4">
                             <div className="flex gap-4 items-center bg-white/5 p-4 rounded-2xl border border-white/10">
-                                <div className="text-3xl">🏆</div>
+                                <div className="text-2xl md:text-3xl">🏆</div>
                                 <div>
-                                    <p className="text-cremita font-bold">Multiganador Taza Dorada</p>
-                                    <p className="text-cremita/60 text-sm">El reconocimiento más alto al café de especialidad en Ecuador.</p>
+                                    <p className="text-cremita font-bold text-sm md:text-base">Multiganador Taza Dorada</p>
+                                    <p className="text-cremita/60 text-xs md:text-sm">El reconocimiento más alto al café de especialidad en Ecuador.</p>
                                 </div>
                             </div>
-                            <p className="text-cremita/70 text-sm italic font-poppins">
+                            <p className="text-cremita/70 text-xs md:text-sm italic font-poppins">
                                 "No solo cultivamos café; cultivamos una herencia de sabor que solo estas montañas pueden ofrecer a esa altitud."
                             </p>
                         </div>
                     </div>
                     
-                    <div className="relative h-[400px] lg:h-auto group">
+                    <div className="relative h-[300px] md:h-[400px] lg:h-auto group">
                         <Image
                             src={getAssetUrl("/Images/optimized/Café - Especialidad/PXL_20240704_192559674.webp")}
                             alt="Ramiro Trabajando el Café"
@@ -143,14 +143,14 @@ export default function HaciendaPage() {
             </section>
 
             {/* Coffee Grid Detail */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="flex md:grid overflow-x-auto md:overflow-x-visible pb-4 md:pb-0 gap-4 no-scrollbar snap-x snap-mandatory md:grid-cols-4">
                 {[
                     '/Images/optimized/Café - Especialidad/PXL_20240629_141006374.webp',
                     '/Images/optimized/Café - Especialidad/PXL_20240629_144935774.webp',
                     '/Images/optimized/Café - Especialidad/PXL_20240704_192739937.webp',
                     '/Images/optimized/Café - Especialidad/PXL_20240316_214122874.webp'
                 ].map((src, i) => (
-                    <div key={i} className="h-48 relative rounded-3xl overflow-hidden shadow-lg">
+                    <div key={i} className="flex-none w-[60vw] md:w-auto h-48 relative rounded-3xl overflow-hidden shadow-lg snap-center">
                         <Image src={getAssetUrl(src)} alt="Detalle Café" fill className="object-cover" />
                     </div>
                 ))}

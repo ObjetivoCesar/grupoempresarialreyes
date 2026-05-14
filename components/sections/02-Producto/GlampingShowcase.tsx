@@ -2,16 +2,13 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { getAssetUrl } from '@/lib/assets';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Autoplay } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
+import { ChevronLeft, ChevronRight, ZoomIn } from 'lucide-react';
 import Lightbox from '@/components/ui/Lightbox';
 
 const glampingTypes = [
+    {
         id: 'basico',
         name: 'Glamping Básico',
         price: '$30,000',
@@ -56,17 +53,34 @@ const glampingTypes = [
     },
 ];
 
+const cafeteriaImages = ['/Cafetería/interior.jpg'];
+
 export default function GlampingShowcase() {
     const [activeType, setActiveType] = useState(0);
+    const [slideIndex, setSlideIndex] = useState(0);
     const [lightboxOpen, setLightboxOpen] = useState(false);
     const [lightboxIndex, setLightboxIndex] = useState(0);
     const [cafeteriaLightboxOpen, setCafeteriaLightboxOpen] = useState(false);
 
     const currentImages = glampingTypes[activeType].images;
-    const cafeteriaImages = ['/Cafetería/interior.jpg'];
 
-    const openLightbox = (index: number) => {
-        setLightboxIndex(index);
+    const handleTypeChange = (index: number) => {
+        setActiveType(index);
+        setSlideIndex(0);
+    };
+
+    const prevSlide = (e: React.MouseEvent) => {
+        e.stopPropagation();
+        setSlideIndex((p) => (p - 1 + currentImages.length) % currentImages.length);
+    };
+
+    const nextSlide = (e: React.MouseEvent) => {
+        e.stopPropagation();
+        setSlideIndex((p) => (p + 1) % currentImages.length);
+    };
+
+    const openLightbox = () => {
+        setLightboxIndex(slideIndex);
         setLightboxOpen(true);
     };
 
@@ -88,7 +102,7 @@ export default function GlampingShowcase() {
                         Diseño consciente y experiencia premium
                     </p>
                     <p className="text-base md:text-lg text-gris-oscuro/80 max-w-4xl mx-auto italic">
-                        "No vendemos m²; vendemos noches de reconexión y días de café de especialidad"
+                        &ldquo;No vendemos m²; vendemos noches de reconexión y días de café de especialidad&rdquo;
                     </p>
                 </motion.div>
 
@@ -97,11 +111,12 @@ export default function GlampingShowcase() {
                     {glampingTypes.map((type, index) => (
                         <button
                             key={type.id}
-                            onClick={() => setActiveType(index)}
-                            className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${activeType === index
+                            onClick={() => handleTypeChange(index)}
+                            className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
+                                activeType === index
                                     ? 'bg-naranja text-white shadow-lg scale-105'
                                     : 'bg-white text-gris-oscuro hover:bg-naranja/10'
-                                }`}
+                            }`}
                         >
                             {type.name}
                         </button>
@@ -110,7 +125,7 @@ export default function GlampingShowcase() {
 
                 {/* Glamping Display */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
-                    {/* Image Carousel */}
+                    {/* Carousel */}
                     <motion.div
                         key={activeType}
                         initial={{ opacity: 0, x: -30 }}
@@ -118,33 +133,82 @@ export default function GlampingShowcase() {
                         transition={{ duration: 0.5 }}
                         className="relative"
                     >
-                        <Swiper
-                            modules={[Navigation, Pagination, Autoplay]}
-                            navigation
-                            pagination={{ clickable: true }}
-                            autoplay={{ delay: 4000 }}
-                            loop
-                            className="rounded-2xl overflow-hidden shadow-lg-custom"
-                        >
-                            {glampingTypes[activeType].images.map((image, idx) => (
-                                <SwiperSlide key={idx}>
-                                    <div 
-                                        className="relative aspect-[4/3] cursor-zoom-in group"
-                                        onClick={() => openLightbox(idx)}
+                        {/* Hint */}
+                        <div className="absolute -top-7 right-0 flex items-center gap-1.5 text-xs text-gris-oscuro/50 z-10 pointer-events-none select-none">
+                            <ZoomIn className="w-3.5 h-3.5" />
+                            Clic en la imagen para ampliar
+                        </div>
+
+                        {/* Image wrapper — usar height fija para garantizar área de clic */}
+                        <div className="rounded-2xl overflow-hidden shadow-lg relative" style={{ height: '360px' }}>
+                            {/* Clickable overlay — capa superior para capturar el clic */}
+                            <div
+                                className="absolute inset-0 z-20 cursor-zoom-in group"
+                                role="button"
+                                tabIndex={0}
+                                aria-label="Ampliar imagen"
+                                onClick={openLightbox}
+                                onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') openLightbox(); }}
+                            >
+                                {/* Hover overlay */}
+                                <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
+                                    <span className="text-white bg-black/60 px-5 py-2.5 rounded-full text-sm backdrop-blur-sm font-semibold tracking-wide shadow-xl">
+                                        🔍 Ampliar Foto
+                                    </span>
+                                </div>
+                            </div>
+
+                            {/* Image itself */}
+                            <AnimatePresence mode="wait">
+                                <motion.div
+                                    key={`${activeType}-${slideIndex}`}
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    exit={{ opacity: 0 }}
+                                    transition={{ duration: 0.3 }}
+                                    className="absolute inset-0"
+                                >
+                                    <Image
+                                        src={getAssetUrl(currentImages[slideIndex])}
+                                        alt={`${glampingTypes[activeType].name} - Vista ${slideIndex + 1}`}
+                                        fill
+                                        className="object-cover"
+                                    />
+                                </motion.div>
+                            </AnimatePresence>
+
+                            {/* Navigation arrows — z-30 to be above the clickable overlay */}
+                            {currentImages.length > 1 && (
+                                <>
+                                    <button
+                                        onClick={prevSlide}
+                                        className="absolute left-3 top-1/2 -translate-y-1/2 z-30 p-2 bg-black/40 hover:bg-naranja text-white rounded-full backdrop-blur-sm transition-all"
+                                        aria-label="Anterior"
                                     >
-                                        <Image
-                                            src={getAssetUrl(image)}
-                                            alt={`${glampingTypes[activeType].name} - Vista ${idx + 1}`}
-                                            fill
-                                            className="object-cover transition-transform duration-500 group-hover:scale-105"
-                                        />
-                                        <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none z-10">
-                                            <span className="text-white bg-black/50 px-4 py-2 rounded-full text-sm backdrop-blur-sm shadow-lg font-medium tracking-wide">Ampliar Foto</span>
-                                        </div>
+                                        <ChevronLeft className="w-5 h-5" />
+                                    </button>
+                                    <button
+                                        onClick={nextSlide}
+                                        className="absolute right-3 top-1/2 -translate-y-1/2 z-30 p-2 bg-black/40 hover:bg-naranja text-white rounded-full backdrop-blur-sm transition-all"
+                                        aria-label="Siguiente"
+                                    >
+                                        <ChevronRight className="w-5 h-5" />
+                                    </button>
+
+                                    {/* Dots — z-30 */}
+                                    <div className="absolute bottom-3 left-1/2 -translate-x-1/2 z-30 flex gap-1.5">
+                                        {currentImages.map((_, i) => (
+                                            <button
+                                                key={i}
+                                                onClick={(e) => { e.stopPropagation(); setSlideIndex(i); }}
+                                                className={`w-2 h-2 rounded-full transition-all ${i === slideIndex ? 'bg-white scale-125' : 'bg-white/50'}`}
+                                                aria-label={`Ir a imagen ${i + 1}`}
+                                            />
+                                        ))}
                                     </div>
-                                </SwiperSlide>
-                            ))}
-                        </Swiper>
+                                </>
+                            )}
+                        </div>
                     </motion.div>
 
                     {/* Details */}
@@ -163,9 +227,7 @@ export default function GlampingShowcase() {
                                 <span className="text-4xl md:text-5xl font-bold text-naranja">
                                     {glampingTypes[activeType].price}
                                 </span>
-                                <span className="text-lg text-gris-oscuro">
-                                    Inversión
-                                </span>
+                                <span className="text-lg text-gris-oscuro">Inversión</span>
                             </div>
                             <p className="text-lg text-gris-oscuro flex items-center gap-2">
                                 <svg className="w-5 h-5 text-naranja" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -176,9 +238,7 @@ export default function GlampingShowcase() {
                         </div>
 
                         <div className="space-y-3">
-                            <h4 className="text-xl font-semibold text-verde-oscuro">
-                                Equipamiento Premium
-                            </h4>
+                            <h4 className="text-xl font-semibold text-verde-oscuro">Equipamiento Premium</h4>
                             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                                 {glampingTypes[activeType].features.map((feature, idx) => (
                                     <li key={idx} className="flex items-start gap-2">
@@ -199,7 +259,7 @@ export default function GlampingShowcase() {
                     </motion.div>
                 </div>
 
-                {/* Cafetería Section */}
+                {/* ── Cafetería Section ── */}
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -213,7 +273,7 @@ export default function GlampingShowcase() {
                                 Organic Coffee Bar
                             </h3>
                             <p className="text-lg text-gris-oscuro leading-relaxed">
-                                Integración del café <strong className="text-naranja">"Taza Dorada"</strong> producido
+                                Integración del café <strong className="text-naranja">&ldquo;Taza Dorada&rdquo;</strong> producido
                                 en la propia hacienda. Alianza estratégica con Hacienda La Florida, ganadora del
                                 premio Taza Dorada 2020.
                             </p>
@@ -234,9 +294,16 @@ export default function GlampingShowcase() {
                                 ))}
                             </ul>
                         </div>
-                        <div 
-                            className="order-1 lg:order-2 relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg-custom cursor-zoom-in group"
+
+                        {/* Cafetería clickable image */}
+                        <div
+                            className="order-1 lg:order-2 relative rounded-2xl overflow-hidden shadow-lg cursor-zoom-in group"
+                            style={{ height: '360px' }}
+                            role="button"
+                            tabIndex={0}
+                            aria-label="Ampliar foto de la Cafetería"
                             onClick={() => setCafeteriaLightboxOpen(true)}
+                            onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') setCafeteriaLightboxOpen(true); }}
                         >
                             <Image
                                 src={getAssetUrl('/Cafetería/interior.jpg')}
@@ -244,23 +311,27 @@ export default function GlampingShowcase() {
                                 fill
                                 className="object-cover transition-transform duration-700 group-hover:scale-105"
                             />
-                            <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none z-10">
-                                <span className="text-white bg-black/50 px-4 py-2 rounded-full text-sm backdrop-blur-sm shadow-lg font-medium tracking-wide">Ampliar Foto</span>
+                            <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center z-10 pointer-events-none">
+                                <span className="text-white bg-black/60 px-5 py-2.5 rounded-full text-sm backdrop-blur-sm font-semibold tracking-wide shadow-xl">
+                                    🔍 Ampliar Foto
+                                </span>
                             </div>
                         </div>
                     </div>
                 </motion.div>
-                
-                {/* Lightboxes */}
-                <Lightbox 
+
+                {/* ── Lightbox: glamping gallery ── */}
+                <Lightbox
                     images={currentImages}
                     currentIndex={lightboxIndex}
                     isOpen={lightboxOpen}
                     onClose={() => setLightboxOpen(false)}
-                    onNext={() => setLightboxIndex((prev) => (prev + 1) % currentImages.length)}
-                    onPrev={() => setLightboxIndex((prev) => (prev - 1 + currentImages.length) % currentImages.length)}
+                    onNext={() => setLightboxIndex((p) => (p + 1) % currentImages.length)}
+                    onPrev={() => setLightboxIndex((p) => (p - 1 + currentImages.length) % currentImages.length)}
                 />
-                <Lightbox 
+
+                {/* ── Lightbox: cafetería ── */}
+                <Lightbox
                     images={cafeteriaImages}
                     currentIndex={0}
                     isOpen={cafeteriaLightboxOpen}

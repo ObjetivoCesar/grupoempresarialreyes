@@ -1,10 +1,11 @@
 "use client";
 import { useState, useEffect } from 'react';
-
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import VideoModal from '@/components/ui/VideoModal';
+import PageHero from '@/components/ui/PageHero';
 import { getAssetUrl } from '@/lib/assets';
+
 
 interface VideoItem {
     title: string;
@@ -12,6 +13,7 @@ interface VideoItem {
     category: string;
     thumbnail: string;
 }
+
 
 export default function HaciendaPage() {
     const [modalConfig, setModalConfig] = useState({ isOpen: false, youtubeId: '' });
@@ -41,19 +43,20 @@ export default function HaciendaPage() {
 
     return (
         <div className="space-y-8 md:space-y-12">
-            {/* Header with Background */}
-            <section className="relative h-[250px] md:h-[300px] rounded-3xl overflow-hidden flex items-center px-6 md:px-12">
-                <Image
-                    src={getAssetUrl("/Images/Naturaleza.png")}
-                    alt="Hacienda Nature"
-                    fill
-                    className="object-cover brightness-50"
-                />
-                <div className="relative z-10 space-y-2">
-                    <h1 className="text-3xl md:text-5xl font-florenza text-cremita">El Patrimonio: <span className="text-naranja">lo que existe hoy, verificado</span></h1>
-                    <p className="text-sm md:text-base text-cremita/70 max-w-xl">El respaldo físico y los activos fijos de la empresa Aroma de Montaña, valorados y listos para operar.</p>
-                </div>
-            </section>
+            <PageHero
+                badge="Activos Verificados · Avalúo BanEcuador"
+                title="El Patrimonio:"
+                titleAccent="lo que existe hoy, verificado"
+                subtitle="El respaldo físico y los activos fijos de la empresa Aroma de Montaña, valorados y listos para su due diligence."
+                imagePath="/Images/Naturaleza.png"
+                stats={[
+                    { label: 'Área Total', value: '23.5 Ha' },
+                    { label: 'Altitud', value: '1,850–2,100 msnm' },
+                    { label: 'Patrimonio Registrado', value: '$211,266' },
+                    { label: 'Reserva Hídrica', value: '8,000 m³' },
+                ]}
+            />
+
 
             {/* Grid de Métricas del Activo */}
             <div className="flex md:grid overflow-x-auto md:overflow-x-visible pb-4 md:pb-0 gap-4 md:gap-6 no-scrollbar snap-x snap-mandatory md:grid-cols-2 lg:grid-cols-3">

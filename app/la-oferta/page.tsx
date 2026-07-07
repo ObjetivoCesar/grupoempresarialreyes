@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { getAssetUrl } from '@/lib/assets';
+import PageHero from '@/components/ui/PageHero';
 
 export default function LaOfertaPage() {
   const assetsIncluded = [
@@ -14,16 +15,19 @@ export default function LaOfertaPage() {
 
   return (
     <div className="space-y-16 pb-20">
-      {/* Hero Header */}
-      <section className="bg-verde-oscuro p-12 rounded-[3rem] text-cremita border-l-8 border-naranja shadow-2xl relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-64 h-64 bg-naranja/10 rounded-full blur-3xl -mr-20 -mt-20"></div>
-        <div className="relative z-10">
-          <h1 className="text-5xl font-florenza mb-4">La Oferta: <span className="text-naranja italic">venta total de la empresa</span></h1>
-          <p className="text-cremita/70 text-lg max-w-3xl font-light leading-relaxed">
-            Adquisición del 100% de Grupo Empresarial Reyes S.A.S. B.I.C. y todo su patrimonio fáctico e intangible.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        badge="Venta Total de la Empresa"
+        title="La Oferta:"
+        titleAccent="venta total de la empresa"
+        subtitle="100% de Grupo Empresarial Reyes S.A.S. B.I.C. — predio, marca, propiedad intelectual y modelo de negocio."
+        imagePath="/Images/Naturaleza.png"
+        stats={[
+          { label: 'Precio de Venta', value: 'USD 230,000' },
+          { label: 'Patrimonio Registrado', value: '$211,266' },
+          { label: 'Entrada Mínima', value: '35%' },
+          { label: 'Incluye Marca', value: '10 años' },
+        ]}
+      />
 
       {/* Main Pitch Card */}
       <div className="bg-white p-10 md:p-12 rounded-[3rem] border border-marron-claro/10 shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
@@ -72,6 +76,29 @@ export default function LaOfertaPage() {
             </motion.div>
           ))}
         </div>
+      </div>
+
+      {/* Condiciones de Adquisición */}
+      <div className="bg-verde-oscuro text-cremita p-10 md:p-12 rounded-[3rem] shadow-xl space-y-6">
+        <h3 className="text-3xl font-florenza">Condiciones de <span className="text-naranja italic">Adquisición</span></h3>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="bg-white/10 border border-white/10 rounded-2xl p-6 space-y-2">
+            <p className="text-xs font-black uppercase tracking-widest text-naranja font-poppins">Entrada al firmar</p>
+            <p className="text-4xl font-black text-white">35%</p>
+            <p className="text-xs text-cremita/60 font-poppins">del valor de venta al momento de la firma del contrato de promesa.</p>
+          </div>
+          <div className="bg-white/10 border border-white/10 rounded-2xl p-6 space-y-2">
+            <p className="text-xs font-black uppercase tracking-widest text-naranja font-poppins">Saldo restante</p>
+            <p className="text-4xl font-black text-white">65%</p>
+            <p className="text-xs text-cremita/60 font-poppins">pagadero según cronograma acordado post-firma.</p>
+          </div>
+          <div className="bg-white/10 border border-white/10 rounded-2xl p-6 space-y-2">
+            <p className="text-xs font-black uppercase tracking-widest text-naranja font-poppins">Financiamiento Directo</p>
+            <p className="text-2xl font-black text-white">Disponible</p>
+            <p className="text-xs text-cremita/60 font-poppins">Para compradores que no cuenten con el capital completo — condiciones a conversar de forma privada según perfil del comprador.</p>
+          </div>
+        </div>
+        <p className="text-xs text-cremita/40 font-poppins italic pt-2">* Las condiciones de pago fraccionado requieren instrumento legal que proteja la transferencia de acciones/dominio hasta completar el pago total. A resolver con el asesor legal del comprador.</p>
       </div>
 
       {/* CTA Box */}

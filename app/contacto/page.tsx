@@ -2,15 +2,18 @@
 
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import PageHero from '@/components/ui/PageHero';
 
 export default function ContactoPage() {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [formData, setFormData] = useState({ name: '', email: '', message: '', hasBroker: '', brokerName: '' });
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Enviar WhatsApp con la info
-    const text = `Hola, mi nombre es ${formData.name}. Estoy interesado en la adquisición de la Hacienda/Empresa Aroma de Montaña. Mi correo es ${formData.email}. Mensaje: ${formData.message}`;
+    const brokerInfo = formData.hasBroker === 'yes' && formData.brokerName
+      ? ` Me asesora un agente/bróker: ${formData.brokerName}.`
+      : '';
+    const text = `Hola, mi nombre es ${formData.name}. Estoy interesado en la adquisición de la empresa Aroma de Montaña. Mi correo es ${formData.email}. Mensaje: ${formData.message}${brokerInfo}`;
     const url = `https://wa.me/593963410409?text=${encodeURIComponent(text)}`;
     window.open(url, '_blank');
     setSubmitted(true);
@@ -18,16 +21,18 @@ export default function ContactoPage() {
 
   return (
     <div className="space-y-16 pb-20">
-      {/* Hero Header */}
-      <section className="bg-verde-oscuro p-12 rounded-[3rem] text-cremita border-l-8 border-naranja shadow-2xl relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-64 h-64 bg-naranja/10 rounded-full blur-3xl -mr-20 -mt-20"></div>
-        <div className="relative z-10">
-          <h1 className="text-5xl font-florenza mb-4">Contacto: <span className="text-naranja italic">Conversar directamente</span></h1>
-          <p className="text-cremita/70 text-lg max-w-3xl font-light leading-relaxed">
-            Inicie una conversación directa para resolver dudas, coordinar visitas técnicas al predio Sambinuma, o solicitar expedientes legales y contables.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        badge="Conversación Directa · Sin Intermediarios"
+        title="Contacto:"
+        titleAccent="conversar directamente"
+        subtitle="Coordine visitas técnicas al predio Sambinuma, solicite expedientes legales y contables, o presente su propuesta de adquisición."
+        imagePath="/Images/Naturaleza.png"
+        stats={[
+          { label: 'WhatsApp', value: '+593 96 341 0409' },
+          { label: 'Respuesta', value: 'Inmediata' },
+          { label: 'Visitas', value: 'Bajo Agenda' },
+        ]}
+      />
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
         {/* Left Side: Contact Channels */}
@@ -104,6 +109,49 @@ export default function ContactoPage() {
                 className="w-full px-5 py-4 rounded-2xl border border-marron-claro/20 focus:outline-none focus:ring-2 focus:ring-verde-oscuro bg-cremita/10 font-poppins text-sm"
                 placeholder="Describa brevemente su consulta o propuesta..."
               />
+            </div>
+
+            {/* Campo de atribución de bróker */}
+            <div className="space-y-3 p-5 bg-cremita/30 rounded-2xl border border-marron-claro/10">
+              <label className="text-xs font-bold uppercase tracking-wider text-gris-oscuro/60 font-poppins">
+                ¿Le está asesorando un agente o bróker inmobiliario?
+              </label>
+              <div className="flex flex-col gap-2 font-poppins text-sm">
+                <label className="flex items-center gap-3 cursor-pointer">
+                  <input
+                    type="radio"
+                    name="hasBroker"
+                    value="yes"
+                    checked={formData.hasBroker === 'yes'}
+                    onChange={(e) => setFormData({ ...formData, hasBroker: e.target.value })}
+                    className="accent-naranja"
+                  />
+                  Sí
+                </label>
+                <label className="flex items-center gap-3 cursor-pointer">
+                  <input
+                    type="radio"
+                    name="hasBroker"
+                    value="no"
+                    checked={formData.hasBroker === 'no'}
+                    onChange={(e) => setFormData({ ...formData, hasBroker: e.target.value, brokerName: '' })}
+                    className="accent-naranja"
+                  />
+                  No
+                </label>
+              </div>
+              {formData.hasBroker === 'yes' && (
+                <input
+                  type="text"
+                  value={formData.brokerName}
+                  onChange={(e) => setFormData({ ...formData, brokerName: e.target.value })}
+                  className="w-full px-5 py-3 rounded-xl border border-marron-claro/20 focus:outline-none focus:ring-2 focus:ring-verde-oscuro bg-white font-poppins text-sm"
+                  placeholder="Nombre o correo del agente / bróker"
+                />
+              )}
+              <p className="text-[11px] text-gris-oscuro/50 font-poppins italic">
+                Trabajar con un agente de su confianza no modifica el precio de venta ni las condiciones de la oferta.
+              </p>
             </div>
 
             <button

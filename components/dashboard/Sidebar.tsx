@@ -191,13 +191,25 @@ export default function AppSidebar() {
                 </nav>
 
 
-                <div className="p-4 border-t border-white/10 m-4 rounded-2xl bg-white/5">
+                {/* Badge de Precio Persistente */}
+                <Link href="/la-oferta" onClick={() => setIsOpen(false)}>
+                    <div className="mx-4 mb-3 p-4 rounded-2xl bg-naranja/15 border border-naranja/30 hover:bg-naranja/25 transition-all cursor-pointer group">
+                        <p className="text-[10px] font-bold uppercase tracking-widest text-naranja/70 font-poppins mb-0.5">Precio de Venta</p>
+                        <div className="flex items-center justify-between">
+                            <p className="text-xl font-black text-white group-hover:text-naranja transition-colors">USD 230.000</p>
+                            <span className="text-naranja text-sm font-bold">→</span>
+                        </div>
+                        <p className="text-[10px] text-cremita/40 font-poppins mt-0.5">100% empresa • Ver oferta</p>
+                    </div>
+                </Link>
+
+                <div className="p-4 border-t border-white/10 m-4 mt-0 rounded-2xl bg-white/5">
                     <div className="flex items-center gap-3">
                         <div className="w-8 h-8 rounded-full bg-cafe-acento flex items-center justify-center font-bold text-xs text-white">
                             AM
                         </div>
                         <div>
-                            <p className="text-xs font-bold">Inversor Ecuador</p>
+                            <p className="text-xs font-bold">Comprador</p>
                             <p className="text-[10px] opacity-50">Acceso Privado</p>
                         </div>
                     </div>

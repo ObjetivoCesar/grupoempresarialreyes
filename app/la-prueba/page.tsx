@@ -2,6 +2,8 @@
 
 import { motion } from 'framer-motion';
 import Gallery from '@/components/sections/Gallery';
+import PageHero from '@/components/ui/PageHero';
+
 
 const phases = [
     {
@@ -39,14 +41,19 @@ const permits = [
 export default function LaPruebaPage() {
     return (
         <div className="space-y-16 pb-20">
-            {/* Header section */}
-            <section className="bg-verde-oscuro p-12 rounded-[3rem] text-cremita relative overflow-hidden shadow-2xl">
-                <h1 className="text-4xl md:text-5xl font-florenza">La Prueba: <span className="text-naranja italic">esto ya está construido</span></h1>
-                <p className="text-cremita/70 mt-4 max-w-3xl font-light leading-relaxed">
-                    Evidencia física, legal e institucional del avance real del proyecto. No vendemos promesas sobre planos, mostramos activos fijos ya ejecutados y en desarrollo.
-                </p>
-                <div className="absolute top-0 right-0 p-10 opacity-5 text-8xl">🏗️</div>
-            </section>
+            <PageHero
+                badge="Evidencia Física · Legal · Institucional"
+                title="La Prueba:"
+                titleAccent="esto ya está construido"
+                subtitle="Activos fijos ejecutados y en desarrollo. No vendemos promesas sobre planos — mostramos avance real y verificado."
+                imagePath="/Images/Naturaleza.png"
+                stats={[
+                    { label: 'Avance Casa Modelo', value: '42.6%' },
+                    { label: 'Estado Legal', value: 'S.A.S. B.I.C.' },
+                    { label: 'RUC', value: '1191797066001' },
+                    { label: 'Avalúo', value: 'BanEcuador B.P.' },
+                ]}
+            />
 
             {/* Timeline Section */}
             <div className="space-y-6 relative pt-4">

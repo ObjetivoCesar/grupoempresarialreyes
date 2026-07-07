@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import PageHero from '@/components/ui/PageHero';
 
 export default function ElNegocioPage() {
   const units = [
@@ -48,13 +49,19 @@ export default function ElNegocioPage() {
   return (
     <div className="space-y-16 pb-20">
 
-      {/* Hero Header */}
-      <section className="bg-verde-oscuro p-12 rounded-[3rem] text-cremita border-l-8 border-naranja shadow-2xl relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-64 h-64 bg-naranja/10 rounded-full blur-3xl -mr-20 -mt-20"></div>
-        <div className="relative z-10">
-          <h1 className="text-5xl font-florenza mb-4">El Negocio: <span className="text-naranja italic">no es una finca que se alquila, es una empresa que vende experiencias</span></h1>
-        </div>
-      </section>
+      <PageHero
+        badge="Cómo genera ingresos"
+        title="El Negocio:"
+        titleAccent="no es una finca que se alquila, es una empresa que vende experiencias"
+        subtitle="Una máquina comercial de generación de demanda con un activo físico único detrás."
+        imagePath="/Images/Naturaleza.png"
+        stats={[
+          { label: 'Ejes Comerciales', value: '4' },
+          { label: 'Glamping / noche', value: '$240–$450' },
+          { label: 'Ocupación Mínima', value: '12% anual' },
+          { label: 'Mercado', value: 'Nacional + Inter.' },
+        ]}
+      />
 
       {/* BLOQUE 0 — Reencuadre (va primero, es el más importante) */}
       <div className="bg-cremita/40 border-2 border-verde-oscuro/20 rounded-[3rem] p-10 md:p-14 space-y-4">
@@ -141,11 +148,11 @@ export default function ElNegocioPage() {
         </div>
       </motion.div>
 
-      {/* Bloque 4 - Posicionamiento de Precio */}
+      {/* Bloque 4 - Tarifas de Hospedaje */}
       <div className="bg-verde-oscuro text-cremita p-10 md:p-14 rounded-[3rem] shadow-xl space-y-8">
         <div className="space-y-4">
-          <span className="text-naranja font-black uppercase tracking-[0.2em] text-xs">Propuesta de Valor Exclusiva</span>
-          <h2 className="text-4xl font-florenza">Posicionamiento de Precio Premium</h2>
+          <span className="text-naranja font-black uppercase tracking-[0.2em] text-xs">Ingreso Operativo — No es el precio de venta de la empresa</span>
+          <h2 className="text-4xl font-florenza">Tarifas de Hospedaje</h2>
           <p className="text-cremita/70 font-light max-w-3xl leading-relaxed">
             Nuestra política de <strong>cero alcohol, cero fiesta</strong> no es una limitación, es el filtro que nos permite cobrar tarifas premium. El visitante paga por la garantía de una desconexión real y de paz absoluta.
           </p>

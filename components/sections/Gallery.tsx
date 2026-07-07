@@ -40,8 +40,13 @@ export default function Gallery() {
                 
                 const allImagesArray: any[] = [];
                 const foundCats = new Set(['Videos', 'Todos']);
+                const excludedCats = ['logos', 'images', 'static', 'statics', 'documents', 'memorandum'];
                 
                 Object.keys(imgData).forEach(cat => {
+                    const lowerCat = cat.toLowerCase();
+                    if (excludedCats.some(ex => lowerCat.includes(ex))) {
+                        return; // Excluir estas carpetas
+                    }
                     foundCats.add(cat);
                     imgData[cat].forEach(img => {
                         allImagesArray.push(img);

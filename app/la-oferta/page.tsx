@@ -110,7 +110,7 @@ export default function LaOfertaPage() {
 
         <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
           <a
-            href={getAssetUrl('/Images/Aroma_de_Montana_Inversion_ES.pdf')}
+            href="/Aroma_de_Montana_Memorando_Venta.pdf"
             download
             className="w-full sm:w-auto px-8 py-4 bg-cafe-acento hover:bg-black text-white rounded-2xl font-bold transition-all flex items-center justify-center gap-2"
           >

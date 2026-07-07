@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import { getAssetUrl } from '@/lib/assets';
 import VideoModal from '@/components/ui/VideoModal';
+import Lightbox from '@/components/ui/Lightbox';
 
 // Types for Registry
 type Registry = Record<string, { path: string; category: string; optimized: string }[]>;
@@ -69,13 +70,26 @@ export default function Gallery() {
 
     const openVideo = (id: string) => setModalConfig({ isOpen: true, youtubeId: id });
 
+    // Compute images first so navigation callbacks have the correct length
     const [displayLimit, setDisplayLimit] = useState(20);
 
-    const filteredImages = activeTab === 'Todos' 
+    const filteredImages = activeTab === 'Todos'
         ? images : images.filter(img => img.category === activeTab);
 
     const paginatedImages = filteredImages.slice(0, displayLimit);
     const hasMore = displayLimit < filteredImages.length;
+    const total = paginatedImages.length;
+
+    // Lightbox state
+    const [lightbox, setLightbox] = useState<{ isOpen: boolean; index: number }>({
+        isOpen: false,
+        index: 0,
+    });
+
+    const openLightbox = (index: number) => setLightbox({ isOpen: true, index });
+    const closeLightbox = () => setLightbox(lb => ({ ...lb, isOpen: false }));
+    const nextImage = () => setLightbox(lb => ({ ...lb, index: total > 0 ? (lb.index + 1) % total : 0 }));
+    const prevImage = () => setLightbox(lb => ({ ...lb, index: total > 0 ? (lb.index - 1 + total) % total : 0 }));
 
     return (
         <section className="py-20" id="galeria">
@@ -83,6 +97,15 @@ export default function Gallery() {
                 isOpen={modalConfig.isOpen} 
                 onClose={() => setModalConfig({ ...modalConfig, isOpen: false })} 
                 youtubeId={modalConfig.youtubeId} 
+            />
+
+            <Lightbox
+                images={paginatedImages.map(img => img.path)}
+                currentIndex={lightbox.index}
+                isOpen={lightbox.isOpen}
+                onClose={closeLightbox}
+                onNext={nextImage}
+                onPrev={prevImage}
             />
 
             <div className="mb-12">
@@ -199,7 +222,8 @@ export default function Gallery() {
                                             initial={{ opacity: 0 }}
                                             animate={{ opacity: 1 }}
                                             whileHover={{ y: -5 }}
-                                            className="group relative h-[350px] rounded-[2rem] overflow-hidden cursor-pointer shadow-md border-2 border-white/50"
+                                            onClick={() => openLightbox(idx)}
+                                            className="group relative h-[350px] rounded-[2rem] overflow-hidden cursor-zoom-in shadow-md border-2 border-white/50"
                                         >
                                             <Image
                                                 src={getAssetUrl(img.path)}
@@ -210,6 +234,11 @@ export default function Gallery() {
                                             />
                                             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end">
                                                 <span className="text-[10px] uppercase font-black text-naranja tracking-widest mb-1">{img.category}</span>
+                                                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/40">
+                                                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                                                    </svg>
+                                                </div>
                                             </div>
                                         </motion.div>
                                     ))}

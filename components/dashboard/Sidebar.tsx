@@ -12,7 +12,7 @@ const navGroups = [
         title: 'Inicio',
         items: [
             {
-                name: 'Dashboard Principal', href: '/', icon: (
+                name: 'Inicio', href: '/', icon: (
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                     </svg>
@@ -168,82 +168,28 @@ export default function AppSidebar() {
                     </p>
                 </div>
 
-                <nav className="flex-1 px-4 py-8 lg:py-8 pt-20 lg:pt-8 space-y-4 overflow-y-auto custom-scrollbar">
+                <nav className="flex-1 px-4 py-8 lg:py-8 pt-20 lg:pt-8 space-y-1 overflow-y-auto custom-scrollbar">
                     {navGroups.map((group) => {
-                        const isExpanded = !!openGroups[group.title];
-                        const isSingleItem = group.items.length === 1;
-                        const hasActiveItem = group.items.some(item => pathname === item.href);
-
-                        return (
-                            <div key={group.title} className="space-y-1">
-                                <button
-                                    onClick={() => toggleGroup(group.title, isSingleItem)}
-                                    className={`w-full flex items-center justify-between px-4 py-3 text-[11px] font-bold uppercase tracking-[0.2em] transition-all duration-300 rounded-xl relative group ${
-                                        isExpanded || hasActiveItem 
-                                        ? 'text-cremita bg-white/10 shadow-inner' 
-                                        : 'text-cremita/60 hover:text-cremita hover:bg-white/10'
-                                    }`}
-                                >
-                                    <div className="flex items-center gap-2">
-                                        <span>{group.title}</span>
-                                        {hasActiveItem && !isExpanded && (
-                                            <motion.div 
-                                                layoutId="activeDot"
-                                                className="w-1.5 h-1.5 rounded-full bg-naranja shadow-[0_0_10px_rgba(252,162,89,0.5)]"
-                                            />
-                                        )}
-                                    </div>
-                                    {!isSingleItem && (
-                                        <motion.div
-                                            animate={{ 
-                                                rotate: isExpanded ? 180 : 0,
-                                                scale: isExpanded ? 1.2 : 1
-                                            }}
-                                            transition={{ duration: 0.3 }}
-                                            className={`${isExpanded ? 'text-naranja' : 'text-cremita/40 group-hover:text-cremita/80'}`}
-                                        >
-                                            <ChevronDown className="w-4 h-4" />
-                                        </motion.div>
-                                    )}
-                                </button>
-
-                                <AnimatePresence initial={false}>
-                                    {(isExpanded || isSingleItem) && (
-                                        <motion.div
-                                            initial={{ height: 0, opacity: 0 }}
-                                            animate={{ height: "auto", opacity: 1 }}
-                                            exit={{ height: 0, opacity: 0 }}
-                                            transition={{ duration: 0.3, ease: "easeInOut" }}
-                                            className="overflow-hidden"
-                                        >
-                                            <div className="space-y-1 mt-1">
-                                                {group.items.map((item) => {
-                                                    const isActive = pathname === item.href;
-                                                    return (
-                                                        <Link key={item.name} href={item.href}>
-                                                            <motion.div
-                                                                whileHover={{ x: 4 }}
-                                                                className={`flex items-center gap-3 px-4 py-2.5 rounded-xl transition-all duration-300 group/link ${isActive
-                                                                    ? 'bg-naranja text-white shadow-lg'
-                                                                    : 'hover:bg-cremita text-cremita/70 hover:text-verde-oscuro'
-                                                                    }`}
-                                                            >
-                                                                <div className={`transition-colors duration-300 ${isActive ? 'text-white' : 'group-hover/link:text-verde-oscuro'}`}>
-                                                                    {item.icon}
-                                                                </div>
-                                                                <span className="font-medium text-sm">{item.name}</span>
-                                                            </motion.div>
-                                                        </Link>
-                                                    );
-                                                })}
-                                            </div>
-                                        </motion.div>
-                                    )}
-                                </AnimatePresence>
-                            </div>
-                        );
+                        return group.items.map((item) => {
+                            const isActive = pathname === item.href;
+                            return (
+                                <Link key={item.href} href={item.href} onClick={() => setIsOpen(false)}>
+                                    <motion.div
+                                        whileHover={{ x: 4 }}
+                                        className={`flex items-center px-4 py-3 rounded-xl transition-all duration-200 font-medium text-sm ${
+                                            isActive
+                                                ? 'bg-naranja text-white shadow-lg'
+                                                : 'text-cremita/70 hover:bg-white/10 hover:text-cremita'
+                                        }`}
+                                    >
+                                        {item.name}
+                                    </motion.div>
+                                </Link>
+                            );
+                        });
                     })}
                 </nav>
+
 
                 <div className="p-4 border-t border-white/10 m-4 rounded-2xl bg-white/5">
                     <div className="flex items-center gap-3">

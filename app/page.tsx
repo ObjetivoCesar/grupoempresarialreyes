@@ -38,12 +38,12 @@ export default function DashboardHome() {
           >
             <div className="inline-flex items-center gap-3 px-6 py-2 rounded-full bg-naranja/10 border border-naranja/30 backdrop-blur-md">
               <span className="w-2.5 h-2.5 rounded-full bg-naranja animate-ping" />
-              <span className="text-xs font-black uppercase tracking-[0.3em] text-naranja">Empresa Completa en Venta</span>
+              <span className="text-xs font-black uppercase tracking-[0.3em] text-naranja">Empresa en Venta — Desarrollo Activo</span>
             </div>
 
             <h1 className="text-5xl md:text-[5rem] font-florenza leading-[1.05] text-balance">
               Aroma de Montaña <br />
-              <span className="text-naranja italic text-4xl md:text-[4rem]">Una empresa turística en Los Andes del sur, lista para operar. En venta.</span>
+              <span className="text-naranja italic text-4xl md:text-[4rem]">Una empresa turística en construcción en Los Andes del sur. En venta.</span>
             </h1>
 
             <p className="text-lg md:text-xl text-cremita/80 leading-relaxed font-light max-w-4xl">

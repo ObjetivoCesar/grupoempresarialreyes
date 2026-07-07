@@ -30,16 +30,23 @@ export default function LaOfertaPage() {
         <div className="lg:col-span-8 space-y-6">
           <h2 className="text-3xl font-florenza text-verde-oscuro">Traspaso Completo y Operativo</h2>
           <p className="text-base text-gris-oscuro/80 leading-relaxed font-poppins">
-            Se vende el <strong>100% de Grupo Empresarial Reyes S.A.S. B.I.C.</strong>, incluyendo el predio de 23.5 hectáreas con toda su infraestructura, la marca registrada "Aroma de Montaña", la propiedad intelectual del concepto y metodología, y el modelo de negocio de tres unidades ya diseñado y en fase de implementación.
+            Se vende el <strong>100% de Grupo Empresarial Reyes S.A.S. B.I.C.</strong>, incluyendo el predio de 23.5 hectáreas con toda su infraestructura, la marca registrada "Aroma de Montaña", la propiedad intelectual del concepto y metodología, y el modelo de negocio de cuatro ejes ya diseñado y en fase de implementación.
           </p>
           <p className="text-base text-gris-oscuro/80 leading-relaxed font-poppins">
-            Esta es una venta de empresa completa, no una fragmentación en unidades individuales. Si su capacidad de inversión no cubre la operación completa, puede presentar una propuesta directamente; las condiciones de una adquisición parcial se conversan de forma privada y no se detallan en este sitio.
+            Esta es una venta de empresa completa, no una fragmentación en unidades individuales. Si su capacidad de inversión no cubre la operación completa, puede presentar una propuesta de participación proporcional — las condiciones de una adquisición parcial se conversan de forma privada y no se detallan en este sitio.
           </p>
         </div>
-        <div className="lg:col-span-4 bg-verde-oscuro text-cremita p-8 rounded-3xl text-center space-y-4 shadow-xl">
-          <p className="text-xs uppercase tracking-widest font-bold opacity-75 font-poppins">Patrimonio Registrado Valorizado</p>
-          <p className="text-4xl font-black text-naranja">$211,266.00</p>
-          <p className="text-xs opacity-60 font-poppins">Respaldado por activos fijos e intangibles bajo avalúo bancario independiente para BanEcuador B.P.</p>
+        <div className="lg:col-span-4 bg-verde-oscuro text-cremita p-8 rounded-3xl text-center space-y-6 shadow-xl">
+          <div>
+            <p className="text-xs uppercase tracking-widest font-bold opacity-60 font-poppins mb-1">Patrimonio Registrado</p>
+            <p className="text-2xl font-black text-cremita/80">$211,266.00</p>
+            <p className="text-xs opacity-50 font-poppins mt-1">Avalúo BanEcuador B.P.</p>
+          </div>
+          <div className="border-t border-white/10 pt-4">
+            <p className="text-xs uppercase tracking-widest font-bold opacity-75 font-poppins mb-1">Precio de Venta</p>
+            <p className="text-4xl font-black text-naranja">$230,000</p>
+            <p className="text-xs opacity-60 font-poppins mt-1">100% de la empresa, marca incluida</p>
+          </div>
         </div>
       </div>
 

@@ -25,13 +25,18 @@ export default function ElNegocioPage() {
   const pillars = [
     {
       title: "Retiros Espirituales",
-      desc: "Dirigidos a público general buscando desconexión. Activación constante mediante campañas de marketing digital y redes sociales.",
+      desc: "Dirigidos a público general buscando desconexión. Activación constante mediante campañas de Facebook Ads y marketing digital.",
       icon: "🧘"
     },
     {
       title: "Retiros Corporativos",
       desc: "Empresas corporativas que buscan mindfulness, yoga y meditación profunda para sus equipos como beneficio de productividad.",
       icon: "🏢"
+    },
+    {
+      title: "Retiros de Pareja",
+      desc: "Experiencias de reconexión para parejas en crisis o que buscan fortalecer su relación. Ticket alto, demanda validada directamente por un operador turístico del sector.",
+      icon: "💑"
     },
     {
       title: "Turismo Astronómico",
@@ -42,20 +47,34 @@ export default function ElNegocioPage() {
 
   return (
     <div className="space-y-16 pb-20">
+
       {/* Hero Header */}
       <section className="bg-verde-oscuro p-12 rounded-[3rem] text-cremita border-l-8 border-naranja shadow-2xl relative overflow-hidden">
         <div className="absolute top-0 right-0 w-64 h-64 bg-naranja/10 rounded-full blur-3xl -mr-20 -mt-20"></div>
         <div className="relative z-10">
-          <h1 className="text-5xl font-florenza mb-4">El Negocio: <span className="text-naranja italic">cómo opera y cómo se paga sola</span></h1>
-          <p className="text-cremita/70 text-lg max-w-3xl font-light leading-relaxed">
-            Una estructura empresarial robusta y dividida en tres unidades clave, con canales de captación internacionales y posicionamiento de precio premium.
-          </p>
+          <h1 className="text-5xl font-florenza mb-4">El Negocio: <span className="text-naranja italic">no es una finca que se alquila, es una empresa que vende experiencias</span></h1>
         </div>
       </section>
 
+      {/* BLOQUE 0 — Reencuadre (va primero, es el más importante) */}
+      <div className="bg-cremita/40 border-2 border-verde-oscuro/20 rounded-[3rem] p-10 md:p-14 space-y-4">
+        <p className="text-xs font-black uppercase tracking-[0.3em] text-verde-oscuro/50">Por qué esto no es turismo espontáneo</p>
+        <p className="text-lg md:text-xl text-gris-oscuro/90 leading-relaxed font-poppins font-light">
+          Este no es un negocio de alquilar casas en una montaña esperando que alguien llegue. Es una empresa que <strong>diseña y vende, a nivel nacional e internacional, paquetes de experiencias de alto valor</strong>: retiros corporativos para empresas que buscan potenciar a su personal, retiros espirituales y de bienestar, retiros de pareja, y turismo astronómico — todo con un precio de ticket alto, porque el cliente paga por una desconexión real, no por una habitación.
+        </p>
+        <p className="text-lg md:text-xl text-gris-oscuro/90 leading-relaxed font-poppins font-light">
+          La demanda no se genera esperando turismo espontáneo: llega por <strong>operadores turísticos internacionales</strong> que ya movilizan viajeros hacia Ecuador, por convenios corporativos B2B, y por la cercanía estratégica con Perú (a una hora y media), que amplía el mercado de captación más allá de las fronteras nacionales.
+        </p>
+        <div className="pt-4 border-t border-verde-oscuro/10">
+          <p className="text-base font-bold text-verde-oscuro font-poppins">
+            En resumen: se vende una <strong>máquina comercial de generación de demanda</strong> con un activo físico único detrás — no al revés.
+          </p>
+        </div>
+      </div>
+
       {/* Bloque 1 - Estructura Societaria */}
       <div className="space-y-8">
-        <h2 className="text-3xl font-florenza text-verde-oscuro text-center md:text-left">Estructura Societaria</h2>
+        <h2 className="text-3xl font-florenza text-verde-oscuro">Estructura Societaria</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {units.map((unit, idx) => (
             <motion.div
@@ -75,10 +94,10 @@ export default function ElNegocioPage() {
         </div>
       </div>
 
-      {/* Bloque 2 - Tres Ejes Comerciales */}
+      {/* Bloque 2 - Cuatro Ejes Comerciales */}
       <div className="space-y-8">
-        <h2 className="text-3xl font-florenza text-verde-oscuro text-center md:text-left">Los Tres Ejes Comerciales</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <h2 className="text-3xl font-florenza text-verde-oscuro">Los Cuatro Ejes Comerciales</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {pillars.map((pillar, idx) => (
             <motion.div
               key={idx}
@@ -87,11 +106,11 @@ export default function ElNegocioPage() {
               transition={{ delay: idx * 0.1 }}
               className="bg-white/40 backdrop-blur-sm p-8 rounded-3xl border border-white/60 shadow-sm hover:bg-white/60 transition-all text-center space-y-4"
             >
-              <div className="w-16 h-16 bg-cremita rounded-full flex items-center justify-center text-3xl mx-auto shadow-inner">
+              <div className="w-14 h-14 bg-cremita rounded-full flex items-center justify-center text-2xl mx-auto shadow-inner">
                 {pillar.icon}
               </div>
-              <h3 className="text-xl font-bold text-verde-oscuro">{pillar.title}</h3>
-              <p className="text-sm text-gris-oscuro/70 leading-relaxed font-poppins">{pillar.desc}</p>
+              <h3 className="text-lg font-bold text-verde-oscuro">{pillar.title}</h3>
+              <p className="text-xs text-gris-oscuro/70 leading-relaxed font-poppins">{pillar.desc}</p>
             </motion.div>
           ))}
         </div>
@@ -109,15 +128,15 @@ export default function ElNegocioPage() {
           El modelo no depende de publicidad fría. Los <strong>operadores turísticos internacionales</strong> que ya traen turistas al Ecuador son el canal principal de llegada de huéspedes. Ellos envían el flujo y la propiedad ofrece la experiencia diferenciada de desconexión total.
         </p>
         <p className="text-lg text-gris-oscuro/85 leading-relaxed font-light font-poppins">
-          Convenios con plataformas globales como <strong>Booking</strong> complementan la ocupación del día a día, complementado con venta directa a quienes buscan específicamente retiros.
+          Convenios con plataformas globales como <strong>Booking</strong> complementan la ocupación del día a día, junto con venta directa a quienes buscan específicamente retiros de desconexión.
         </p>
         <div className="pt-4 border-t border-naranja/20 flex flex-col md:flex-row gap-6 items-center justify-between">
           <div>
-            <p className="text-xs font-bold uppercase tracking-widest text-verde-oscuro">Meta de Ocupación Mínima Anual</p>
+            <p className="text-xs font-bold uppercase tracking-widest text-verde-oscuro font-poppins">Meta de Ocupación Mínima Anual</p>
             <p className="text-4xl font-black text-verde-oscuro">12%</p>
           </div>
           <p className="text-sm text-gris-oscuro/60 italic font-poppins max-w-lg">
-            *Una cifra sumamente conservadora y no optimista para garantizar la sostenibilidad y el punto de equilibrio financiero desde el primer año.
+            *Cifra conservadora y no optimista para garantizar la sostenibilidad y el punto de equilibrio financiero desde el primer año.
           </p>
         </div>
       </motion.div>
@@ -150,6 +169,39 @@ export default function ElNegocioPage() {
               <span className="text-2xl font-black text-white">$600 <span className="text-xs font-light text-cremita/60">Baja</span> / $1,000 <span className="text-xs font-light text-cremita/60">Alta</span></span>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* BLOQUE 5 — Potencial de Desarrollo (PROYECTADO — visualmente diferenciado) */}
+      <div className="relative border-2 border-dashed border-gris-oscuro/20 rounded-[3rem] p-10 md:p-12 bg-gris-oscuro/3 space-y-6">
+        {/* Etiqueta de proyección */}
+        <div className="absolute -top-4 left-8 bg-gris-oscuro text-white text-[10px] font-black uppercase tracking-[0.25em] px-4 py-2 rounded-full">
+          Proyección Futura — No Parte del Patrimonio Verificado
+        </div>
+
+        <div className="pt-4 space-y-4">
+          <h2 className="text-2xl md:text-3xl font-florenza text-gris-oscuro/80">Potencial de Desarrollo del Terreno</h2>
+          <p className="text-gris-oscuro/60 text-sm font-poppins italic">
+            Lo que sigue no es activo verificado ni forma parte del precio de venta. Es el camino de crecimiento que el comprador puede ejecutar.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="bg-white/50 p-6 rounded-2xl border border-gris-oscuro/10 space-y-3">
+            <h4 className="font-bold text-gris-oscuro/80 text-lg">Glampings Estándar</h4>
+            <p className="text-sm text-gris-oscuro/60 font-poppins leading-relaxed">12 unidades proyectadas. Costo estimado de construcción USD 25,000 c/u. Valor de venta proyectado USD 100,000 c/u.</p>
+            <p className="text-xs text-gris-oscuro/40 font-poppins italic">*Estimado, no ejecutado</p>
+          </div>
+          <div className="bg-white/50 p-6 rounded-2xl border border-gris-oscuro/10 space-y-3">
+            <h4 className="font-bold text-gris-oscuro/80 text-lg">Unidades Premium en Cúspide</h4>
+            <p className="text-sm text-gris-oscuro/60 font-poppins leading-relaxed">Posición privilegiada sin obstáculos visuales, diseñadas para amanecer, atardecer y observación astronómica. Valor de venta proyectado USD 250,000 c/u.</p>
+            <p className="text-xs text-gris-oscuro/40 font-poppins italic">*Estimado, no ejecutado</p>
+          </div>
+        </div>
+
+        <div className="pt-4 border-t border-gris-oscuro/10 text-center">
+          <p className="text-gris-oscuro/50 text-sm font-poppins">Potencial de desarrollo estimado total: <span className="font-black text-gris-oscuro/70 text-base">+USD 1.200.000</span></p>
+          <p className="text-xs text-gris-oscuro/40 italic font-poppins mt-1">Sujeto a construcción y comercialización futuras. No incluido en la oferta de venta actual.</p>
         </div>
       </div>
 

@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 import { getAssetUrl } from '@/lib/assets';
-import TourPlayButton from '@/components/ui/TourPlayButton';
+
 
 export default function DashboardHome() {
   const [showMap, setShowMap] = useState(false);
@@ -71,9 +71,7 @@ export default function DashboardHome() {
               <Link href="/hacienda" className="bg-white/10 hover:bg-white/20 border border-white/20 text-cremita px-8 py-5 rounded-2xl transition-all font-bold text-lg backdrop-blur-md flex items-center justify-center">
                 <span>Conocer el patrimonio</span>
               </Link>
-              <div className="relative group">
-                <TourPlayButton />
-              </div>
+
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-8 text-white/50">

@@ -46,7 +46,7 @@ export default function LaPruebaPage() {
                 title="La Prueba:"
                 titleAccent="esto ya está construido"
                 subtitle="Activos fijos ejecutados y en desarrollo. No vendemos promesas sobre planos — mostramos avance real y verificado."
-                imagePath="/Images/Naturaleza.png"
+                imagePath="/Images/optimized/Trabajos/PXL_20231130_163726700.webp"
                 stats={[
                     { label: 'Avance Casa Modelo', value: '42.6%' },
                     { label: 'Estado Legal', value: 'S.A.S. B.I.C.' },

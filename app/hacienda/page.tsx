@@ -48,7 +48,7 @@ export default function HaciendaPage() {
                 title="El Patrimonio:"
                 titleAccent="lo que existe hoy, verificado"
                 subtitle="El respaldo físico y los activos fijos de la empresa Aroma de Montaña, valorados y listos para su due diligence."
-                imagePath="/Images/optimized/Paisajes/PXL_20230924_192806858.webp"
+                imagePath="/Trabajos/PXL_20240712_201701946.webp"
                 stats={[
                     { label: 'Área Total', value: '23.5 Ha' },
                     { label: 'Altitud', value: '1,850–2,100 msnm' },

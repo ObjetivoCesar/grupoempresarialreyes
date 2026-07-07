@@ -54,7 +54,7 @@ export default function ElNegocioPage() {
         title="El Negocio:"
         titleAccent="no es una finca que se alquila, es una empresa que vende experiencias"
         subtitle="Una máquina comercial de generación de demanda con un activo físico único detrás."
-        imagePath="/Images/optimized/Café - Especialidad/PXL_20240811_172111790.RAW-01.COVER.webp"
+        imagePath="/250k/interior_1.jpg"
         stats={[
           { label: 'Ejes Comerciales', value: '4' },
           { label: 'Glamping / noche', value: '$240–$450' },

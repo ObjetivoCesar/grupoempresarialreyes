@@ -20,7 +20,7 @@ export default function LaOfertaPage() {
         title="La Oferta:"
         titleAccent="venta total de la empresa"
         subtitle="100% de Grupo Empresarial Reyes S.A.S. B.I.C. — predio, marca, propiedad intelectual y modelo de negocio."
-        imagePath="/Images/Naturaleza.png"
+        imagePath="/30k/Crear_perspectiva_casa_desde_afuera_202606160910.jpeg"
         stats={[
           { label: 'Precio de Venta', value: 'USD 230,000' },
           { label: 'Patrimonio Registrado', value: '$211,266' },

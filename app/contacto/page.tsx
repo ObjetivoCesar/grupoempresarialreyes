@@ -26,7 +26,7 @@ export default function ContactoPage() {
         title="Contacto:"
         titleAccent="conversar directamente"
         subtitle="Coordine visitas técnicas al predio Sambinuma, solicite expedientes legales y contables, o presente su propuesta de adquisición."
-        imagePath="/Images/optimized/Visitantes/PXL_20231104_171156284.webp"
+        imagePath="/Visitantes/PXL_20240723_161400779.webp"
         stats={[
           { label: 'WhatsApp', value: '+593 96 341 0409' },
           { label: 'Respuesta', value: 'Inmediata' },

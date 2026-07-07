@@ -6,13 +6,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     const routes = [
         '',
         '/hacienda',
-        '/estructura',
-        '/estrategia',
-        '/modelo-negocio',
-        '/oportunidad',
-        '/producto',
-        '/seguridad',
-        '/cronograma',
+        '/el-negocio',
+        '/la-prueba',
+        '/la-oferta',
+        '/contacto',
+        '/galeria',
     ];
 
     return routes.map((route) => ({

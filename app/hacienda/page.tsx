@@ -21,7 +21,6 @@ export default function HaciendaPage() {
         fetch('/video-registry.json')
             .then(res => res.json())
             .then(data => {
-                // Filtrar solo shorts relevantes para Hacienda (Café y Agricultura)
                 const relevant = data.shorts.filter((s: VideoItem) => 
                     s.category === 'Café' || s.category === 'Agricultura'
                 );
@@ -51,8 +50,8 @@ export default function HaciendaPage() {
                     className="object-cover brightness-50"
                 />
                 <div className="relative z-10 space-y-2">
-                    <h1 className="text-3xl md:text-5xl font-florenza text-cremita">El Activo: <span className="text-naranja">La Tierra</span></h1>
-                    <p className="text-sm md:text-base text-cremita/70 max-w-xl">El respaldo físico de su inversión. Una hacienda productiva con certificación de sostenibilidad y alto valor patrimonial.</p>
+                    <h1 className="text-3xl md:text-5xl font-florenza text-cremita">El Patrimonio: <span className="text-naranja">lo que existe hoy, verificado</span></h1>
+                    <p className="text-sm md:text-base text-cremita/70 max-w-xl">El respaldo físico y los activos fijos de la empresa Aroma de Montaña, valorados y listos para operar.</p>
                 </div>
             </section>
 
@@ -77,27 +76,71 @@ export default function HaciendaPage() {
                 ))}
             </div>
 
-            {/* Narrative Section */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 pt-4 md:pt-8">
-                <div className="space-y-4 md:space-y-6">
-                    <h2 className="text-2xl md:text-3xl font-florenza text-verde-oscuro">Patrimonio que respira</h2>
-                    <p className="text-sm md:text-base text-gris-oscuro/80 leading-relaxed font-poppins">
-                        Aroma de Montaña no es un terreno más. Es una pieza fundamental del corredor biológico <strong>Bosques de Paz de la UNESCO</strong>. Aquí, el valor inmobiliario crece de la mano con la restauración ecológica.
-                    </p>
-                    <div className="p-5 md:p-6 bg-verde-olivo/5 rounded-2xl border-l-4 border-verde-olivo">
-                        <p className="text-xs md:text-sm font-medium italic text-verde-olivo font-poppins">
-                            "Protegemos el 40% del área total para conservación pura, asegurando que el lujo de hoy no destruya el recurso del mañana."
+            {/* Narrative / Active blocks section */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 pt-4">
+                {/* Left Side: Blocks 1, 2 and 3 */}
+                <div className="lg:col-span-8 space-y-8">
+                    {/* Bloque 1 — El predio */}
+                    <div className="bg-white p-8 rounded-3xl border border-marron-claro/10 shadow-sm space-y-4">
+                        <div className="flex items-center gap-3">
+                            <span className="text-2xl">🏡</span>
+                            <h3 className="text-xl font-bold text-verde-oscuro">1. El Predio (Sambinuma)</h3>
+                        </div>
+                        <p className="text-sm md:text-base text-gris-oscuro/80 leading-relaxed font-poppins">
+                            Predio rural productivo <strong>"Sambinuma"</strong>, Sector Naranjo, Parroquia Lourdes, Cantón Paltas, Provincia de Loja. <strong>23.5 hectáreas</strong>.
+                            <br />
+                            <span className="block mt-2"><strong>Incluye:</strong> casa antigua, casa modelo en construcción, dos reservorios con capacidad superior a 8,000 m³, tres kilómetros de vía vehicular interna y cinco hectáreas desmontadas para cultivo de café.</span>
+                        </p>
+                    </div>
+
+                    {/* Bloque 2 — Infraestructura operativa */}
+                    <div className="bg-white p-8 rounded-3xl border border-marron-claro/10 shadow-sm space-y-4">
+                        <div className="flex items-center gap-3">
+                            <span className="text-2xl">⚡</span>
+                            <h3 className="text-xl font-bold text-verde-oscuro">2. Infraestructura Operativa</h3>
+                        </div>
+                        <p className="text-sm md:text-base text-gris-oscuro/80 leading-relaxed font-poppins">
+                            Tres albarradas ancestrales para captura pluvial, seis kilómetros de senderos interpretativos señalizados, pozo de agua propio, sistema de riego automatizado y parqueadero de 600 m².
+                        </p>
+                    </div>
+
+                    {/* Bloque 3 — Producción y conservación */}
+                    <div className="bg-white p-8 rounded-3xl border border-marron-claro/10 shadow-sm space-y-4">
+                        <div className="flex items-center gap-3">
+                            <span className="text-2xl">☕</span>
+                            <h3 className="text-xl font-bold text-verde-oscuro">3. Producción y Conservación</h3>
+                        </div>
+                        <p className="text-sm md:text-base text-gris-oscuro/80 leading-relaxed font-poppins">
+                            Aproximadamente <strong>5.000 plantas de café</strong> de variedades Sidra, Borbón y Típica Mejorada, de madre certificada. Huerto protegido tipo vivero, producción de abono orgánico Bocashi, reforestación activa, y plantación de frutales (aguacate, granadilla, zapote, cítricos, tomate de árbol).
                         </p>
                     </div>
                 </div>
-                <div className="space-y-4 md:space-y-6">
-                    <h2 className="text-2xl md:text-3xl font-florenza text-verde-oscuro">Estructura <span className="text-naranja italic">Patrimonial</span></h2>
-                    <p className="text-sm md:text-base text-gris-oscuro/80 leading-relaxed font-poppins">
-                        Al ingresar como Socio Estratégico, tu capital de $230,000 USD adquiere el 50% de la sociedad empresarial, la cual <strong>incluye como activo todo el terreno rural productivo (23.5 hectáreas) y su infraestructura base</strong>.
-                    </p>
-                    <div className="p-5 md:p-6 bg-naranja/5 rounded-2xl border-l-4 border-naranja">
-                        <p className="text-xs md:text-sm font-medium italic text-naranja font-poppins">
-                            Blindaje Inteligente: La sociedad es dueña compartida de la propiedad física (50/50), pero la <strong>Marca "Aroma de Montaña" y su propiedad intelectual</strong> permanecen exclusivamente bajo César Reyes.
+
+                {/* Right Side: Blocks 4, 5 and general facts */}
+                <div className="lg:col-span-4 space-y-8">
+                    {/* Bloque 4 — Respaldo técnico */}
+                    <div className="bg-naranja/5 p-8 rounded-3xl border-l-4 border-naranja space-y-4">
+                        <h3 className="text-lg font-bold text-verde-oscuro flex items-center gap-2">
+                            <span>📊</span> Respaldo Técnico (Avalúo)
+                        </h3>
+                        <p className="text-xs md:text-sm text-gris-oscuro/80 leading-relaxed font-poppins">
+                            Avalúo rural elaborado para <strong>BanEcuador B.P.</strong> por el Arq. Juan Andrés Salinas Sagbay, Calificación SBS PVC-2018-1936.
+                        </p>
+                        <div className="space-y-2 pt-2 border-t border-naranja/10">
+                            <p className="text-xs text-gris-oscuro/60 font-mono">VALOR DE MERCADO: <strong className="text-verde-oscuro text-sm">USD 152.473,54</strong></p>
+                            <p className="text-xs text-gris-oscuro/60 font-mono">VALOR DE REALIZACIÓN: <strong className="text-verde-oscuro text-sm">USD 128.077,77</strong></p>
+                            <p className="text-xs text-gris-oscuro/60 font-mono">VALOR DE REPOSICIÓN: <strong className="text-verde-oscuro text-sm">USD 174.226,68</strong></p>
+                            <p className="text-xs text-gris-oscuro/80 font-mono pt-1"><strong>PATRIMONIO TOTAL REGISTRADO:</strong> <br /><strong className="text-naranja text-base font-bold">USD 211.266,00</strong> (activos fijos + intangibles)</p>
+                        </div>
+                    </div>
+
+                    {/* Bloque 5 — Marca */}
+                    <div className="bg-verde-oscuro/5 p-8 rounded-3xl border-l-4 border-verde-oscuro space-y-4">
+                        <h3 className="text-lg font-bold text-verde-oscuro flex items-center gap-2">
+                            <span>🛡️</span> Marca Registrada
+                        </h3>
+                        <p className="text-xs md:text-sm text-gris-oscuro/80 leading-relaxed font-poppins">
+                            <strong>"Aroma de Montaña"</strong>, marca registrada con vigencia de 10 años, propiedad intelectual de metodologías y concepto productivo. <strong>Incluida al 100% en la venta de la empresa.</strong>
                         </p>
                     </div>
                 </div>

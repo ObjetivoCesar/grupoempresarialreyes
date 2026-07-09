@@ -7,7 +7,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
         '',
         '/hacienda',
         '/el-negocio',
-        '/la-prueba',
         '/la-oferta',
         '/contacto',
         '/galeria',

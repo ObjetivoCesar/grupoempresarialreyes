@@ -7,24 +7,31 @@ import Link from 'next/link';
 const strategies = [
     {
         id: 1,
-        title: 'Astroturismo & Noches Bajo las Estrellas',
-        desc: 'Experiencias de cielo oscuro probadas mundialmente. Ocupación 100% vendida por adelantado en lluvias de meteoros.',
-        stats: ['Sin Clima Diurno', 'Público Recurrente'],
-        icon: '✨'
+        title: 'Cafetería de Especialidad & Tienda Orgánica',
+        desc: 'Epicentro social de atracción de tráfico con márgenes brutos superiores al 60%. Degustación, venta de café Premium envasado y gastronomía Farm-to-Table.',
+        stats: ['Alta rentabilidad', 'Flujo diario de caja'],
+        icon: '☕'
     },
     {
         id: 2,
-        title: 'Retiros de Alto Rendimiento Humano',
-        desc: 'Mindfulness estratégico y conexión grupal para empresas. Ticket Alto Corporativo garantizado trimestralmente.',
-        stats: ['Mercado B2B', 'Contratos Anuales'],
-        icon: '🏢'
+        title: 'Pasadía Experiencial y Cobro de Entradas',
+        desc: 'Tráfico diario controlado de turismo receptivo. Acceso a miradores, senderos interpretativos y telescopios mediante Day-Pass.',
+        stats: ['Tránsito diario', 'Ticketing ágil'],
+        icon: '🎟️'
     },
     {
         id: 3,
-        title: 'Wellness & Conexión Natural',
-        desc: 'Forest bathing, yoga y meditación en un entorno virgen. Turismo Regenerativo en su máxima expresión.',
-        stats: ['Tendencia Wellness', 'Day-Pass Revenue'],
-        icon: '🧘'
+        title: 'Astroturismo & Noches Bajo las Estrellas',
+        desc: 'Experiencias de cielo oscuro Bortle 3-4. Ocupación hotelera premium y eventos masivos reservados durante lluvias de meteoros.',
+        stats: ['Ticket Premium', 'Turismo Internacional'],
+        icon: '✨'
+    },
+    {
+        id: 4,
+        title: 'Retiros Corporativos B2B y Eventos Privados',
+        desc: 'Mindfulness, yoga y bienestar para empresas. Contratos garantizados de exclusividad hotelera de lunes a viernes.',
+        stats: ['Ingresos predecibles', 'Contratos anuales B2B'],
+        icon: '🏢'
     }
 ];
 

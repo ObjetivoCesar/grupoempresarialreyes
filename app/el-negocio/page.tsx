@@ -1,69 +1,100 @@
 "use client";
 
-import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 import PageHero from '@/components/ui/PageHero';
+import { getAssetUrl } from '@/lib/assets';
+
+const units = [
+  {
+    id: 'hacienda',
+    title: '1. Hacienda Aroma de Montaña',
+    role: 'Núcleo Territorial',
+    desc: 'El activo físico y productivo. Dueña legal de las 23.5 hectáreas sobre la Panamericana, reservorios de agua (8,000 m³), senderos, casa modelo y plantaciones de café especialidad (variedades Sidra/Borbón).',
+    details: [
+      'Respaldo tangible de copropiedad notariada.',
+      'Cafetería de especialidad y centro de catas.',
+      'Seguridad hídrica y energía renovable 100% solar.'
+    ]
+  },
+  {
+    id: 'operations',
+    title: '2. Aroma de Montaña Operations',
+    role: 'Motor Comercial',
+    desc: 'La empresa comercializadora. Gestiona las reservas, la logística del complejo de glamping, la organización de retiros B2B, los eventos de astroturismo y la cafetería.',
+    details: [
+      'Distribución automatizada 50/50 de utilidades.',
+      'Convenios de comercialización internacionales.',
+      'Administración centralizada libre de preocupaciones.'
+    ]
+  },
+  {
+    id: 'inversions',
+    title: '3. Aroma de Montaña Inversions',
+    role: 'Estructura Patrimonial',
+    desc: 'El vehículo legal de participación societaria. Blindaje legal y administración de activos que conecta al socio inversor con las utilidades de toda la marca y los activos físicos.',
+    details: [
+      'Gobernanza clara por escritura pública.',
+      'Trazabilidad total mediante motor de reservas.',
+      'Plusvalía respaldada en el crecimiento del predio.'
+    ]
+  }
+];
+
+const incomeMotors = [
+  { id: 1, title: 'Venta de Glampings', desc: 'Utilidad neta de $80,000 a $150,000 por la venta de unidades individuales a terceros.', icon: '🛖' },
+  { id: 2, title: 'Alquiler Hotelero', desc: 'Ingresos diarios por ocupación B2C de cabañas alpinas y residencias de lujo.', icon: '🛌' },
+  { id: 3, title: 'Cafetería de Lujo', desc: 'Epicentro social de alta degustación con márgenes operativos superiores al 60%.', icon: '☕' },
+  { id: 4, title: 'Retiros y Grupos', desc: 'Contratos corporativos B2B de mindfulness, yoga y alto rendimiento humano.', icon: '🧘' },
+  { id: 5, title: 'Pasadía y Tours', desc: 'Ingresos por cobro de entradas y day-pass para acceso controlado de turistas.', icon: '🎟️' },
+  { id: 6, title: 'Eventos Privados', desc: 'Alquiler exclusivo del predio para bodas, celebraciones y eventos astronómicos.', icon: '✨' },
+  { id: 7, title: 'Membresías VIP', desc: 'Acceso prioritario anticipado para socios y huéspedes recurrentes de alto perfil.', icon: '💳' },
+];
+
+import Script from 'next/script';
 
 export default function ElNegocioPage() {
-  const units = [
-    {
-      title: "Hacienda Aroma de Montaña",
-      role: "Núcleo Territorial",
-      desc: "Alquila la tierra y contrata al personal operativo. Es dueña de la tierra física y de los cultivos de café especialidad."
-    },
-    {
-      title: "Aroma de Montaña Operations",
-      role: "Motor Comercial",
-      desc: "Diseña, promociona y comisiona los eventos, retiros y la experiencia hotelera base de la marca."
-    },
-    {
-      title: "Aroma de Montaña Inversions",
-      role: "Estructura Patrimonial",
-      desc: "Dueña legal del terreno, las licencias y las futuras unidades de glamping que se alquilan a la operadora."
-    }
-  ];
+  const [activeTab, setActiveTab] = useState('hacienda');
 
-  const pillars = [
-    {
-      title: "Retiros Espirituales",
-      desc: "Dirigidos a público general buscando desconexión. Activación constante mediante campañas de Facebook Ads y marketing digital.",
-      icon: "🧘"
-    },
-    {
-      title: "Retiros Corporativos",
-      desc: "Empresas corporativas que buscan mindfulness, yoga y meditación profunda para sus equipos como beneficio de productividad.",
-      icon: "🏢"
-    },
-    {
-      title: "Retiros de Pareja",
-      desc: "Experiencias de reconexión para parejas en crisis o que buscan fortalecer su relación. Ticket alto, demanda validada directamente por un operador turístico del sector.",
-      icon: "💑"
-    },
-    {
-      title: "Turismo Astronómico",
-      desc: "Experiencia diferenciada de observación estelar, aprovechando que la zona posee uno de los cielos más limpios del planeta.",
-      icon: "✨"
+  const activeUnit = units.find((u) => u.id === activeTab) || units[0];
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BusinessOpportunity",
+    "name": "Ecosistema Comercial Aroma de Montaña - 7 Motores de Ingreso",
+    "description": "Modelo de negocio y viabilidad comercial del proyecto turístico Aroma de Montaña en Paltas, Loja. Incluye glamping, cafetería de especialidad, astroturismo y retiros corporativos.",
+    "url": "https://grupoempresarialreyes.vercel.app/el-negocio",
+    "provider": {
+      "@type": "Organization",
+      "name": "Grupo Empresarial Reyes S.A.S. B.I.C."
     }
-  ];
+  };
 
   return (
     <div className="space-y-16 pb-20">
+      <Script
+        id="el-negocio-jsonld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
 
       <PageHero
-        badge="Cómo genera ingresos"
+        badge="Modelo Operativo y Viabilidad Comercial"
         title="El Negocio:"
-        titleAccent="no es una finca que se alquila, es una empresa que vende experiencias"
-        subtitle="Una máquina comercial de generación de demanda con un activo físico único detrás."
-        imagePath="/250k/interior_1.jpg"
+        titleAccent="7 motores de generación de valor"
+        subtitle="Un ecosistema diversificado de flujos de caja diseñado para maximizar el ROI sobre activos inmobiliarios."
+        imagePath="/Trabajos/PXL_20240712_202824222.webp"
         stats={[
-          { label: 'Ejes Comerciales', value: '4' },
+          { label: 'Motores de Ingreso', value: '7' },
           { label: 'Glamping / noche', value: '$240–$450' },
           { label: 'Ocupación Mínima', value: '12% anual' },
           { label: 'Mercado', value: 'Nacional + Inter.' },
         ]}
       />
 
-      {/* BLOQUE 0 — Reencuadre (va primero, es el más importante) */}
+      {/* BLOQUE 0 — Reencuadre */}
       <div className="bg-cremita/40 border-2 border-verde-oscuro/20 rounded-[3rem] p-10 md:p-14 space-y-4">
         <p className="text-xs font-black uppercase tracking-[0.3em] text-verde-oscuro/50">Por qué esto no es turismo espontáneo</p>
         <p className="text-lg md:text-xl text-gris-oscuro/90 leading-relaxed font-poppins font-light">
@@ -79,136 +110,133 @@ export default function ElNegocioPage() {
         </div>
       </div>
 
-      {/* Bloque 1 - Estructura Societaria */}
+      {/* Bloque 1 - Los 7 Motores de Ingreso */}
       <div className="space-y-8">
-        <h2 className="text-3xl font-florenza text-verde-oscuro">Estructura Societaria</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {units.map((unit, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: idx * 0.1 }}
-              className="bg-white p-8 rounded-3xl border border-marron-claro/10 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow"
+        <div className="text-center md:text-left space-y-2">
+          <span className="text-naranja font-black uppercase tracking-widest text-xs">Diversificación Máxima</span>
+          <h2 className="text-3xl md:text-4xl font-florenza text-verde-oscuro">Los 7 Motores de Ingreso</h2>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {incomeMotors.map((motor) => (
+            <div
+              key={motor.id}
+              className="bg-white/70 backdrop-blur-sm p-6 rounded-3xl border border-marron-claro/10 hover:shadow-md transition-all space-y-4"
             >
+              <div className="w-12 h-12 bg-cremita rounded-2xl flex items-center justify-center text-xl shadow-inner">
+                {motor.icon}
+              </div>
               <div>
-                <span className="text-[10px] font-black uppercase text-naranja bg-naranja/5 px-3 py-1 rounded-full tracking-wider">{unit.role}</span>
-                <h3 className="text-xl font-bold text-verde-oscuro mt-4 mb-2">{unit.title}</h3>
-                <p className="text-sm text-gris-oscuro/70 leading-relaxed font-poppins">{unit.desc}</p>
+                <span className="text-[10px] font-black uppercase text-naranja bg-naranja/5 px-2 py-0.5 rounded-full tracking-wider">Motor #0{motor.id}</span>
+                <h3 className="text-lg font-bold text-verde-oscuro mt-2 mb-1">{motor.title}</h3>
+                <p className="text-xs text-gris-oscuro/70 leading-relaxed font-poppins">{motor.desc}</p>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
 
-      {/* Bloque 2 - Cuatro Ejes Comerciales */}
-      <div className="space-y-8">
-        <h2 className="text-3xl font-florenza text-verde-oscuro">Los Cuatro Ejes Comerciales</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {pillars.map((pillar, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: idx * 0.1 }}
-              className="bg-white/40 backdrop-blur-sm p-8 rounded-3xl border border-white/60 shadow-sm hover:bg-white/60 transition-all text-center space-y-4"
+      {/* Bloque 2 - Estructura del Ecosistema (Tabs) */}
+      <div className="space-y-8 pt-6">
+        <div className="text-center md:text-left space-y-2">
+          <span className="text-naranja font-black uppercase tracking-widest text-xs">Organización Corporativa</span>
+          <h2 className="text-3xl md:text-4xl font-florenza text-verde-oscuro">Estructura del Ecosistema</h2>
+          <p className="text-sm text-gris-oscuro/60 max-w-xl">
+            La separación en tres unidades garantiza la protección del activo de tierra frente a los riesgos operativos comerciales.
+          </p>
+        </div>
+
+        {/* Selector de Pestañas (Tabs) */}
+        <div className="bg-white/40 backdrop-blur-md p-2 rounded-3xl border border-white/60 flex flex-wrap md:flex-nowrap gap-2 max-w-2xl">
+          {units.map((unit) => (
+            <button
+              key={unit.id}
+              onClick={() => setActiveTab(unit.id)}
+              className={`flex-1 px-4 py-3 rounded-2xl text-[10px] md:text-xs font-black uppercase tracking-widest transition-all text-center ${activeTab === unit.id
+                ? 'bg-verde-oscuro text-white shadow-lg'
+                : 'hover:bg-cremita/50 text-gris-oscuro/50'
+                }`}
             >
-              <div className="w-14 h-14 bg-cremita rounded-full flex items-center justify-center text-2xl mx-auto shadow-inner">
-                {pillar.icon}
-              </div>
-              <h3 className="text-lg font-bold text-verde-oscuro">{pillar.title}</h3>
-              <p className="text-xs text-gris-oscuro/70 leading-relaxed font-poppins">{pillar.desc}</p>
-            </motion.div>
+              {unit.title.split('. ')[1]}
+            </button>
           ))}
         </div>
+
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeTab}
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -15 }}
+            transition={{ duration: 0.2 }}
+            className="grid grid-cols-1 lg:grid-cols-12 gap-8"
+          >
+            {/* Info Panel */}
+            <div className="lg:col-span-7 bg-white p-8 md:p-10 rounded-[2.5rem] border border-marron-claro/10 shadow-sm flex flex-col justify-between space-y-6">
+              <div className="space-y-4">
+                <span className="text-[10px] font-black uppercase text-naranja bg-naranja/5 px-3 py-1 rounded-full tracking-wider">{activeUnit.role}</span>
+                <h3 className="text-2xl font-bold text-verde-oscuro">{activeUnit.title}</h3>
+                <p className="text-sm text-gris-oscuro/80 leading-relaxed font-poppins">{activeUnit.desc}</p>
+              </div>
+
+              <div className="border-t border-verde-oscuro/5 pt-4 space-y-3">
+                {activeUnit.details.map((detail, di) => (
+                  <div key={di} className="flex items-start gap-3">
+                    <span className="w-5 h-5 bg-cremita rounded-full flex items-center justify-center text-[10px] font-black text-verde-oscuro mt-0.5 shrink-0">✓</span>
+                    <span className="text-xs text-gris-oscuro font-semibold leading-relaxed font-poppins">{detail}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Visual Panel */}
+            <div className="lg:col-span-5 relative rounded-[2.5rem] overflow-hidden min-h-[250px] shadow-lg">
+              <Image
+                src={activeTab === 'hacienda' ? getAssetUrl('/Images/naturaleza-2.jpg') : activeTab === 'operations' ? getAssetUrl('/Images/hacienda-view.jpg') : getAssetUrl('/Images/Aroma de Montaña.webp')}
+                alt={activeUnit.title}
+                fill
+                className="object-cover"
+              />
+            </div>
+          </motion.div>
+        </AnimatePresence>
       </div>
 
-      {/* Bloque 3 - Canal de Clientes */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.98 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true }}
-        className="bg-naranja/10 border-l-8 border-naranja p-10 rounded-[3rem] shadow-sm space-y-6"
-      >
-        <h2 className="text-3xl font-florenza text-verde-oscuro">Canal de Clientes: <span className="text-naranja italic">Captación Asegurada</span></h2>
-        <p className="text-lg text-gris-oscuro/85 leading-relaxed font-light font-poppins">
-          El modelo no depende de publicidad fría. Los <strong>operadores turísticos internacionales</strong> que ya traen turistas al Ecuador son el canal principal de llegada de huéspedes. Ellos envían el flujo y la propiedad ofrece la experiencia diferenciada de desconexión total.
-        </p>
-        <p className="text-lg text-gris-oscuro/85 leading-relaxed font-light font-poppins">
-          Convenios con plataformas globales como <strong>Booking</strong> complementan la ocupación del día a día, junto con venta directa a quienes buscan específicamente retiros de desconexión.
-        </p>
-        <div className="pt-4 border-t border-naranja/20 flex flex-col md:flex-row gap-6 items-center justify-between">
-          <div>
-            <p className="text-xs font-bold uppercase tracking-widest text-verde-oscuro font-poppins">Meta de Ocupación Mínima Anual</p>
-            <p className="text-4xl font-black text-verde-oscuro">12%</p>
-          </div>
-          <p className="text-sm text-gris-oscuro/60 italic font-poppins max-w-lg">
-            *Cifra conservadora y no optimista para garantizar la sostenibilidad y el punto de equilibrio financiero desde el primer año.
-          </p>
-        </div>
-      </motion.div>
-
-      {/* Bloque 4 - Tarifas de Hospedaje */}
+      {/* Bloque 3 - Enlaces Contextuales (Estrategia y Cronograma) */}
       <div className="bg-verde-oscuro text-cremita p-10 md:p-14 rounded-[3rem] shadow-xl space-y-8">
-        <div className="space-y-4">
-          <span className="text-naranja font-black uppercase tracking-[0.2em] text-xs">Ingreso Operativo — No es el precio de venta de la empresa</span>
-          <h2 className="text-4xl font-florenza">Tarifas de Hospedaje</h2>
+        <div className="space-y-4 text-center md:text-left">
+          <span className="text-naranja font-black uppercase tracking-[0.2em] text-xs">Respaldo y Planificación</span>
+          <h2 className="text-3xl md:text-4xl font-florenza">Planificación y Estrategia Detallada</h2>
           <p className="text-cremita/70 font-light max-w-3xl leading-relaxed">
-            Nuestra política de <strong>cero alcohol, cero fiesta</strong> no es una limitación, es el filtro que nos permite cobrar tarifas premium. El visitante paga por la garantía de una desconexión real y de paz absoluta.
+            Ofrecemos total transparencia a quienes deseen auditar el modelo de negocio. Puedes inspeccionar las proyecciones financieras y las fases de implementación de hasta 18 meses.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="p-8 bg-white/5 border border-white/10 rounded-2xl space-y-4">
-            <h3 className="text-2xl font-bold text-naranja">Glampings Alpinos</h3>
-            <p className="text-sm text-cremita/80 leading-relaxed font-poppins">Capacidad para 6 personas, equipados con la máxima tecnología solar y decks con vistas privilegiadas.</p>
-            <div className="pt-2 flex justify-between items-baseline">
-              <span className="text-xs text-cremita/50 uppercase tracking-wider">Tarifas por noche:</span>
-              <span className="text-2xl font-black text-white">$240 <span className="text-xs font-light text-cremita/60">Baja</span> / $450 <span className="text-xs font-light text-cremita/60">Alta</span></span>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4">
+          <div className="p-8 bg-white/5 border border-white/10 rounded-3xl flex flex-col justify-between space-y-6">
+            <div>
+              <span className="text-xs text-naranja font-bold uppercase tracking-widest">Fases de Ejecución</span>
+              <h3 className="text-xl font-bold text-white mt-2">Cronograma del Proyecto</h3>
+              <p className="text-xs text-cremita/60 mt-1 leading-relaxed">
+                Revisa los hitos legales, de infraestructura y construcción planificados en fases de hasta 18 meses para la habilitación de activos.
+              </p>
             </div>
+            <Link href="/el-negocio/cronograma" className="px-6 py-3.5 bg-naranja text-white font-bold rounded-xl text-center hover:bg-naranja/80 transition-colors text-xs uppercase tracking-wider">
+              Ver Cronograma de Ejecución →
+            </Link>
           </div>
 
-          <div className="p-8 bg-white/5 border border-white/10 rounded-2xl space-y-4">
-            <h3 className="text-2xl font-bold text-naranja">Casas Grandes</h3>
-            <p className="text-sm text-cremita/80 leading-relaxed font-poppins">Residencias de gran formato para grupos de hasta 12 personas, ideales para retiros íntimos corporativos y de bienestar.</p>
-            <div className="pt-2 flex justify-between items-baseline">
-              <span className="text-xs text-cremita/50 uppercase tracking-wider">Tarifas por noche:</span>
-              <span className="text-2xl font-black text-white">$600 <span className="text-xs font-light text-cremita/60">Baja</span> / $1,000 <span className="text-xs font-light text-cremita/60">Alta</span></span>
+          <div className="p-8 bg-white/5 border border-white/10 rounded-3xl flex flex-col justify-between space-y-6">
+            <div>
+              <span className="text-xs text-naranja font-bold uppercase tracking-widest">Retorno Financiero</span>
+              <h3 className="text-xl font-bold text-white mt-2">Estrategia de Proyecciones</h3>
+              <p className="text-xs text-cremita/60 mt-1 leading-relaxed">
+                Analiza las líneas de captación garantizada mediante convenios europeos, los ingresos por cafetería y day-pass, y el desglose de ROI.
+              </p>
             </div>
+            <Link href="/el-negocio/estrategia" className="px-6 py-3.5 bg-cremita text-verde-oscuro font-bold rounded-xl text-center hover:bg-cremita/80 transition-colors text-xs uppercase tracking-wider">
+              Ver Estrategia de Proyecciones →
+            </Link>
           </div>
-        </div>
-      </div>
-
-      {/* BLOQUE 5 — Potencial de Desarrollo (PROYECTADO — visualmente diferenciado) */}
-      <div className="relative border-2 border-dashed border-gris-oscuro/20 rounded-[3rem] p-10 md:p-12 bg-gris-oscuro/3 space-y-6">
-        {/* Etiqueta de proyección */}
-        <div className="absolute -top-4 left-8 bg-gris-oscuro text-white text-[10px] font-black uppercase tracking-[0.25em] px-4 py-2 rounded-full">
-          Proyección Futura — No Parte del Patrimonio Verificado
-        </div>
-
-        <div className="pt-4 space-y-4">
-          <h2 className="text-2xl md:text-3xl font-florenza text-gris-oscuro/80">Potencial de Desarrollo del Terreno</h2>
-          <p className="text-gris-oscuro/60 text-sm font-poppins italic">
-            Lo que sigue no es activo verificado ni forma parte del precio de venta. Es el camino de crecimiento que el comprador puede ejecutar.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="bg-white/50 p-6 rounded-2xl border border-gris-oscuro/10 space-y-3">
-            <h4 className="font-bold text-gris-oscuro/80 text-lg">Glampings Estándar</h4>
-            <p className="text-sm text-gris-oscuro/60 font-poppins leading-relaxed">12 unidades proyectadas. Costo estimado de construcción USD 25,000 c/u. Valor de venta proyectado USD 100,000 c/u.</p>
-            <p className="text-xs text-gris-oscuro/40 font-poppins italic">*Estimado, no ejecutado</p>
-          </div>
-          <div className="bg-white/50 p-6 rounded-2xl border border-gris-oscuro/10 space-y-3">
-            <h4 className="font-bold text-gris-oscuro/80 text-lg">Unidades Premium en Cúspide</h4>
-            <p className="text-sm text-gris-oscuro/60 font-poppins leading-relaxed">Posición privilegiada sin obstáculos visuales, diseñadas para amanecer, atardecer y observación astronómica. Valor de venta proyectado USD 250,000 c/u.</p>
-            <p className="text-xs text-gris-oscuro/40 font-poppins italic">*Estimado, no ejecutado</p>
-          </div>
-        </div>
-
-        <div className="pt-4 border-t border-gris-oscuro/10 text-center">
-          <p className="text-gris-oscuro/50 text-sm font-poppins">Potencial de desarrollo estimado total: <span className="font-black text-gris-oscuro/70 text-base">+USD 1.200.000</span></p>
-          <p className="text-xs text-gris-oscuro/40 italic font-poppins mt-1">Sujeto a construcción y comercialización futuras. No incluido en la oferta de venta actual.</p>
         </div>
       </div>
 

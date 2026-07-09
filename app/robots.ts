@@ -5,7 +5,11 @@ export default function robots(): MetadataRoute.Robots {
         rules: {
             userAgent: '*',
             allow: '/',
-            disallow: '/private/',
+            disallow: [
+                '/el-negocio/cronograma',
+                '/el-negocio/estrategia',
+                '/private/'
+            ],
         },
         sitemap: 'https://aroma-inversores.com/sitemap.xml',
     };

@@ -5,7 +5,22 @@ import Link from 'next/link';
 import { getAssetUrl } from '@/lib/assets';
 import PageHero from '@/components/ui/PageHero';
 
+import Script from 'next/script';
+
 export default function LaOfertaPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "InvestmentOpportunity",
+    "name": "Oferta de Adquisición - Grupo Empresarial Reyes S.A.S. B.I.C.",
+    "description": "Venta total de la empresa Aroma de Montaña por USD 230,000. Incluye 23.5 hectáreas, marca registrada y facilidades de financiamiento (35% entrada y saldo directo).",
+    "offers": {
+      "@type": "Offer",
+      "price": "230000",
+      "priceCurrency": "USD",
+      "priceValidUntil": "2027-12-31"
+    }
+  };
+
   const assetsIncluded = [
     { title: "Predio Sambinuma (23.5 Hectáreas)", desc: "Terreno productivo con infraestructura vial, hídrica y construcciones en curso.", icon: "🏞️" },
     { title: 'Marca Registrada "Aroma de Montaña"', desc: "10 años de vigencia intelectual, logotipo, y presencia de marca ya posicionada.", icon: "🛡️" },
@@ -15,6 +30,11 @@ export default function LaOfertaPage() {
 
   return (
     <div className="space-y-16 pb-20">
+      <Script
+        id="oferta-jsonld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <PageHero
         badge="Venta Total de la Empresa"
         title="La Oferta:"

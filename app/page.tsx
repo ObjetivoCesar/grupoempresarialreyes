@@ -43,23 +43,29 @@ export default function DashboardHome() {
 
             <h1 className="text-5xl md:text-[5rem] font-florenza leading-[1.05] text-balance">
               Aroma de Montaña <br />
-              <span className="text-naranja italic text-4xl md:text-[4rem]">Una empresa turística en construcción en Los Andes del sur. En venta.</span>
+              <span className="text-naranja italic text-4xl md:text-[4rem]">Una empresa Agroturística en construcción en el sur de Ecuador. En venta.</span>
             </h1>
 
             <p className="text-lg md:text-xl text-cremita/80 leading-relaxed font-light max-w-4xl">
-              23.5 hectáreas productivas en Paltas, Loja. Activos físicos verificados por avalúo bancario, marca registrada, y un modelo de negocio de tres ejes ya diseñado para retiros espirituales, corporativos y turismo astronómico.
+              23.5 hectáreas productivas en Paltas, Loja. Una oportunidad de inversión llave en mano con activos físicos verificados por avalúo bancario, marca registrada y viabilidad comercial probada en una ubicación privilegiada.
             </p>
 
-            {/* Bajada corta (3 líneas) */}
-            <div className="border-l-4 border-naranja pl-6 space-y-2 max-w-3xl my-6">
+            {/* Bajada con los puntos fuertes y atractivos para inversionistas */}
+            <div className="border-l-4 border-naranja pl-6 space-y-3 max-w-3xl my-6">
               <p className="text-sm md:text-base text-cremita/90 font-medium">
-                🎯 <strong>Lo que compras:</strong> tierra, construcciones e infraestructura ya construida.
+                🏗️ <strong>Tierra, construcciones e infraestructura:</strong> Con un avance real de obra del 50%, listo para continuar y operar a corto plazo.
               </p>
               <p className="text-sm md:text-base text-cremita/90 font-medium">
-                💼 <strong>Cómo genera ingresos:</strong> alianzas con operadores turísticos internacionales, Booking, y venta directa.
+                📜 <strong>Certeza jurídica y comercial:</strong> Empresa legalmente constituida, libre de gravámenes, con marca registrada y licencias ambientales vigentes.
               </p>
               <p className="text-sm md:text-base text-cremita/90 font-medium">
-                🛡️ <strong>Lo que necesitas saber antes de decidir:</strong> avance real, cifras, y la oferta completa.
+                📍 <strong>Ubicación estratégica inigualable:</strong> En la Reserva de Biosfera UNESCO "Bosques de Paz", a solo 40 minutos del aeropuerto de Catamayo y al filo de la carretera principal (sin accesos complejos por vías de segundo u tercer orden).
+              </p>
+              <p className="text-sm md:text-base text-cremita/90 font-medium">
+                💧 <strong>Sostenibilidad e insumos hídricos:</strong> Reservorios y albarradas con casi 8,000 m³ de capacidad hídrica propia, ideales para el cultivo tecnificado de café de especialidad.
+              </p>
+              <p className="text-sm md:text-base text-cremita/90 font-medium">
+                💼 <strong>Facilidades de adquisición:</strong> Financiamiento directo disponible. Ingresa con un 35% en efectivo y el saldo financiado directamente con el grupo empresarial.
               </p>
             </div>
 

@@ -15,6 +15,8 @@ interface VideoItem {
 }
 
 
+import Script from 'next/script';
+
 export default function HaciendaPage() {
     const [modalConfig, setModalConfig] = useState({ isOpen: false, youtubeId: '' });
     const [shorts, setShorts] = useState<VideoItem[]>([]);
@@ -33,7 +35,7 @@ export default function HaciendaPage() {
     const openVideo = (id: string) => setModalConfig({ isOpen: true, youtubeId: id });
 
     const stats = [
-        { label: 'Título Property', val: 'Hacienda Aroma de Montaña', icon: '📍' },
+        { label: 'Título de Propiedad', val: 'Hacienda Aroma de Montaña', icon: '📍' },
         { label: 'Área Total', val: '23.5 Hectáreas', icon: '📏' },
         { label: 'Altitud', val: '1,850 - 2,100 msnm', icon: '⛰️' },
         { label: 'Ubicación', val: 'UNESCO Bosques de Paz', icon: '🌍' },
@@ -41,8 +43,32 @@ export default function HaciendaPage() {
         { label: 'Biodiversidad', val: '3,000+ Árboles Reforestados', icon: '🌿' },
     ];
 
+    const jsonLd = {
+        "@context": "https://schema.org",
+        "@type": "Place",
+        "name": "Hacienda Aroma de Montaña - Patrimonio Físico",
+        "description": "23.5 hectáreas de tierra productiva con reservorios de agua (8,000 m³), plantaciones de café y construcciones en curso. Ubicada en Paltas, Loja, Ecuador al filo de la carretera principal.",
+        "image": "https://grupoempresarialreyes.vercel.app/Trabajos/PXL_20240712_201701946.webp",
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "-4.0108818",
+            "longitude": "-79.6106874"
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Paltas",
+            "addressRegion": "Loja",
+            "addressCountry": "EC"
+        }
+    };
+
     return (
         <div className="space-y-8 md:space-y-12">
+            <Script
+                id="hacienda-jsonld"
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
             <PageHero
                 badge="Activos Verificados · Avalúo BanEcuador"
                 title="El Patrimonio:"

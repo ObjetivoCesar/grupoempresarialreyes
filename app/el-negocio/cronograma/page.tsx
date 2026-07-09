@@ -1,34 +1,32 @@
-"use client";
+'use client';
 
 import { motion } from 'framer-motion';
-import Gallery from '@/components/sections/Gallery';
-import PageHero from '@/components/ui/PageHero';
-
+import NextImage from 'next/image';
 
 const phases = [
     {
         phase: 'Mes 1-2',
         title: 'Fase Legal y Estructural',
         status: 'Completado',
-        items: ['Constitución de S.A.S. B.I.C.', 'Escrituración de activos al asiento societario.', 'Avalúo bancario verificado.']
+        items: ['Escrituración Notariada de Sociedad 50/50.', 'Escrituración de activos al asiento societario.', 'Formalización del vehículo comercial.']
     },
     {
-        phase: 'Mes 3-5',
+        phase: 'Mes 3-6',
         title: 'Infraestructura Base',
         status: 'En Proceso',
-        items: ['Vialidad y plataformas de glamping.', 'Instalación de red eléctrica y agua.', 'Cimentación de casas VIP.']
+        items: ['Vialidad y plataformas de glamping alpinos.', 'Instalación de redes ecológicas de agua e iluminación solar.', 'Cimentación de cúpulas e infraestructura.']
     },
     {
-        phase: 'Mes 6-8',
-        title: 'Construcción Modular',
+        phase: 'Mes 7-12',
+        title: 'Construcción Modular y Café',
         status: 'Agendado',
-        items: ['Ensamblaje de Glampings Alpinos.', 'Acabados de lujo y deck privado.', 'Equipamiento tecnológico (Starlink + Solar).']
+        items: ['Ensamblaje e instalación de Glampings Alpinos.', 'Acabados e inauguración de Cafetería Ecológica / Especialidad.', 'Equipamiento de conectividad satelital Starlink.']
     },
     {
-        phase: 'Mes 9+',
-        title: 'Operación Comercial',
+        phase: 'Mes 13-18',
+        title: 'Operación Comercial Escala',
         status: 'Futuro',
-        items: ['Inauguración del Complejo Natura.', 'Recepción de los primeros huéspedes.', 'Cierre de primer ciclo de caja diario.']
+        items: ['Lanzamiento total de los 7 Motores de Ingreso.', 'Ejecución de retiros B2B corporativos y astroturismo.', 'Cierre de ciclo comercial y reparto de dividendos.']
     }
 ];
 
@@ -38,22 +36,14 @@ const permits = [
     { name: 'Factibilidad EERSSA', status: 'PENDIENTE', color: 'text-gris-oscuro/30', val: 20 },
 ];
 
-export default function LaPruebaPage() {
+export default function CronogramaPage() {
     return (
-        <div className="space-y-16 pb-20">
-            <PageHero
-                badge="Evidencia Física · Legal · Institucional"
-                title="La Prueba:"
-                titleAccent="esto ya está construido"
-                subtitle="Activos fijos ejecutados y en desarrollo. No vendemos promesas sobre planos — mostramos avance real y verificado."
-                imagePath="/Trabajos/PXL_20240527_203443490.webp"
-                stats={[
-                    { label: 'Avance Casa Modelo', value: '42.6%' },
-                    { label: 'Estado Legal', value: 'S.A.S. B.I.C.' },
-                    { label: 'RUC', value: '1191797066001' },
-                    { label: 'Avalúo', value: 'BanEcuador B.P.' },
-                ]}
-            />
+        <div className="space-y-12">
+            <section className="bg-verde-oscuro p-12 rounded-3xl text-cremita relative overflow-hidden">
+                <h1 className="text-4xl font-florenza">Plan de ejecución por <span className="text-naranja italic">Fases</span></h1>
+                <p className="text-cremita/70 mt-4 max-w-3xl">Garantizamos transparencia total. Cada etapa tiene hitos verificables y fechas de entrega claras para tu seguridad patrimonial.</p>
+                <div className="absolute top-0 right-0 p-10 opacity-5 text-8xl">🏗️</div>
+            </section>
 
             {/* Timeline Section */}
             <div className="space-y-6 relative pt-4">
@@ -70,7 +60,7 @@ export default function LaPruebaPage() {
                         <div className="w-16 h-16 rounded-2xl bg-verde-oscuro text-cremita flex items-center justify-center font-bold text-[10px] uppercase shrink-0 z-10 border-4 border-cremita">
                             {p.phase}
                         </div>
-                        <div className="flex-1 bg-white p-8 rounded-3xl border border-marron-claro/10 shadow-sm space-y-4 hover:border-naranja/40 transition-all">
+                        <div className="flex-1 card-glass p-8 space-y-4 hover:border-naranja/40 transition-all">
                             <div className="flex justify-between items-center">
                                 <h2 className="text-2xl font-florenza text-verde-oscuro">{p.title}</h2>
                                 <span className="text-[10px] font-black uppercase text-naranja tracking-widest">{p.status}</span>
@@ -79,7 +69,7 @@ export default function LaPruebaPage() {
                                 {p.items.map((item, idx) => (
                                     <div key={idx} className="flex gap-2 items-start opacity-70">
                                         <span className="font-black text-naranja">•</span>
-                                        <p className="text-xs leading-relaxed font-poppins">{item}</p>
+                                        <p className="text-xs leading-relaxed">{item}</p>
                                     </div>
                                 ))}
                             </div>
@@ -89,14 +79,14 @@ export default function LaPruebaPage() {
             </div>
 
             {/* Seguimiento de Obra en Vivo - Casa Modelo */}
-            <div className="bg-white p-10 md:p-12 rounded-[3rem] border border-marron-claro/10 shadow-sm">
+            <div className="card-glass p-12 bg-white/50 border-2 border-verde-oscuro/10">
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 mb-12">
                     <div>
-                        <h3 className="text-3xl font-florenza text-verde-oscuro">Seguimiento de Obra: <span className="text-naranja">Casa Modelo</span></h3>
-                        <p className="text-xs font-black uppercase tracking-widest text-gris-oscuro/40 mt-2 font-poppins">Estructura de Hormigón Armado | Entrega Obra Gris: Feb 2027</p>
+                        <h3 className="text-4xl font-florenza text-verde-oscuro">Seguimiento de Obra: <span className="text-naranja">Casa Modelo</span></h3>
+                        <p className="text-xs font-black uppercase tracking-widest text-gris-oscuro/40 mt-2">Estructura de Hormigón Armado | Entrega Obra Gris: Feb 2027</p>
                     </div>
                     <div className="px-6 py-3 bg-verde-oscuro text-cremita rounded-2xl shadow-xl">
-                        <span className="text-xs font-bold font-poppins">Estado General:</span>
+                        <span className="text-xs font-bold">Estado General:</span>
                         <span className="ml-2 text-xl font-black text-naranja">42.6%</span>
                     </div>
                 </div>
@@ -104,13 +94,13 @@ export default function LaPruebaPage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                     <div className="space-y-8">
                         {[
-                            { label: 'Planta Baja (120m²)', val: 30.1, date: 'Feb 2027' },
-                            { label: 'Planta Alta (60m²)', val: 12.5, date: 'Mayo 2027' },
-                            { label: 'Acabados & Cubierta', val: 0, date: 'Agosto 2027' },
+                            { label: 'Planta Baja (120m²)', val: 30.1, date: 'Fase de Mes 3-6' },
+                            { label: 'Planta Alta (60m²)', val: 12.5, date: 'Fase de Mes 7-12' },
+                            { label: 'Acabados & Cubierta', val: 0, date: 'Fase de Mes 13-18' },
                         ].map((item, i) => (
                             <div key={i} className="space-y-3">
                                 <div className="flex justify-between items-end">
-                                    <p className="text-sm font-bold text-verde-oscuro font-poppins">{item.label}</p>
+                                    <p className="text-sm font-bold text-verde-oscuro">{item.label}</p>
                                     <p className="text-lg font-black text-naranja">{item.val}%</p>
                                 </div>
                                 <div className="h-2 w-full bg-verde-oscuro/5 rounded-full overflow-hidden">
@@ -121,7 +111,7 @@ export default function LaPruebaPage() {
                                         className="h-full bg-verde-oscuro"
                                     />
                                 </div>
-                                <p className="text-[10px] font-bold text-gris-oscuro/30 uppercase font-poppins">Entrega Proyectada: {item.date}</p>
+                                <p className="text-[10px] font-bold text-gris-oscuro/30 uppercase">Entrega Proyectada: {item.date}</p>
                             </div>
                         ))}
                     </div>
@@ -139,19 +129,14 @@ export default function LaPruebaPage() {
                 </div>
             </div>
 
-            {/* INTEGRAR GALERÍA AQUÍ */}
-            <section className="pt-8 border-t border-marron-claro/10">
-                <Gallery />
-            </section>
-
-            {/* Estatus Legal y Respaldo Institucional */}
+            {/* Estatus Legal / Permisos */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 pt-8">
-                <div className="bg-white p-10 md:p-12 rounded-[3.5rem] border border-marron-claro/10 shadow-sm">
+                <div className="card-glass p-12 bg-white/60">
                     <h3 className="text-3xl font-florenza text-verde-oscuro mb-8">Estatus Legal Vigente</h3>
                     <div className="space-y-6">
                         {permits.map((p, i) => (
                             <div key={i} className="space-y-2">
-                                <div className="flex justify-between items-end font-poppins">
+                                <div className="flex justify-between items-end">
                                     <p className="text-xs font-bold text-gris-oscuro">{p.name}</p>
                                     <p className={`text-[10px] font-black ${p.color}`}>{p.status}</p>
                                 </div>
@@ -166,25 +151,25 @@ export default function LaPruebaPage() {
                         ))}
                     </div>
                     <div className="mt-10 p-6 bg-cafe-acento rounded-2xl flex items-center justify-between gap-4">
-                        <p className="text-white text-xs font-bold font-poppins">Ver Expediente Legal Completo</p>
+                        <p className="text-white text-xs font-bold">Ver Expediente Legal en Google Drive</p>
                         <a
                             href="https://wa.me/593963410409?text=Hola%2C%20solicito%20el%20acceso%20al%20Drive%20con%20el%20cronograma%20y%20documentos%20del%20proyecto%20Aroma%20de%20Monta%C3%B1a."
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="px-4 py-2 bg-cremita text-cafe-acento rounded-lg text-[10px] font-black uppercase font-poppins"
+                            className="px-4 py-2 bg-cremita text-cafe-acento rounded-lg text-[10px] font-black uppercase"
                         >
                             Abrir Drive
                         </a>
                     </div>
                 </div>
 
-                <div className="p-10 md:p-12 bg-verde-oscuro text-cremita rounded-[3.5rem] flex flex-col justify-center space-y-6 relative overflow-hidden shadow-xl">
-                    <h4 className="text-4xl font-florenza italic text-naranja">Respaldo Institucional</h4>
-                    <ul className="space-y-4 text-base font-light opacity-95 leading-relaxed font-poppins">
-                        <li>🏢 <strong>Sociedad Constituida:</strong> Grupo Empresarial Reyes S.A.S. B.I.C., legalmente registrada bajo el RUC: <strong>1191797066001</strong>.</li>
-                        <li>📐 <strong>Avalúo Independiente:</strong> Realizado por perito calificado por la Superintendencia de Bancos para BanEcuador B.P.</li>
-                        <li>🛡️ <strong>Marca Registrada:</strong> Clave única y concepto con total protección de patentes.</li>
-                    </ul>
+                <div className="p-12 bg-verde-oscuro text-cremita rounded-[2.5rem] flex flex-col justify-center space-y-6 relative overflow-hidden">
+                    <h4 className="text-4xl font-florenza italic text-naranja">Seguimiento Real</h4>
+                    <p className="text-lg font-light leading-relaxed opacity-80">
+                        Cada inversor recibe acceso a un **dashboard privado** con actualizaciones semanales de obra, fotografías geolocalizadas y reportes financieros auditados.
+                        <br /><br />
+                        Aquí no hay sorpresas, solo inversión ejecutada.
+                    </p>
                     <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-naranja/10 rounded-full blur-3xl" />
                 </div>
             </div>

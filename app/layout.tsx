@@ -62,6 +62,28 @@ export default function RootLayout({
 }>) {
   const ogImageUrl = getAssetUrl("/Images/hacienda-view.jpg");
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "InvestmentOpportunity",
+    "name": "Inversión en Turismo Ecuador - Hacienda Aroma de Montaña",
+    "description": "Oportunidad de adquisición de la empresa turística y agrícola Aroma de Montaña en Loja, Ecuador. Glamping ecológico, astroturismo y café de especialidad.",
+    "url": "https://grupoempresarialreyes.vercel.app",
+    "offers": {
+      "@type": "Offer",
+      "price": "230000",
+      "priceCurrency": "USD",
+      "eligibleRegion": {
+        "@type": "Country",
+        "name": "EC"
+      }
+    },
+    "provider": {
+      "@type": "Organization",
+      "name": "Grupo Empresarial Reyes",
+      "url": "https://grupoempresarialreyes.vercel.app"
+    }
+  };
+
   return (
     <html lang="es" className="scroll-smooth" suppressHydrationWarning>
       <head>
@@ -70,6 +92,10 @@ export default function RootLayout({
         <meta property="og:image:type" content="image/jpeg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
       </head>
       <body className="antialiased bg-cremita flex min-h-screen overflow-x-hidden">
         <TourProvider>

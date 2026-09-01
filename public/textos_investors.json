@@ -1,0 +1,118 @@
+{
+  "investors_landing_copy": {
+    "hero": {
+      "tags": [
+        "Reserva de Biosfera UNESCO",
+        "Loja, Ecuador",
+        "Expediente Confidencial"
+      ],
+      "h1": "El nodo de hospitalidad regenerativa.",
+      "subtitle": "Turismo con activo real, caja temprana y colateral físico.",
+      "credentials": "23,5 hectáreas · Bosques de Paz · USD 211.266 ejecutados en terreno · S.A.S. B.I.C.",
+      "video_placeholder": "Video — 2 minutos · ESPACIO: apertura del predio"
+    },
+    "section_1_el_activo": {
+      "label": "01 — El Activo",
+      "h2": "Lo que respalda este proyecto ya está en el suelo.",
+      "subtitle": "Activos físicos verificados por avalúo bancario. Infraestructura ejecutada, no proyectada.",
+      "cards": [
+        {
+          "titulo": "Agua propia",
+          "cifra": "8.000 m³",
+          "texto": "Dos reservorios, tres albarradas ancestrales y pozo propio. Soberanía hídrica en zona de bosque seco — sin dependencia de redes externas.",
+          "placeholder": "ESPACIO: reservorio principal — plano general"
+        },
+        {
+          "titulo": "Acceso y vías",
+          "cifra": "3 km internos",
+          "texto": "Vías internas habilitadas sobre la Panamericana E35. 40 minutos del aeropuerto de Catamayo. Sin accesos de segundo o tercer orden.",
+          "placeholder": "ESPACIO: vía interna desde la entrada"
+        },
+        {
+          "titulo": "Café de especialidad",
+          "cifra": "5.000 plantas",
+          "texto": "Variedades Sidra, Borbón y Típica Mejorada de madre certificada, en 5 hectáreas habilitadas. Alianza técnica: Hacienda La Florida (Taza Dorada 2020).",
+          "placeholder": "ESPACIO: cafetal o vivero certificado"
+        },
+        {
+          "titulo": "Territorio habilitado",
+          "cifra": "6 km senderos",
+          "texto": "Senderos interpretativos señalizados, parqueadero de 600 m², casa modelo en construcción y áreas sociales perimetrales.",
+          "placeholder": "ESPACIO: sendero principal o casa modelo"
+        }
+      ],
+      "cumplimiento": {
+        "texto": "Licencia ambiental MAATE aprobada · Marca registrada SENADI (10 años) · Avalúo bancario SBS: USD 152.473",
+        "badges": ["MAATE ✓", "SENADI ✓", "SBS ✓"]
+      },
+      "highlight_bank": {
+        "h3": "Avaluado por un banco. Rechazado por el sistema.",
+        "texto": "BanEcuador evaluó el predio con perito propio — avalúo favorable — y negó el crédito: unidades prefabricadas de turismo en validación no son colateral bancario. El banco dijo sí al activo y no al instrumento. Esa es exactamente la barrera de capital que esta mesa cubre."
+      }
+    },
+    "section_2_el_modelo": {
+      "label": "02 — El Modelo",
+      "h2": "Unidades que se autofinancian. Ninguna se construye vacía.",
+      "subtitle": "Cada glamping se adquiere con una entrada del 35% — con eso se construye (25%) y se adecúa (10%). La unidad se instala solo cuando ya tiene dueño: el riesgo clásico del turismo —construir y esperar— está diseñado fuera del sistema.",
+      "split_per_night": {
+        "title": "Reparto por noche · Tarifa de referencia USD 500 (IVA incluido)",
+        "rows": [
+          { "label": "Venta neta (post-IVA)", "valor": "USD 434,78" },
+          { "label": "Al propietario de la unidad (50%)", "valor": "USD 217,39" },
+          { "label": "A la hacienda — personal, mantenimiento, alimentación (50%)", "valor": "USD 217,39" }
+        ]
+      },
+      "scenarios": {
+        "title": "Escenarios con supuestos, no promesas",
+        "rows": [
+          { "escenario": "Conservador", "ocupacion": "25%", "retorno": "~19,0% anual" },
+          { "escenario": "Base", "ocupacion": "27%", "retorno": "~21,7% anual" },
+          { "escenario": "Moderado", "ocupacion": "35%", "retorno": "~27,8% anual" }
+        ],
+        "disclaimer": "Cálculo sobre tarifa USD 500/noche, unidades de 6 personas, alquiler por casa completa. Cero noches vendidas históricas: unidades cero por diseño — se instalan una a una, contra demanda."
+      }
+    },
+    "section_3_uso_del_capital": {
+      "label": "03 — Uso del Capital",
+      "h2": "Este capital no compra cabañas. Las compran los propios socios.",
+      "subtitle": "EUR 150.000 de ignición para activar la máquina comercial antes de que entre el primer operador.",
+      "breakdown": [
+        { "linea": "Casa modelo (unidad semilla)", "monto": "USD 25.000" },
+        { "linea": "Cafetería y área social", "monto": "USD 45.000" },
+        { "linea": "Posicionamiento y demanda", "monto": "USD 50.000" },
+        { "linea": "Capital de trabajo — gerencia, personal, sistemas", "monto": "USD 40.000" }
+      ],
+      "highlight": "Cada operador convertido inyecta USD 35.000 de entrada y USD 21.739 anuales de flujo compartido. Tres conversiones devuelven el capital de ignición solo en entradas. El sistema está diseñado para encenderse a sí mismo."
+    },
+    "section_4_traccion": {
+      "label": "04 — Tracción",
+      "h2": "El activo opera. El pipeline trabaja.",
+      "items": [
+        "Acuerdo de flujos firmado: Abad Castillo Travel — turismo receptivo, canal nacional e internacional.",
+        "Campaña comercial activa sobre la base calificada de operadores del Ministerio de Turismo (MINTUR).",
+        "Alianza técnica: Hacienda La Florida, ganadora Taza Dorada 2020.",
+        "[ESPACIO DINÁMICO: LOIs / operadores en conversación — actualizar con número real antes de compartir el link]"
+      ]
+    },
+    "section_5_el_fundador": {
+      "label": "05 — El Fundador",
+      "h2": "Más de USD 200.000 de patrimonio propio ya en el activo.",
+      "texto_1": "César Reyes Jaramillo ha invertido su propio capital en el activo: agua, vías, cultivos, licencias. Cuando BanEcuador negó el crédito, el proyecto siguió adelante con capital propio.",
+      "texto_2": "La operación se delega a gerentes profesionales y la estructura S.A.S. B.I.C. obliga por ley al reporte anual de impacto y a la rendición de cuentas. El fundador es el arquitecto — no el conserje."
+    },
+    "section_6_la_mision": {
+      "label": "06 — La Misión",
+      "quote": "No vendemos hospedaje: regeneramos la tierra y reconectamos vidas.",
+      "texto_1": "Cada unidad que se instala financia un ecosistema vivo: agricultura regenerativa sin químicos, recarga de acuíferos con tecnología ancestral Palta, y una operación que compra a artesanos, productores y operadores locales de Loja.",
+      "texto_2": "B.I.C. no es nuestro slogan: es nuestra obligación legal. El nodo de Loja es el prototipo — la cordillera, el mercado."
+    },
+    "section_7_contacto": {
+      "label": "07 — Contacto",
+      "h2": "Hablemos.",
+      "subtitle": "Conversación directa. Sin intermediarios. Sin formularios.",
+      "whatsapp": "+593 96 341 0409",
+      "email": "cesar@grupoempresarialreyes.com",
+      "legal_disclaimer": "Esta página es material de inversión compartido bajo invitation. No constituye oferta pública de valores."
+    }
+  }
+}

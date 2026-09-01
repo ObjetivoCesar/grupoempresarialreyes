@@ -66,7 +66,7 @@ function AssetCard({ titulo, texto, imagenLabel, cifra, delay = 0 }: {
       <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "72%", background: "linear-gradient(to top, rgba(26,29,23,0.98) 0%, rgba(26,29,23,0.75) 55%, transparent 100%)" }} />
       {/* Contenido */}
       <div style={{ position: "relative", padding: "1.5rem" }}>
-        {cifra && <p style={{ fontFamily: "'Florenza', serif", fontSize: "1.6rem", color: "#FCA259", margin: "0 0 0.25rem", lineHeight: 1 }}>{cifra}</p>}
+        {cifra && <p style={{ fontFamily: "'Florenza', serif", fontSize: "clamp(1.1rem, 5vw, 1.5rem)", color: "#FCA259", margin: "0 0 0.25rem", lineHeight: 1.1, overflowWrap: "break-word" }}>{cifra}</p>}
         <h3 style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 700, fontSize: "0.92rem", color: "#EDE8D1", margin: "0 0 0.45rem" }}>{titulo}</h3>
         <p style={{ fontFamily: "'Poppins', sans-serif", fontSize: "0.73rem", color: "rgba(237,232,209,0.58)", margin: 0, lineHeight: 1.75 }}>{texto}</p>
       </div>
@@ -214,7 +214,7 @@ export default function InvestorsPage() {
             23,5 hectáreas en operación · USD 211.266 ejecutados en terreno · Licencias aprobadas · Marca registrada
           </p>
           <p style={{ fontFamily: "'Poppins', sans-serif", fontSize: "0.8rem", color: "rgba(237,232,209,0.4)", lineHeight: 1.7, margin: "0 0 2.5rem", animation: "fadeUp 0.7s ease 0.28s both" }}>
-            Buscamos el capital para construir los glampings Alpinos que el mercado ya está pidiendo.
+            Buscamos capital para lanzar el glamping Alpino semilla, terminar la casa modelo y la cafetería, y financiar el posicionamiento comercial.
           </p>
 
           {/* Video placeholder */}
@@ -256,7 +256,7 @@ export default function InvestorsPage() {
         </Reveal>
 
         {/* Stats de mercado — datos reales */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(13rem, 1fr))", gap: "1rem", marginBottom: "2.5rem" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(14rem, 1fr))", gap: "1rem", marginBottom: "1rem" }}>
           {[
             { cifra: "USD 894B", label: "Turismo Wellness (2024)", detalle: "Tamaño global del turismo de bienestar en 2024 según Global Wellness Institute." },
             { cifra: "7,6%", label: "Crecimiento anual", detalle: "Crecimiento anual proyectado de la economía wellness hasta 2029." },
@@ -304,10 +304,12 @@ export default function InvestorsPage() {
           <Reveal>
             <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", gap: "1.5rem" }}>
               <span style={{ fontFamily: "'Poppins', sans-serif", fontSize: "0.6rem", fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase" as const, color: "#6C7654" }}>Aroma de Montaña · Loja, Ecuador</span>
-              <h2 style={{ fontFamily: "'Florenza', serif", fontSize: "clamp(1.6rem, 3.2vw, 2.5rem)", color: "#43281C", lineHeight: 1.22, maxWidth: "38rem", margin: 0 }}>
-                23,5 hectáreas dentro de la Reserva de Biosfera UNESCO.<br />
-                <em style={{ color: "#6C7654" }}>A 1.874 m.s.n.m. y microclima primaveral todo el año.</em>
+              <h2 style={{ fontFamily: "'Florenza', serif", fontSize: "clamp(1.4rem, 3vw, 2.2rem)", color: "#43281C", lineHeight: 1.22, maxWidth: "38rem", margin: 0 }}>
+                23,5 hectáreas dentro de la Reserva de Biosfera UNESCO.
               </h2>
+              <p style={{ fontFamily: "'Florenza', serif", fontSize: "clamp(1.1rem, 2.5vw, 1.5rem)", color: "#6C7654", margin: "0", lineHeight: 1.3 }}>
+                A 1.874 m.s.n.m. y microclima primaveral todo el año.
+              </p>
               <p style={{ fontFamily: "'Poppins', sans-serif", fontSize: "0.86rem", color: "rgba(67,40,28,0.65)", lineHeight: 1.85, maxWidth: "35rem", margin: 0 }}>
                 Café de especialidad Sidra, Borbón y Típica Mejorada. Cielos Bortle 3–4 libres de contaminación lumínica. 
                 Una ubicación que el mercado de bienestar global no puede fabricar — solo encontrar.
@@ -511,20 +513,26 @@ export default function InvestorsPage() {
       <div style={{ height: "1px", background: "rgba(255,255,255,0.04)", margin: "0 2rem" }} />
 
       {/* ── SECCIÓN 6: LA MISIÓN ─────────────────────────────────────────── */}
-      <S id="mision" dark>
-        <SectionLabel n="06" label="La Misión" />
-        <Reveal>
-          <blockquote style={{ fontFamily: "'Florenza', serif", fontSize: "clamp(1.4rem, 2.8vw, 2.1rem)", color: "rgba(237,232,209,0.75)", lineHeight: 1.68, margin: "0 0 2rem", borderLeft: "3px solid #6C7654", paddingLeft: "1.75rem" }}>
-            No vendemos hospedaje:<br />regeneramos la tierra y reconectamos vidas.
-          </blockquote>
-          <p style={{ color: "rgba(237,232,209,0.52)", fontSize: "0.88rem", lineHeight: 1.88, maxWidth: "40rem", marginBottom: "1rem" }}>
-            Cada glamping Alpino instalado financia un ecosistema vivo: agricultura regenerativa sin químicos, recarga de acuíferos con tecnología ancestral Palta, y una operación que compra directamente a productores, artesanos y guías locales de Loja.
-          </p>
-          <p style={{ color: "rgba(237,232,209,0.52)", fontSize: "0.88rem", lineHeight: 1.88, maxWidth: "40rem" }}>
-            B.I.C. no es nuestro eslogan: es nuestra obligación legal. El nodo de Loja es el prototipo. La cordillera, el mercado que sigue.
-          </p>
-        </Reveal>
-      </S>
+      <section id="mision" style={{ padding: "6rem 1.5rem", background: "#EDE8D1" }}>
+        <div style={{ maxWidth: "54rem", margin: "0 auto" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "1.5rem" }}>
+            <span style={{ fontFamily: "'Poppins', sans-serif", fontSize: "0.62rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "#6C7654" }}>06</span>
+            <div style={{ flex: 1, height: "1px", background: "rgba(108,118,84,0.3)" }} />
+            <span style={{ fontFamily: "'Poppins', sans-serif", fontSize: "0.62rem", fontWeight: 600, letterSpacing: "0.15em", textTransform: "uppercase", color: "rgba(67,40,28,0.5)" }}>La Misión</span>
+          </div>
+          <Reveal>
+            <blockquote style={{ fontFamily: "'Florenza', serif", fontSize: "clamp(1.4rem, 2.8vw, 2.1rem)", color: "#43281C", lineHeight: 1.68, margin: "0 0 2rem", borderLeft: "3px solid #FCA259", paddingLeft: "1.75rem" }}>
+              No vendemos hospedaje:<br /><span style={{ color: "#6C7654" }}>regeneramos la tierra y reconectamos vidas.</span>
+            </blockquote>
+            <p style={{ fontFamily: "'Poppins', sans-serif", color: "rgba(67,40,28,0.7)", fontSize: "0.88rem", lineHeight: 1.88, maxWidth: "40rem", marginBottom: "1rem" }}>
+              Cada glamping Alpino instalado financia un ecosistema vivo: agricultura regenerativa sin químicos, recarga de acuíferos con tecnología ancestral Palta, y una operación que compra directamente a productores, artesanos y guías locales de Loja.
+            </p>
+            <p style={{ fontFamily: "'Poppins', sans-serif", color: "rgba(67,40,28,0.7)", fontSize: "0.88rem", lineHeight: 1.88, maxWidth: "40rem" }}>
+              <strong style={{ color: "#43281C" }}>B.I.C. no es nuestro eslogan: es nuestra obligación legal.</strong> El nodo de Loja es el prototipo. La cordillera, el mercado que sigue.
+            </p>
+          </Reveal>
+        </div>
+      </section>
 
       {/* ── CONTACTO CTA ─────────────────────────────────────────────────── */}
       <section id="contacto" style={{ padding: "6rem 1.5rem", background: "rgba(0,0,0,0.28)", textAlign: "center" as const }}>

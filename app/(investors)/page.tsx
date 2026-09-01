@@ -92,6 +92,7 @@ function TR({ label, valor, bold, note }: { label: string; valor: string; bold?:
 // ═══════════════════════════════════════════════════════════════════════════════
 export default function InvestorsPage() {
   const [scrollY, setScrollY] = useState(0);
+  const [menuOpen, setMenuOpen] = useState(false);
   useEffect(() => {
     const h = () => setScrollY(window.scrollY);
     window.addEventListener("scroll", h, { passive: true });
@@ -137,6 +138,17 @@ export default function InvestorsPage() {
         .nav-link { font-family: 'Poppins', sans-serif; font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(237,232,209,0.6); text-decoration: none; padding: 0.35rem 0.65rem; border-radius: 0.3rem; transition: all 0.18s; }
         .nav-link:hover { color: #FCA259; background: rgba(108,118,84,0.18); }
 
+        .desktop-nav { display: flex; align-items: center; gap: 0.1rem; }
+        .mobile-toggle { display: none; background: transparent; border: none; color: #EDE8D1; font-size: 1.5rem; cursor: pointer; padding: 0.5rem; }
+        .mobile-menu { display: none; flex-direction: column; gap: 1rem; position: absolute; top: 100%; left: 0; right: 0; background: rgba(30,34,27,0.98); padding: 2rem; border-bottom: 1px solid rgba(108,118,84,0.22); backdrop-filter: blur(20px); }
+        
+        @media (max-width: 768px) {
+          .desktop-nav { display: none; }
+          .mobile-toggle { display: block; }
+          .mobile-menu.open { display: flex; }
+          .hero-title { font-size: 2.2rem !important; }
+        }
+
         @keyframes fadeUp { from { opacity: 0; transform: translateY(32px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         @keyframes pulse { 0% { transform: scale(0.85); opacity: 0.7; } 100% { transform: scale(1.5); opacity: 0; } }
@@ -149,16 +161,31 @@ export default function InvestorsPage() {
       `}</style>
 
       {/* ── NAV ─────────────────────────────────────────────────────────── */}
-      <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 200, height: "3.75rem", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 2rem", background: NAV_OPAQUE ? "rgba(30,34,27,0.95)" : "transparent", backdropFilter: NAV_OPAQUE ? "blur(20px)" : "none", borderBottom: NAV_OPAQUE ? "1px solid rgba(108,118,84,0.22)" : "none", transition: "all 0.35s ease" }}>
-        <a href="#hero" style={{ textDecoration: "none" }}>
-          <div style={{ fontFamily: "'Florenza', serif", fontSize: "1rem", color: "#EDE8D1", lineHeight: 1.1 }}>Aroma de Montaña</div>
+      <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 200, height: "4.5rem", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 2rem", background: (NAV_OPAQUE || menuOpen) ? "rgba(30,34,27,0.98)" : "transparent", backdropFilter: (NAV_OPAQUE || menuOpen) ? "blur(20px)" : "none", borderBottom: (NAV_OPAQUE || menuOpen) ? "1px solid rgba(108,118,84,0.22)" : "none", transition: "all 0.35s ease" }}>
+        <a href="#hero" style={{ textDecoration: "none", display: "flex", flexDirection: "column", justifyContent: "center" }}>
+          <img src="/logo-letras.png" alt="Aroma de Montaña" style={{ height: "24px", objectFit: "contain", marginBottom: "4px" }} />
           <div style={{ fontFamily: "'Poppins', sans-serif", fontSize: "0.48rem", letterSpacing: "0.22em", textTransform: "uppercase", color: "#FCA259", marginTop: "1px" }}>Expediente de Inversión</div>
         </a>
-        <div style={{ display: "flex", alignItems: "center", gap: "0.1rem" }}>
+        
+        <div className="desktop-nav">
           <a href="#mercado" className="nav-link">El Mercado</a>
           <a href="#activo" className="nav-link">El Activo</a>
           <a href="#modelo" className="nav-link">El Modelo</a>
+          <a href="#traccion" className="nav-link">Tracción</a>
           <a href="#contacto" className="btn-primary" style={{ marginLeft: "0.75rem", fontSize: "0.68rem", padding: "0.45rem 1rem" }}>Hablemos →</a>
+        </div>
+
+        <button className="mobile-toggle" onClick={() => setMenuOpen(!menuOpen)}>
+          {menuOpen ? "✕" : "☰"}
+        </button>
+
+        {/* Mobile Menu */}
+        <div className={`mobile-menu ${menuOpen ? 'open' : ''}`}>
+          <a href="#mercado" className="nav-link" onClick={() => setMenuOpen(false)}>El Mercado</a>
+          <a href="#activo" className="nav-link" onClick={() => setMenuOpen(false)}>El Activo</a>
+          <a href="#modelo" className="nav-link" onClick={() => setMenuOpen(false)}>El Modelo</a>
+          <a href="#traccion" className="nav-link" onClick={() => setMenuOpen(false)}>Tracción</a>
+          <a href="#contacto" className="btn-primary" style={{ justifyContent: "center", marginTop: "1rem" }} onClick={() => setMenuOpen(false)}>Hablemos →</a>
         </div>
       </nav>
 
@@ -177,10 +204,10 @@ export default function InvestorsPage() {
             <Tag>S.A.S. B.I.C. — Impacto reportado por ley</Tag>
           </div>
 
-          {/* H1 — simple como El Globo */}
-          <h1 style={{ fontFamily: "'Florenza', serif", fontSize: "clamp(2.4rem, 5.8vw, 4.5rem)", color: "#EDE8D1", lineHeight: 1.1, margin: "0 0 1rem", animation: "fadeUp 0.7s ease 0.1s both" }}>
+          {/* H1 — Opción A */}
+          <h1 className="hero-title" style={{ fontFamily: "'Florenza', serif", fontSize: "clamp(2.4rem, 5.8vw, 4.5rem)", color: "#EDE8D1", lineHeight: 1.1, margin: "0 0 1rem", animation: "fadeUp 0.7s ease 0.1s both" }}>
             La tierra ya está.<br />
-            <em style={{ color: "#FCA259" }}>El mercado llega solo.</em>
+            <em style={{ color: "#FCA259" }}>Ahora estamos construyendo el negocio.</em>
           </h1>
 
           <p style={{ fontFamily: "'Poppins', sans-serif", fontSize: "clamp(0.9rem, 1.7vw, 1.05rem)", color: "rgba(237,232,209,0.65)", lineHeight: 1.9, margin: "0 0 0.6rem", animation: "fadeUp 0.7s ease 0.2s both" }}>
@@ -220,20 +247,20 @@ export default function InvestorsPage() {
         <SectionLabel n="00" label="La Oportunidad" />
         <Reveal>
           <h2 style={{ fontFamily: "'Florenza', serif", fontSize: "clamp(1.8rem, 3.6vw, 2.8rem)", color: "#EDE8D1", lineHeight: 1.18, margin: "0 0 1rem" }}>
-            El estrés urbano creó un mercado<br />
-            <em style={{ color: "#FCA259" }}>que casi nadie está atendiendo.</em>
+            El mercado está creciendo.<br />
+            <em style={{ color: "#FCA259" }}>Y Loja tiene un activo que ese mercado no puede fabricar.</em>
           </h2>
           <p style={{ color: "rgba(237,232,209,0.55)", fontSize: "0.9rem", lineHeight: 1.85, maxWidth: "38rem", marginBottom: "3rem" }}>
-            Ecuador es el país con el mayor índice de estrés de Latinoamérica según Gallup 2023. Más de <strong style={{ color: "#EDE8D1" }}>550.000 hogares</strong> en Quito, Guayaquil y Cuenca tienen el poder adquisitivo para retiros de bienestar — y no existe en la zona de Paltas-Loja un glamping estructurado que los reciba.
+            Ecuador es el país con el mayor índice de estrés de Latinoamérica (Gallup 2023). Más de <strong style={{ color: "#EDE8D1" }}>550.000 hogares</strong> en Quito, Guayaquil y Cuenca buscan desconexión — y no existe en la zona de Paltas-Loja un glamping estructurado que los reciba.
           </p>
         </Reveal>
 
         {/* Stats de mercado — datos reales */}
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(13rem, 1fr))", gap: "1rem", marginBottom: "2.5rem" }}>
           {[
-            { cifra: "#1", label: "País más estresado", detalle: "Ecuador ocupa el primer puesto en estrés crónico de toda Latinoamérica — Gallup World Report 2023." },
-            { cifra: "USD 830B", label: "Mercado global wellness", detalle: "El turismo de bienestar crece entre 8% y 16% anual. Retiros en Latinoamérica proyectados a USD 10B+ para 2030." },
-            { cifra: "0", label: "Competencia estructurada", detalle: "No existe en la zona de Paltas-Loja un glamping de retiro con infraestructura, marca registrada y convenio turístico activo." },
+            { cifra: "USD 894B", label: "Turismo Wellness (2024)", detalle: "Tamaño global del turismo de bienestar en 2024 según Global Wellness Institute." },
+            { cifra: "7,6%", label: "Crecimiento anual", detalle: "Crecimiento anual proyectado de la economía wellness hasta 2029." },
+            { cifra: "USD 9,8T", label: "Proyección global (2029)", detalle: "Tamaño proyectado de la economía global del wellness en 2029." },
           ].map((s, i) => (
             <Reveal key={i} delay={i * 80}>
               <div style={{ padding: "1.5rem", background: "rgba(108,118,84,0.1)", border: "1px solid rgba(108,118,84,0.2)", borderRadius: "0.85rem", height: "100%" }}>
@@ -249,7 +276,7 @@ export default function InvestorsPage() {
         <Reveal delay={180}>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(10rem, 1fr))", gap: "0.75rem", marginBottom: "2rem" }}>
             {[
-              { n: "USD 200–500", d: "Gasto diario del turista de bienestar — Ministerio de Turismo Ecuador" },
+              { n: "USD 300–500", d: "Tarifa prevista por noche para una unidad completa en Aroma de Montaña" },
               { n: "550.000+", d: "Hogares estratos B/C+ en Quito, Guayaquil y Cuenca con capacidad de pago" },
               { n: "1,6M ha", d: "Reserva de Biosfera Transfronteriza Bosques de Paz UNESCO — Ecuador / Perú" },
             ].map((d, i) => (
@@ -265,7 +292,7 @@ export default function InvestorsPage() {
         <Reveal delay={250}>
           <div style={{ padding: "1.75rem 2rem", background: "rgba(67,40,28,0.25)", border: "1px solid rgba(252,162,89,0.18)", borderRadius: "0.85rem", borderLeft: "3px solid #FCA259" }}>
             <p style={{ fontFamily: "'Florenza', serif", fontSize: "clamp(1.1rem, 2vw, 1.45rem)", color: "rgba(237,232,209,0.85)", lineHeight: 1.65, margin: 0 }}>
-              "La pregunta no es si el mercado va a crecer. La pregunta es quién va a estar listo cuando llegue."
+              "La oportunidad no depende de crear el mercado. Depende de capturar una pequeña parte de él desde un activo que ya existe."
             </p>
           </div>
         </Reveal>
@@ -306,7 +333,7 @@ export default function InvestorsPage() {
             <em style={{ color: "#FCA259" }}>ya está en el suelo.</em>
           </h2>
           <p style={{ color: "rgba(237,232,209,0.55)", fontSize: "0.88rem", lineHeight: 1.85, marginBottom: "3rem", maxWidth: "38rem" }}>
-            No estamos presentando una idea que hay que demostrar. El terreno está escriturado, los permisos aprobados, las vías abiertas y los cultivos en producción. El avalúo bancario SBS lo confirma: <strong style={{ color: "#EDE8D1" }}>USD 152.473 en activo físico verificado.</strong>
+            No estamos presentando una idea que hay que demostrar. El terreno está escriturado, los permisos aprobados, las vías abiertas y los cultivos en producción. Contamos con <strong style={{ color: "#EDE8D1" }}>USD 211.266 de inversión ejecutada y documentada</strong>. El avalúo bancario verificó USD 152.473 de activos físicos. La diferencia corresponde a inversiones y activos adicionales no incorporados en esa valoración.
           </p>
         </Reveal>
 
@@ -372,13 +399,12 @@ export default function InvestorsPage() {
               </p>
             </div>
             {[
-              { esc: "Conservador", ocu: "24% ocupación", noches: "88 noches", roi: "15%", usd: "USD 15.000 / año", highlight: false },
-              { esc: "Base", ocu: "31% ocupación", noches: "112 noches", roi: "19%", usd: "USD 19.000 / año", highlight: true },
-              { esc: "Optimista", ocu: "39% ocupación", noches: "141 noches", roi: "24%", usd: "USD 24.000 / año", highlight: false },
+              { esc: "Conservador", ocu: "24%", noches: "88 noches comercializadas", roi: "15%", usd: "USD 15.000 / año", highlight: false },
+              { esc: "Base", ocu: "31%", noches: "112 noches comercializadas", roi: "19%", usd: "USD 19.000 / año", highlight: true },
+              { esc: "Optimista", ocu: "39%", noches: "141 noches comercializadas", roi: "24%", usd: "USD 24.000 / año", highlight: false },
             ].map(({ esc, ocu, noches, roi, usd, highlight }, i) => (
-              <div key={i} style={{ display: "grid", gridTemplateColumns: "1fr 1.2fr 0.8fr 0.8fr 1fr", padding: "0.9rem 1.2rem", borderBottom: i < 2 ? "1px solid rgba(255,255,255,0.045)" : undefined, background: highlight ? "rgba(252,162,89,0.05)" : "rgba(255,255,255,0.015)", alignItems: "center", gap: "0.5rem" }}>
-                <span style={{ fontFamily: "'Poppins', sans-serif", fontSize: "0.82rem", fontWeight: highlight ? 700 : 600, color: highlight ? "#EDE8D1" : "rgba(237,232,209,0.7)" }}>{esc}</span>
-                <span style={{ fontFamily: "'Poppins', sans-serif", fontSize: "0.76rem", color: "rgba(237,232,209,0.5)" }}>{ocu}</span>
+              <div key={i} style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(6rem, 1fr))", padding: "0.9rem 1.2rem", borderBottom: i < 2 ? "1px solid rgba(255,255,255,0.045)" : undefined, background: highlight ? "rgba(252,162,89,0.05)" : "rgba(255,255,255,0.015)", alignItems: "center", gap: "0.5rem" }}>
+                <span style={{ fontFamily: "'Poppins', sans-serif", fontSize: "0.82rem", fontWeight: highlight ? 700 : 600, color: highlight ? "#EDE8D1" : "rgba(237,232,209,0.7)" }}>{esc} ({ocu})</span>
                 <span style={{ fontFamily: "'Poppins', sans-serif", fontSize: "0.7rem", color: "rgba(237,232,209,0.35)" }}>{noches}</span>
                 <span style={{ fontFamily: "'Florenza', serif", fontSize: "1.1rem", color: highlight ? "#FCA259" : "rgba(252,162,89,0.6)" }}>{roi}</span>
                 <span style={{ fontFamily: "'Poppins', sans-serif", fontSize: "0.74rem", color: highlight ? "rgba(237,232,209,0.75)" : "rgba(237,232,209,0.42)", textAlign: "right" as const }}>{usd}</span>
@@ -386,7 +412,7 @@ export default function InvestorsPage() {
             ))}
             <div style={{ padding: "0.75rem 1.2rem", background: "rgba(0,0,0,0.15)" }}>
               <p style={{ fontFamily: "'Poppins', sans-serif", fontSize: "0.63rem", color: "rgba(237,232,209,0.32)", margin: 0, lineHeight: 1.65 }}>
-                USD 170/noche al propietario (tarifa USD 400 promedio · IVA 15% · reparto 50/50) · ROI calculado sobre el valor total de la unidad USD 100.000 · El escenario conservador (24%) está 10 puntos bajo el promedio sectorial de lodges boutique andinos en Ecuador (35–50% — AHE).
+                USD 170/noche al propietario (tarifa USD 400 promedio · IVA 15% · reparto 50/50) · ROI calculado sobre el valor total de la unidad USD 100.000 · El escenario conservador (24%) está 10 puntos bajo el promedio sectorial de lodges boutique andinos en Ecuador (35–50% — AHE). Los motores de demanda incluyen operadores turísticos, retiros de bienestar y retiros corporativos.
               </p>
             </div>
           </div>
@@ -395,9 +421,40 @@ export default function InvestorsPage() {
 
       <div style={{ height: "1px", background: "rgba(255,255,255,0.04)", margin: "0 2rem" }} />
 
-      {/* ── SECCIÓN 3: USO DEL CAPITAL ───────────────────────────────────── */}
+      {/* ── SECCIÓN 3: TRACCIÓN (Movida antes del capital) ────────────────── */}
+      <S id="traccion" dark>
+        <SectionLabel n="03" label="Tracción" />
+        <Reveal>
+          <h2 style={{ fontFamily: "'Florenza', serif", fontSize: "clamp(1.8rem, 3.6vw, 2.8rem)", color: "#EDE8D1", lineHeight: 1.18, margin: "0 0 0.85rem" }}>
+            La base está construida.<br />
+            <em style={{ color: "#FCA259" }}>El capital nos lleva al siguiente nivel.</em>
+          </h2>
+          <p style={{ color: "rgba(237,232,209,0.5)", fontSize: "0.86rem", lineHeight: 1.8, marginBottom: "2.5rem", maxWidth: "38rem" }}>
+            El proyecto está al 50% de su potencial: tierra, agua, vías, licencias y cultivos están listos. Lo que falta es encender la operación comercial — eso es exactamente para lo que buscamos este capital.
+          </p>
+        </Reveal>
+        <div style={{ display: "flex", flexDirection: "column", gap: "0.85rem" }}>
+          {[
+            { icon: "📋", text: "Campaña comercial activa sobre la base calificada de operadores del Ministerio de Turismo (MINTUR)." },
+            { icon: "✅", text: "Acuerdo de flujos firmado con Abad Castillo Travel — turismo receptivo, canal nacional e internacional." },
+            { icon: "🤝", text: "Alianza técnica con Hacienda La Florida, ganadora Taza Dorada 2020 — respaldo técnico en café de especialidad." },
+            { icon: "⏳", text: "[ESPACIO: número de compradores interesados o cartas de intención — actualizar antes de compartir este link]" },
+          ].map((item, i) => (
+            <Reveal key={i} delay={i * 70}>
+              <div style={{ display: "flex", gap: "1rem", padding: "1.2rem 1.4rem", background: "rgba(255,255,255,0.025)", border: "1px solid rgba(255,255,255,0.055)", borderRadius: "0.7rem", alignItems: "flex-start" }}>
+                <span style={{ fontSize: "1rem", flexShrink: 0, marginTop: "0.1rem" }}>{item.icon}</span>
+                <p style={{ fontFamily: "'Poppins', sans-serif", fontSize: "0.82rem", color: item.icon === "⏳" ? "rgba(237,232,209,0.38)" : "rgba(237,232,209,0.7)", margin: 0, lineHeight: 1.78, fontStyle: item.icon === "⏳" ? "italic" : "normal" }}>{item.text}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </S>
+
+      <div style={{ height: "1px", background: "rgba(255,255,255,0.04)", margin: "0 2rem" }} />
+
+      {/* ── SECCIÓN 4: USO DEL CAPITAL ───────────────────────────────────── */}
       <S id="capital">
-        <SectionLabel n="03" label="Uso del Capital" />
+        <SectionLabel n="04" label="Uso del Capital" />
         <Reveal>
           <h2 style={{ fontFamily: "'Florenza', serif", fontSize: "clamp(1.8rem, 3.6vw, 2.8rem)", color: "#EDE8D1", lineHeight: 1.18, margin: "0 0 0.85rem" }}>
             Este capital no adquiere los glampings.<br />
@@ -428,37 +485,6 @@ export default function InvestorsPage() {
             </p>
           </div>
         </Reveal>
-      </S>
-
-      <div style={{ height: "1px", background: "rgba(255,255,255,0.04)", margin: "0 2rem" }} />
-
-      {/* ── SECCIÓN 4: TRACCIÓN ───────────────────────────────────────────── */}
-      <S id="traccion" dark>
-        <SectionLabel n="04" label="Tracción" />
-        <Reveal>
-          <h2 style={{ fontFamily: "'Florenza', serif", fontSize: "clamp(1.8rem, 3.6vw, 2.8rem)", color: "#EDE8D1", lineHeight: 1.18, margin: "0 0 0.85rem" }}>
-            La base está construida.<br />
-            <em style={{ color: "#FCA259" }}>El capital nos lleva al siguiente nivel.</em>
-          </h2>
-          <p style={{ color: "rgba(237,232,209,0.5)", fontSize: "0.86rem", lineHeight: 1.8, marginBottom: "2.5rem", maxWidth: "38rem" }}>
-            El proyecto está al 50% de su potencial: tierra, agua, vías, licencias y cultivos están listos. Lo que falta es encender la operación comercial — eso es exactamente para lo que buscamos este capital.
-          </p>
-        </Reveal>
-        <div style={{ display: "flex", flexDirection: "column", gap: "0.85rem" }}>
-          {[
-            { icon: "✅", text: "Acuerdo de flujos firmado con Abad Castillo Travel — turismo receptivo, canal nacional e internacional." },
-            { icon: "📋", text: "Campaña comercial activa sobre la base calificada de operadores del Ministerio de Turismo (MINTUR)." },
-            { icon: "🤝", text: "Alianza técnica con Hacienda La Florida, ganadora Taza Dorada 2020 — respaldo técnico en café de especialidad." },
-            { icon: "⏳", text: "[ESPACIO: número de compradores interesados o cartas de intención — actualizar antes de compartir este link]" },
-          ].map((item, i) => (
-            <Reveal key={i} delay={i * 70}>
-              <div style={{ display: "flex", gap: "1rem", padding: "1.2rem 1.4rem", background: "rgba(255,255,255,0.025)", border: "1px solid rgba(255,255,255,0.055)", borderRadius: "0.7rem", alignItems: "flex-start" }}>
-                <span style={{ fontSize: "1rem", flexShrink: 0, marginTop: "0.1rem" }}>{item.icon}</span>
-                <p style={{ fontFamily: "'Poppins', sans-serif", fontSize: "0.82rem", color: item.icon === "⏳" ? "rgba(237,232,209,0.38)" : "rgba(237,232,209,0.7)", margin: 0, lineHeight: 1.78, fontStyle: item.icon === "⏳" ? "italic" : "normal" }}>{item.text}</p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
       </S>
 
       <div style={{ height: "1px", background: "rgba(255,255,255,0.04)", margin: "0 2rem" }} />
@@ -520,7 +546,7 @@ export default function InvestorsPage() {
                 </svg>
                 WhatsApp directo
               </a>
-              <a href="mailto:cesar@grupoempresarialreyes.com" className="btn-ghost">Correo electrónico</a>
+              <a href="mailto:negocios@cesarreyesjaramillo.com" className="btn-ghost">Correo electrónico</a>
             </div>
             <p style={{ fontFamily: "'Poppins', sans-serif", fontSize: "0.63rem", color: "rgba(237,232,209,0.2)", letterSpacing: "0.05em", lineHeight: 1.75 }}>
               Este material es confidencial, compartido bajo invitación directa. No constituye oferta pública de valores.

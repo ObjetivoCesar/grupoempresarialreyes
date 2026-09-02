@@ -47,21 +47,25 @@ function SectionLabel({ n, label }: { n: string; label: string }) {
 }
 
 // ─── Card de Activo con imagen de fondo ─────────────────────────────────────
-function AssetCard({ titulo, texto, imagenLabel, cifra, delay = 0 }: {
-  titulo: string; texto: string; imagenLabel: string; cifra?: string; delay?: number;
+function AssetCard({ titulo, texto, imagenLabel, cifra, delay = 0, imagen }: {
+  titulo: string; texto: string; imagenLabel: string; cifra?: string; delay?: number; imagen?: string;
 }) {
   const { ref, visible } = useReveal();
   return (
-    <div ref={ref} style={{ position: "relative", borderRadius: "0.9rem", overflow: "hidden", minHeight: "22rem", display: "flex", flexDirection: "column", justifyContent: "flex-end", transition: `all 0.65s ease ${delay}ms`, opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(24px)" }}>
-      {/* Fondo placeholder */}
-      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(108,118,84,0.28) 0%, rgba(20,18,14,0.65) 100%)", border: "1px dashed rgba(108,118,84,0.25)", borderRadius: "0.9rem" }}>
-        <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "0.5rem", paddingBottom: "6rem" }}>
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(108,118,84,0.3)" strokeWidth="1.2">
-            <rect x="3" y="3" width="18" height="18" rx="2" /><circle cx="8.5" cy="8.5" r="1.5" /><path d="M21 15l-5-5L5 21" />
-          </svg>
-          <span style={{ fontFamily: "'Poppins', sans-serif", fontSize: "0.57rem", color: "rgba(108,118,84,0.35)", letterSpacing: "0.08em", textTransform: "uppercase" as const, textAlign: "center" as const, padding: "0 1.5rem" }}>{imagenLabel}</span>
+    <div ref={ref} style={{ position: "relative", borderRadius: "0.9rem", overflow: "hidden", minHeight: "22rem", display: "flex", flexDirection: "column", justifyContent: "flex-end", transition: `all 0.65s ease ${delay}ms`, opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(24px)", backgroundColor: "rgba(20,18,14,0.65)" }}>
+      {/* Fondo de imagen o placeholder */}
+      {imagen ? (
+        <img src={imagen} alt={titulo} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
+      ) : (
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(108,118,84,0.28) 0%, rgba(20,18,14,0.65) 100%)", border: "1px dashed rgba(108,118,84,0.25)", borderRadius: "0.9rem" }}>
+          <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "0.5rem", paddingBottom: "6rem" }}>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(108,118,84,0.3)" strokeWidth="1.2">
+              <rect x="3" y="3" width="18" height="18" rx="2" /><circle cx="8.5" cy="8.5" r="1.5" /><path d="M21 15l-5-5L5 21" />
+            </svg>
+            <span style={{ fontFamily: "'Poppins', sans-serif", fontSize: "0.57rem", color: "rgba(108,118,84,0.35)", letterSpacing: "0.08em", textTransform: "uppercase" as const, textAlign: "center" as const, padding: "0 1.5rem" }}>{imagenLabel}</span>
+          </div>
         </div>
-      </div>
+      )}
       {/* Gradiente inferior */}
       <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "72%", background: "linear-gradient(to top, rgba(26,29,23,0.98) 0%, rgba(26,29,23,0.75) 55%, transparent 100%)" }} />
       {/* Contenido */}
@@ -341,10 +345,10 @@ export default function InvestorsPage() {
 
         {/* Cards 2x2 */}
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem", marginBottom: "1rem" }}>
-          <AssetCard titulo="Agua propia" cifra="8.000 m³" texto="Dos reservorios, tres albarradas ancestrales y pozo propio. Soberanía hídrica total en zona de bosque seco — sin dependencia de redes externas." imagenLabel="ESPACIO: reservorio principal — plano general" delay={0} />
-          <AssetCard titulo="Acceso y vías" cifra="3 km habilitados" texto="Vías internas abiertas sobre la Panamericana E35. A 40 minutos del aeropuerto de Catamayo, sin accesos de tierra difícil." imagenLabel="ESPACIO: vía interna desde la entrada" delay={80} />
-          <AssetCard titulo="Café de especialidad" cifra="5.000 plantas" texto="Variedades Sidra, Borbón y Típica Mejorada certificadas en 5 hectáreas. Alianza técnica con Hacienda La Florida, ganadora de la Taza Dorada 2020." imagenLabel="ESPACIO: cafetal o vivero certificado" delay={160} />
-          <AssetCard titulo="Territorio habilitado" cifra="6 km de senderos" texto="Senderos interpretativos señalizados, parqueadero de 600 m² y casa modelo en construcción. La experiencia ya tiene forma." imagenLabel="ESPACIO: sendero principal o casa modelo" delay={240} />
+          <AssetCard titulo="Agua propia" cifra="8.000 m³" texto="Dos reservorios, tres albarradas ancestrales y pozo propio. Soberanía hídrica total en zona de bosque seco — sin dependencia de redes externas." imagenLabel="ESPACIO: reservorio principal — plano general" delay={0} imagen="https://cesarweb.b-cdn.net/aroma-assets/Images/optimized/Trabajos/PXL_20231130_163726700.webp" />
+          <AssetCard titulo="Acceso y vías" cifra="3 km habilitados" texto="Vías internas abiertas sobre la Panamericana E35. A 40 minutos del aeropuerto de Catamayo, sin accesos de tierra difícil." imagenLabel="ESPACIO: vía interna desde la entrada" delay={80} imagen="https://cesarweb.b-cdn.net/aroma-assets/Images/optimized/Paisajes/6e0c66b9fe455fabe761901afde8e9ee.webp" />
+          <AssetCard titulo="Café de especialidad" cifra="5.000 plantas" texto="Variedades Sidra, Borbón y Típica Mejorada certificadas en 5 hectáreas. Alianza técnica con Hacienda La Florida, ganadora de la Taza Dorada 2020." imagenLabel="ESPACIO: cafetal o vivero certificado" delay={160} imagen="https://cesarweb.b-cdn.net/aroma-assets/Images/optimized/Caf%C3%A9%20-%20Especialidad/PXL_20240316_163900968.webp" />
+          <AssetCard titulo="Territorio habilitado" cifra="6 km de senderos" texto="Senderos interpretativos señalizados, parqueadero de 600 m² y casa modelo en construcción. La experiencia ya tiene forma." imagenLabel="ESPACIO: sendero principal o casa modelo" delay={240} imagen="https://cesarweb.b-cdn.net/aroma-assets/Images/optimized/Paisajes/PXL_20231119_194208299.webp" />
         </div>
 
         {/* Card cumplimiento horizontal */}

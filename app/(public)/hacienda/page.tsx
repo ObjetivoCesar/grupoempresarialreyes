@@ -169,7 +169,7 @@ export default function HaciendaPage() {
                             <span>🛡️</span> Marca Registrada
                         </h3>
                         <p className="text-xs md:text-sm text-gris-oscuro/80 leading-relaxed font-poppins">
-                            <strong>"Aroma de Montaña"</strong>, marca registrada con vigencia de 10 años, propiedad intelectual de metodologías y concepto productivo. <strong>Incluida al 100% en la venta de la empresa.</strong>
+                            <strong>"Aroma de Montaña"</strong>, marca registrada con vigencia de 10 años, propiedad intelectual de metodologías y concepto productivo de la sociedad Aroma de Montaña S.A.S. B.I.C.
                         </p>
                     </div>
                 </div>

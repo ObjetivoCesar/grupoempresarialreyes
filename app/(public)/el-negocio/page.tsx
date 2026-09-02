@@ -44,7 +44,7 @@ const units = [
 ];
 
 const incomeMotors = [
-  { id: 1, title: 'Venta de Glampings', desc: 'Utilidad neta de $80,000 a $150,000 por la venta de unidades individuales a terceros.', icon: '🛖' },
+  { id: 1, title: 'Unidades Glamping', desc: 'Modelo de doble propósito donde cada unidad es adquirida por su propietario con 35% de reserva y autofinanciada.', icon: '🛖' },
   { id: 2, title: 'Alquiler Hotelero', desc: 'Ingresos diarios por ocupación B2C de cabañas alpinas y residencias de lujo.', icon: '🛌' },
   { id: 3, title: 'Cafetería de Lujo', desc: 'Epicentro social de alta degustación con márgenes operativos superiores al 60%.', icon: '☕' },
   { id: 4, title: 'Retiros y Grupos', desc: 'Contratos corporativos B2B de mindfulness, yoga y alto rendimiento humano.', icon: '🧘' },
@@ -241,8 +241,8 @@ export default function ElNegocioPage() {
       </div>
 
       <div className="flex justify-center pt-8">
-        <Link href="/la-oferta" className="btn-primary px-12 py-5 text-xl font-bold shadow-2xl hover:scale-105 transition-all">
-          💼 Ver la Oferta de Venta →
+        <Link href="/contacto" className="btn-primary px-12 py-5 text-xl font-bold shadow-2xl hover:scale-105 transition-all">
+          📩 Contacto e Información →
         </Link>
       </div>
     </div>

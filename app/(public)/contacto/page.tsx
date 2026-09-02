@@ -44,7 +44,7 @@ export default function ContactoPage() {
             </p>
             <div className="pt-4 space-y-4">
               <a
-                href="https://wa.me/593963410409?text=Hola%2C%20estoy%20interesado%20en%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20la%20venta%20de%20la%20empresa%20Aroma%20de%20Monta%C3%B1a."
+                href="https://wa.me/593963410409?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20el%20proyecto%20Aroma%20de%20Monta%C3%B1a."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-4 p-4 bg-green-500/10 hover:bg-green-500/20 border border-green-500/20 text-green-700 rounded-2xl font-bold transition-all text-sm"
@@ -150,7 +150,7 @@ export default function ContactoPage() {
                 />
               )}
               <p className="text-[11px] text-gris-oscuro/50 font-poppins italic">
-                Trabajar con un agente de su confianza no modifica el precio de venta ni las condiciones de la oferta.
+                Atenderemos su inquietud o propuesta de colaboración de manera directa y confidencial.
               </p>
             </div>
 

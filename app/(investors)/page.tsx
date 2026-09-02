@@ -106,9 +106,15 @@ export default function InvestorsPage() {
   const BG = "#1E221B";
   const NAV_OPAQUE = scrollY > 80;
 
-  const S = ({ id, children, dark = false }: { id: string; children: React.ReactNode; dark?: boolean }) => (
-    <section id={id} style={{ padding: "6rem 1.5rem", background: dark ? "rgba(0,0,0,0.2)" : "transparent" }}>
-      <div style={{ maxWidth: "54rem", margin: "0 auto" }}>{children}</div>
+  const S = ({ id, children, dark = false, bgImage, style }: { id: string; children: React.ReactNode; dark?: boolean; bgImage?: string; style?: React.CSSProperties }) => (
+    <section id={id} style={{ position: "relative", padding: "6rem 1.5rem", background: dark ? "rgba(0,0,0,0.2)" : "transparent", ...style }}>
+      {bgImage && (
+        <>
+          <div style={{ position: "absolute", inset: 0, backgroundImage: `url(${bgImage})`, backgroundSize: "cover", backgroundPosition: "center", opacity: 0.55, zIndex: 0, pointerEvents: "none" }} />
+          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(30,34,27,0.7), rgba(30,34,27,0.95))", zIndex: 0, pointerEvents: "none" }} />
+        </>
+      )}
+      <div style={{ position: "relative", zIndex: 1, maxWidth: "54rem", margin: "0 auto" }}>{children}</div>
     </section>
   );
 
@@ -346,9 +352,9 @@ export default function InvestorsPage() {
         {/* Cards 2x2 */}
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem", marginBottom: "1rem" }}>
           <AssetCard titulo="Agua propia" cifra="8.000 m³" texto="Dos reservorios, tres albarradas ancestrales y pozo propio. Soberanía hídrica total en zona de bosque seco — sin dependencia de redes externas." imagenLabel="ESPACIO: reservorio principal — plano general" delay={0} imagen="https://cesarweb.b-cdn.net/aroma-assets/Images/optimized/Trabajos/PXL_20231130_163726700.webp" />
-          <AssetCard titulo="Acceso y vías" cifra="3 km habilitados" texto="Vías internas abiertas sobre la Panamericana E35. A 40 minutos del aeropuerto de Catamayo, sin accesos de tierra difícil." imagenLabel="ESPACIO: vía interna desde la entrada" delay={80} imagen="https://cesarweb.b-cdn.net/aroma-assets/Images/optimized/Paisajes/6e0c66b9fe455fabe761901afde8e9ee.webp" />
+          <AssetCard titulo="Acceso y vías" cifra="3 km habilitados" texto="Vías internas abiertas sobre la Panamericana E35. A 40 minutos del aeropuerto de Catamayo, sin accesos de tierra difícil." imagenLabel="ESPACIO: vía interna desde la entrada" delay={80} imagen="https://cesarweb.b-cdn.net/aroma-assets/Paisajes/PXL_20240715_181152547.webp" />
           <AssetCard titulo="Café de especialidad" cifra="5.000 plantas" texto="Variedades Sidra, Borbón y Típica Mejorada certificadas en 5 hectáreas. Alianza técnica con Hacienda La Florida, ganadora de la Taza Dorada 2020." imagenLabel="ESPACIO: cafetal o vivero certificado" delay={160} imagen="https://cesarweb.b-cdn.net/aroma-assets/Images/optimized/Caf%C3%A9%20-%20Especialidad/PXL_20240316_163900968.webp" />
-          <AssetCard titulo="Territorio habilitado" cifra="6 km de senderos" texto="Senderos interpretativos señalizados, parqueadero de 600 m² y casa modelo en construcción. La experiencia ya tiene forma." imagenLabel="ESPACIO: sendero principal o casa modelo" delay={240} imagen="https://cesarweb.b-cdn.net/aroma-assets/Images/optimized/Paisajes/PXL_20231119_194208299.webp" />
+          <AssetCard titulo="Territorio habilitado" cifra="6 km de senderos" texto="Senderos interpretativos señalizados, parqueadero de 600 m² y casa modelo en construcción. La experiencia ya tiene forma." imagenLabel="ESPACIO: sendero principal o casa modelo" delay={240} imagen="https://cesarweb.b-cdn.net/aroma-assets/Visitantes/PXL_20240131_174119337.webp" />
         </div>
 
         {/* Card cumplimiento horizontal */}
@@ -370,7 +376,7 @@ export default function InvestorsPage() {
       <div style={{ height: "1px", background: "rgba(255,255,255,0.04)", margin: "0 2rem" }} />
 
       {/* ── SECCIÓN 2: EL MODELO ──────────────────────────────────────────── */}
-      <S id="modelo" dark>
+      <S id="modelo" dark bgImage="https://cesarweb.b-cdn.net/aroma-assets/250k/exterior.jpg">
         <SectionLabel n="02" label="El Modelo" />
         <Reveal>
           <h2 style={{ fontFamily: "'Florenza', serif", fontSize: "clamp(1.8rem, 3.6vw, 2.8rem)", color: "#EDE8D1", lineHeight: 1.18, margin: "0 0 0.85rem" }}>
@@ -573,7 +579,8 @@ export default function InvestorsPage() {
           Donde la tierra regenerativa encuentra la rentabilidad real.
         </p>
         <p style={{ fontFamily: "'Poppins', sans-serif", fontSize: "0.6rem", color: "rgba(237,232,209,0.16)", letterSpacing: "0.07em" }}>
-          © 2025 Grupo Empresarial Reyes S.A.S. B.I.C. · Paltas, Loja, Ecuador
+          © 2026 Grupo Empresarial Reyes S.A.S. B.I.C. · Paltas, Loja, Ecuador<br />
+          Desarrollado por <a href="https://www.cesarreyesjaramillo.com/" target="_blank" rel="noopener noreferrer" style={{ color: "rgba(237,232,209,0.35)", textDecoration: "underline" }}>César Reyes</a>
         </p>
       </footer>
     </div>

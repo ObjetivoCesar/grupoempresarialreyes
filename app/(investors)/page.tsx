@@ -227,13 +227,17 @@ export default function InvestorsPage() {
             Buscamos capital para lanzar el glamping Alpino semilla, terminar la casa modelo y la cafetería, y financiar el posicionamiento comercial.
           </p>
 
-          {/* Video placeholder */}
+          {/* Video */}
           <div style={{ animation: "fadeUp 0.7s ease 0.38s both", marginBottom: "2.5rem" }}>
-            <div style={{ position: "relative", maxWidth: "33rem", margin: "0 auto", aspectRatio: "16/9", borderRadius: "0.9rem", overflow: "hidden", border: "1px solid rgba(252,162,89,0.18)", background: "rgba(0,0,0,0.38)", display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column", gap: "0.75rem" }}>
-              <div style={{ width: "3.5rem", height: "3.5rem", borderRadius: "50%", background: "rgba(252,162,89,0.12)", border: "1px solid rgba(252,162,89,0.32)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <svg width="15" height="17" viewBox="0 0 16 18" fill="#FCA259"><path d="M1 1l14 8L1 17V1z"/></svg>
-              </div>
-              <span style={{ fontFamily: "'Poppins', sans-serif", fontSize: "0.62rem", letterSpacing: "0.14em", textTransform: "uppercase", color: "rgba(252,162,89,0.45)" }}>Video — 2 minutos · ESPACIO: vista aérea del predio</span>
+            <div style={{ position: "relative", maxWidth: "33rem", margin: "0 auto", aspectRatio: "16/9", borderRadius: "0.9rem", overflow: "hidden", border: "1px solid rgba(252,162,89,0.18)" }}>
+              <video
+                src="https://cesarweb.b-cdn.net/aroma-assets/Tutellus/Versi%C3%B3n%20web%20Aroma%20de%20Monta%C3%B1a.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
+                style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+              />
             </div>
           </div>
 

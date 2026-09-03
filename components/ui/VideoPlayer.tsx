@@ -8,14 +8,27 @@ interface VideoPlayerProps {
   className?: string;
 }
 
+// Extend HTMLElement for vendor-prefixed fullscreen
+declare global {
+  interface HTMLElement {
+    webkitRequestFullscreen?: () => Promise<void>;
+  }
+  interface Document {
+    webkitExitFullscreen?: () => Promise<void>;
+    webkitFullscreenElement?: Element | null;
+  }
+}
+
 export default function VideoPlayer({ src, style, className }: VideoPlayerProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const [playing, setPlaying] = useState(true);
   const [muted, setMuted] = useState(true);
   const [volume, setVolume] = useState(0.8);
   const [progress, setProgress] = useState(0);
   const [showVolume, setShowVolume] = useState(false);
   const [showControls, setShowControls] = useState(false);
+  const [isFullscreen, setIsFullscreen] = useState(false);
   const hideTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   /* ── Sync volume to video ─────────────────────────── */
@@ -40,6 +53,34 @@ export default function VideoPlayer({ src, style, className }: VideoPlayerProps)
     setShowControls(true);
     if (hideTimer.current) clearTimeout(hideTimer.current);
     hideTimer.current = setTimeout(() => setShowControls(false), 2800);
+  }, []);
+
+  /* ── Fullscreen ───────────────────────────────────── */
+  const toggleFullscreen = () => {
+    const el = containerRef.current;
+    if (!el) return;
+    const fsEl = document.fullscreenElement || document.webkitFullscreenElement;
+    if (!fsEl) {
+      (el.requestFullscreen ? el.requestFullscreen() : el.webkitRequestFullscreen?.());
+      setIsFullscreen(true);
+    } else {
+      (document.exitFullscreen ? document.exitFullscreen() : document.webkitExitFullscreen?.());
+      setIsFullscreen(false);
+    }
+    resetHideTimer();
+  };
+
+  useEffect(() => {
+    const onChange = () => {
+      const fsEl = document.fullscreenElement || document.webkitFullscreenElement;
+      setIsFullscreen(!!fsEl);
+    };
+    document.addEventListener("fullscreenchange", onChange);
+    document.addEventListener("webkitfullscreenchange", onChange);
+    return () => {
+      document.removeEventListener("fullscreenchange", onChange);
+      document.removeEventListener("webkitfullscreenchange", onChange);
+    };
   }, []);
 
   const togglePlay = () => {
@@ -74,6 +115,7 @@ export default function VideoPlayer({ src, style, className }: VideoPlayerProps)
 
   return (
     <div
+      ref={containerRef}
       style={{ position: "relative", width: "100%", height: "100%", ...style }}
       className={className}
       onMouseMove={resetHideTimer}
@@ -120,8 +162,8 @@ export default function VideoPlayer({ src, style, className }: VideoPlayerProps)
           style={{ width: "100%", accentColor: "#FCA259", cursor: "pointer" }}
         />
 
-        {/* Bottom row: play + volume */}
-        <div style={{ display: "flex", alignItems: "center", gap: "0.6rem" }}>
+        {/* Bottom row: play + volume + fullscreen */}
+        <div style={{ display: "flex", alignItems: "center", gap: "0.6rem", width: "100%" }}>
           {/* Play / Pause */}
           <button
             onClick={(e) => { e.stopPropagation(); togglePlay(); }}
@@ -179,6 +221,33 @@ export default function VideoPlayer({ src, style, className }: VideoPlayerProps)
                 style={{ width: "5rem", accentColor: "#FCA259", cursor: "pointer" }}
               />
             </div>
+            {/* Spacer */}
+            <div style={{ flex: 1 }} />
+
+            {/* Fullscreen */}
+            <button
+              onClick={(e) => { e.stopPropagation(); toggleFullscreen(); }}
+              style={{ background: "none", border: "none", cursor: "pointer", padding: "0.2rem", display: "flex", alignItems: "center", justifyContent: "center" }}
+              aria-label={isFullscreen ? "Salir de pantalla completa" : "Pantalla completa"}
+            >
+              {isFullscreen ? (
+                /* Compress icon */
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FCA259" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M8 3v3a2 2 0 0 1-2 2H3"/>
+                  <path d="M21 8h-3a2 2 0 0 1-2-2V3"/>
+                  <path d="M3 16h3a2 2 0 0 1 2 2v3"/>
+                  <path d="M16 21v-3a2 2 0 0 1 2-2h3"/>
+                </svg>
+              ) : (
+                /* Expand icon */
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FCA259" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M8 3H5a2 2 0 0 0-2 2v3"/>
+                  <path d="M21 8V5a2 2 0 0 0-2-2h-3"/>
+                  <path d="M3 16v3a2 2 0 0 0 2 2h3"/>
+                  <path d="M16 21h3a2 2 0 0 0 2-2v-3"/>
+                </svg>
+              )}
+            </button>
           </div>
         </div>
       </div>

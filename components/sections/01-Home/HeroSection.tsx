@@ -1,6 +1,4 @@
 import { motion } from 'framer-motion';
-import Image from 'next/image';
-import { getAssetUrl } from '@/lib/assets';
 
 export default function HeroSection() {
     const scrollToOportunidad = () => {
@@ -19,15 +17,15 @@ export default function HeroSection() {
 
     return (
         <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-            {/* Background Image */}
+            {/* Background Video */}
             <div className="absolute inset-0 z-0">
-                <Image
-                    src={getAssetUrl('/Images/Nueva portada.webp')}
-                    alt="Glamping Aroma de Montaña en la niebla"
-                    fill
-                    className="object-cover"
-                    priority
-                    quality={90}
+                <video
+                    src="https://cesarweb.b-cdn.net/aroma-assets/Tutellus/Versi%C3%B3n%20web%20Aroma%20de%20Monta%C3%B1a.mp4"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="absolute inset-0 w-full h-full object-cover"
                 />
                 {/* Gradient Overlay */}
                 <div className="absolute inset-0 bg-gradient-overlay"></div>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import VideoPlayer from "@/components/ui/VideoPlayer";
 
 // ─── Hook Scroll Reveal ───────────────────────────────────────────────────────
 function useReveal(threshold = 0.12) {
@@ -230,13 +231,9 @@ export default function InvestorsPage() {
           {/* Video */}
           <div style={{ animation: "fadeUp 0.7s ease 0.38s both", marginBottom: "2.5rem" }}>
             <div style={{ position: "relative", maxWidth: "33rem", margin: "0 auto", aspectRatio: "16/9", borderRadius: "0.9rem", overflow: "hidden", border: "1px solid rgba(252,162,89,0.18)" }}>
-              <video
+              <VideoPlayer
                 src="https://cesarweb.b-cdn.net/aroma-assets/Tutellus/Versi%C3%B3n%20web%20Aroma%20de%20Monta%C3%B1a.mp4"
-                autoPlay
-                muted
-                loop
-                playsInline
-                style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                style={{ width: "100%", height: "100%" }}
               />
             </div>
           </div>
